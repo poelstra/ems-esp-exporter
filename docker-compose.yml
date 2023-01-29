@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ems-esp-exporter:
+    # Uncomment the following and comment "build" line to use ready-made image
+    #image: poelstra/ems-esp-exporter:latest
+    build: .
+    restart: on-failure
+    environment:
+      # To override these, edit them here, or better: just create
+      # a file `.env` next to this compose file and put name=value lines in it.
+      ENTITIES_CSV: ${ENTITIES_CSV:-/app/config/dump_entities.csv}
+      EMS_ESP_URL: ${EMS_ESP_URL:-http://ems-esp.local}
+      METRICS_PORT: ${METRICS_PORT:-3000}
+    ports:
+      - ${METRICS_PORT:-3000}:${METRICS_PORT:-3000}/tcp
