@@ -49,3 +49,19 @@ export function warnOnce(msg: string): void {
     warnedMsgs.add(msg);
     console.warn(msg);
 }
+
+export function runMain(main: () => Promise<void>): void {
+    // Catch shutdown signals (e.g. when running as a daemon, in Docker, ...)
+    const shutdown = (signal: string): void => {
+        console.log(`${signal} received, shutting down...`);
+        console.log("Terminating with exit code 0.");
+        process.exit(0);
+    };
+    process.on("SIGINT", () => shutdown("SIGINT"));
+    process.on("SIGTERM", () => shutdown("SIGTERM"));
+
+    main().catch((err) => {
+        console.error("FATAL", err);
+        process.exit(1);
+    });
+}
