@@ -6,6 +6,13 @@ EMS-ESP is an open-source firmware for the Espressif ESP32 microcontroller that 
 EMS (Energy Management System) based equipment from manufacturers like Bosch, Buderus, Nefit, Junkers,
 Worcester and Sieger.
 
+Whenever metrics are requested (on its `/metrics` endpoint), it polls EMS-ESP to fetch the latest
+values. It converts these into Prometheus metrics.
+It supports automatic conversion of numerical, boolean and even enumerations into the proper format,
+and uses the correct type (Gauge or Counter) as needed.
+
+Note: this converter doesn't use MQTT, and should work with all EMS-ESP value settings ("on"/"true"/"1"/etc).
+
 ## Usage
 
 The easiest is to grab the Docker image:
@@ -47,6 +54,11 @@ Any help is appreciated!
 -   Run `npm start`
 
 Please use Prettier to auto-format any code before making a pull request.
+
+## Changelog
+
+-   v0.1.0:
+    -   Initial version
 
 ## Example metrics output
 
