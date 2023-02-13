@@ -3689,3 +3689,4 @@ WM10,switch,71,activated,activated,boolean, ,false,binary_sensor.switch_activate
 WM10,switch,71,flowtemphc,flow temperature (TC1),ushort (>=0<=3199),C,false,sensor.switch_flow_temperature_(TC1),sensor.switch_flowtemphc
 WM10,switch,71,status,status,int (>=-126<=126), ,false,sensor.switch_status,sensor.switch_status
 Rego 3000,controller,240,datetime,date/time,string, ,false,sensor.controller_date/time,sensor.controller_datetime
+Topline/GB162,boiler,115,pumpmode,pump mode,enum [proportional\|deltaP-1\|deltaP-2\|deltaP-3\|deltaP-4], ,true,sensor.pumpmode,sensor.pumpmode
