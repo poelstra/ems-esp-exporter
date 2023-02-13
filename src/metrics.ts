@@ -50,21 +50,37 @@ export function getMetrics(values: Value[]): Registry {
                 metricValue = value.value ? 1 : 0;
                 break;
             case ValueType.Enum:
-                const gauge = new Gauge({
-                    name: metricName,
-                    help: metricHelp,
-                    registers: [registry],
-                    labelNames: [metricName],
-                });
-                // Create a metric for each literal, and set the currently
-                // active one to 1, rest to 0
-                for (const lit of ent.literals!) {
-                    gauge.set(
-                        { [metricName]: lit },
-                        value.value === lit ? 1 : 0
-                    );
+                {
+                    const gauge = new Gauge({
+                        name: metricName,
+                        help: metricHelp,
+                        registers: [registry],
+                        labelNames: [metricName],
+                    });
+                    // Create a metric for each literal, and set the currently
+                    // active one to 1, rest to 0
+                    for (const lit of ent.literals!) {
+                        gauge.set(
+                            { [metricName]: lit },
+                            value.value === lit ? 1 : 0
+                        );
+                    }
+                    continue;
                 }
-                continue;
+                break;
+            case ValueType.String:
+                {
+                    // Convert String into the same kind of metric as an enum,
+                    // but in this case only output the current string value
+                    const gauge = new Gauge({
+                        name: metricName,
+                        help: metricHelp,
+                        registers: [registry],
+                        labelNames: [metricName],
+                    });
+                    gauge.set({ [metricName]: `${value.value}` }, 1);
+                    continue;
+                }
                 break;
             default:
                 warnOnce(
