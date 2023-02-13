@@ -1,6 +1,6 @@
 import { Counter, Gauge, Registry } from "prom-client";
 import { Api, System } from "./api";
-import { Entities, Value, ValueType } from "./entities";
+import { DeviceType, Entities, Value, ValueType } from "./entities";
 import { warnOnce } from "./util";
 
 export function buildGetMetrics(
@@ -16,10 +16,36 @@ export function buildGetMetrics(
         const system = await api.getSystem();
         addSystemMetrics(registry, system);
 
-        const device = system.devices[0];
-        const rawDeviceValues = await api.getRawValues(device.type);
-        const values = entities.parseValues(device.productId, rawDeviceValues);
-        addDeviceMetrics(registry, values);
+        const seen: Set<DeviceType> = new Set();
+        for (const device of system.devices) {
+            if (device.entities === 0) {
+                // Skip devices without entities like the controller.
+                // It throws an error when trying to access their API.
+                continue;
+            }
+
+            // TODO This 'seen' logic is just to prevent weird stuff
+            // when someone has multiple devices of the same type, as
+            // I don't yet know how these would be handled...
+            if (seen.has(device.type)) {
+                warnOnce(
+                    `TODO: Cannot handle multiple devices of the same type yet. Please file an issue and attach output of /api/system and the relevant devices.`
+                );
+            }
+            seen.add(device.type);
+
+            const rawDeviceValues = await api.getRawValues(device.type);
+            const values = entities.parseValues(
+                device.productId,
+                rawDeviceValues
+            );
+            addDeviceMetrics(
+                registry,
+                values,
+                device.deviceId,
+                device.productId
+            );
+        }
 
         return registry;
     };
@@ -35,7 +61,12 @@ export function addSystemMetrics(register: Registry, system: System): void {
     versionGauge.set({ version: system.systemInfo.version }, 1);
 }
 
-export function addDeviceMetrics(registry: Registry, values: Value[]): void {
+export function addDeviceMetrics(
+    registry: Registry,
+    values: Value[],
+    deviceId: number,
+    productId: number
+): void {
     for (const value of values) {
         if (!value.entity) {
             warnOnce(
@@ -83,13 +114,17 @@ export function addDeviceMetrics(registry: Registry, values: Value[]): void {
                         name: metricName,
                         help: metricHelp,
                         registers: [registry],
-                        labelNames: [metricName],
+                        labelNames: [metricName, "device_id", "product_id"],
                     });
                     // Create a metric for each literal, and set the currently
                     // active one to 1, rest to 0
                     for (const lit of ent.literals!) {
                         gauge.set(
-                            { [metricName]: lit },
+                            {
+                                [metricName]: lit,
+                                device_id: deviceId,
+                                product_id: productId,
+                            },
                             value.value === lit ? 1 : 0
                         );
                     }
@@ -104,9 +139,16 @@ export function addDeviceMetrics(registry: Registry, values: Value[]): void {
                         name: metricName,
                         help: metricHelp,
                         registers: [registry],
-                        labelNames: [metricName],
+                        labelNames: [metricName, "device_id", "product_id"],
                     });
-                    gauge.set({ [metricName]: `${value.value}` }, 1);
+                    gauge.set(
+                        {
+                            [metricName]: `${value.value}`,
+                            device_id: deviceId,
+                            product_id: productId,
+                        },
+                        1
+                    );
                     continue;
                 }
                 break;
@@ -133,16 +175,24 @@ export function addDeviceMetrics(registry: Registry, values: Value[]): void {
             const counter = new Counter({
                 name: metricName,
                 help: metricHelp,
+                labelNames: ["device_id", "product_id"],
                 registers: [registry],
             });
-            counter.inc(metricValue);
+            counter.inc(
+                { device_id: deviceId, product_id: productId },
+                metricValue
+            );
         } else {
             const gauge = new Gauge({
                 name: metricName,
                 help: metricHelp,
+                labelNames: ["device_id", "product_id"],
                 registers: [registry],
             });
-            gauge.set(metricValue);
+            gauge.set(
+                { device_id: deviceId, product_id: productId },
+                metricValue
+            );
         }
     }
 }
