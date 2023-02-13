@@ -121,7 +121,6 @@ export async function readEntities(filename: string): Promise<Entity[]> {
         fromLine: 2, // skip header
         autoParse: true,
     });
-    //console.log(entities);
 
     return rawEntities.map(rawEntityToEntity);
 }
