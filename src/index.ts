@@ -1,4 +1,5 @@
 import * as path from "path";
+import "source-map-support/register";
 import { Api } from "./api";
 import { Entities, readEntities } from "./entities";
 import { getMetrics } from "./metrics";
