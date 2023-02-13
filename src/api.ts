@@ -277,28 +277,16 @@ export type RawValues = Record<string, JsonValue>;
 
 export class Api {
     public readonly api: AxiosInstance;
-    public system!: System;
 
-    public static async create(host: string): Promise<Api> {
-        const api = new Api(host);
-        await api.init();
-        return api;
-    }
-
-    private constructor(host: string) {
+    public constructor(host: string) {
         this.api = axios.create({
             baseURL: `${host}/api`,
         });
     }
 
-    public async init(): Promise<void> {
-        await this.getSystem();
-    }
-
     public async getSystem(): Promise<System> {
         const rawSystem = await this.get<RawSystem>("/system");
         const system = parseSystem(rawSystem);
-        this.system = system;
         return system;
     }
 

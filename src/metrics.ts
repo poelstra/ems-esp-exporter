@@ -1,13 +1,41 @@
 import { Counter, Gauge, Registry } from "prom-client";
-import { Value, ValueType } from "./entities";
+import { Api, System } from "./api";
+import { Entities, Value, ValueType } from "./entities";
 import { warnOnce } from "./util";
 
-export function getMetrics(values: Value[]): Registry {
-    // Rebuilding the registry (metrics) isn't the most efficient,
-    // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
-    // etc)
-    const registry = new Registry();
+export function buildGetMetrics(
+    api: Api,
+    entities: Entities
+): () => Promise<Registry> {
+    return async () => {
+        // Rebuilding the registry (metrics) isn't the most efficient,
+        // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
+        // etc)
+        const registry = new Registry();
 
+        const system = await api.getSystem();
+        addSystemMetrics(registry, system);
+
+        const device = system.devices[0];
+        const rawDeviceValues = await api.getRawValues(device.type);
+        const values = entities.parseValues(device.productId, rawDeviceValues);
+        addDeviceMetrics(registry, values);
+
+        return registry;
+    };
+}
+
+export function addSystemMetrics(register: Registry, system: System): void {
+    const versionGauge = new Gauge({
+        name: "emsesp_version_info",
+        help: "EMS-ESP version",
+        labelNames: ["version"],
+        registers: [register],
+    });
+    versionGauge.set({ version: system.systemInfo.version }, 1);
+}
+
+export function addDeviceMetrics(registry: Registry, values: Value[]): void {
     for (const value of values) {
         if (!value.entity) {
             warnOnce(
@@ -117,6 +145,4 @@ export function getMetrics(values: Value[]): Registry {
             gauge.set(metricValue);
         }
     }
-
-    return registry;
 }

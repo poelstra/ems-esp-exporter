@@ -2,7 +2,7 @@ import * as path from "path";
 import "source-map-support/register";
 import { Api } from "./api";
 import { Entities, readEntities } from "./entities";
-import { getMetrics } from "./metrics";
+import { buildGetMetrics } from "./metrics";
 import { buildServer } from "./server";
 import { runMain } from "./util";
 
@@ -25,14 +25,9 @@ async function main(): Promise<void> {
     const entities = new Entities(parsedEntities);
 
     console.log("Retrieving devices from EMS-ESP...");
-    const api = await Api.create(EMS_ESP_URL);
-    const device = api.system.devices[0];
+    const api = new Api(EMS_ESP_URL);
 
-    const server = buildServer(async () => {
-        const rawValues = await api.getRawValues(device.type);
-        const values = entities.parseValues(device.productId, rawValues);
-        return getMetrics(values);
-    });
+    const server = buildServer(buildGetMetrics(api, entities));
 
     server.listen(METRICS_PORT);
     console.log(
