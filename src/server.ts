@@ -10,7 +10,8 @@ export function buildServer(getMetrics: () => Promise<Registry>): Express {
             res.set("Content-Type", registry.contentType);
             res.end(await registry.metrics());
         } catch (ex) {
-            res.status(500).end(ex);
+            console.warn("Internal server error:", ex);
+            res.status(500).end("Internal server error");
         }
     });
 
