@@ -49,7 +49,7 @@ Any help is appreciated!
 
 -   Clone the repo
 -   Run `npm install`
--   Run `npm build` to build (or press `Ctrl+Shift+B` in VSCode to start the watch task)
+-   Run `npm run build` to build (or press `Ctrl+Shift+B` in VSCode to start the watch task)
 -   Export environment variables as needed
 -   Run `npm start`
 

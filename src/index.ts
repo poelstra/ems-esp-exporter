@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import * as path from "path";
 import "source-map-support/register";
 import { Api } from "./api";
@@ -31,7 +33,7 @@ async function main(): Promise<void> {
 
     server.listen(METRICS_PORT);
     console.log(
-        `Server listening, metrics exposed on http://localhost:${METRICS_PORT}/metrics`
+        `Server listening, metrics exposed on http://localhost:${METRICS_PORT}/metrics`,
     );
 }
 
