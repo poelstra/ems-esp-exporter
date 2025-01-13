@@ -8,8 +8,15 @@ services:
     environment:
       # To override these, edit them here, or better: just create
       # a file `.env` next to this compose file and put name=value lines in it.
-      ENTITIES_CSV: ${ENTITIES_CSV:-/app/config/dump_entities.csv}
+
+      # URL on which EMS-ESP can be reached
       EMS_ESP_URL: ${EMS_ESP_URL:-http://ems-esp.local}
+
+      # (Optional) Location of custom dump_entities.csv, if needed.
+      # Download the latest from https://docs.emsesp.org/data/dump_entities.csv
+      ENTITIES_CSV: ${ENTITIES_CSV:-/app/config/dump_entities.csv}
+
+      # (Optional) Port to listen for `/metrics` requests
       METRICS_PORT: ${METRICS_PORT:-3000}
     ports:
       - ${METRICS_PORT:-3000}:${METRICS_PORT:-3000}/tcp

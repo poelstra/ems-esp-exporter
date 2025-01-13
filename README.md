@@ -1,6 +1,6 @@
 # Prometheus metrics exporter for EMS-ESP
 
-This Prometheus metrics exporter exposes metrics of [EMS-ESP](https://emsesp.github.io/docs/).
+This Prometheus metrics exporter exposes metrics of [EMS-ESP](https://docs.emsesp.org/).
 
 EMS-ESP is an open-source firmware for the Espressif ESP32 microcontroller that communicates with
 EMS (Energy Management System) based equipment from manufacturers like Bosch, Buderus, Nefit, Junkers,
@@ -32,33 +32,33 @@ Please :star: the project on GitHub if you like it!
 
 Configuration is done through environment variables:
 
--   `EMS_ESP_URL=http://ems-esp.local`: Hostname/port of EMS-ESP.
--   `METRICS_PORT=3000`: HTTP port on which the `/metrics` endpoint is served.
--   `ENTITIES_CSV=/app/config/dump_entities.csv`: Meta-data for each entry is loaded from `dump_entities.csv`.
-    A snapshot of that file is bundled with the app, but you can download a more recent one from https://emsesp.github.io/docs/data/dump_entities.csv
-    if needed, and pass it in through a Docker volume.
+- `EMS_ESP_URL=http://ems-esp.local`: Hostname/port of EMS-ESP.
+- `METRICS_PORT=3000`: HTTP port on which the `/metrics` endpoint is served.
+- `ENTITIES_CSV=/app/config/dump_entities.csv`: Meta-data for each entry is loaded from `dump_entities.csv`.
+  A snapshot of that file is bundled with the app, but you can download a more recent one from https://docs.emsesp.org/data/dump_entities.csv
+  if needed, and pass it in through a Docker volume.
 
 ## TODO / Limitations
 
--   Find out how to fetch the available list of devices, to then query all of them. Currently only the `boiler` device is supported.
--   Add support for more endpoints, e.g. `hc1` etc.
+- Find out how to fetch the available list of devices, to then query all of them. Currently only the `boiler` device is supported.
+- Add support for more endpoints, e.g. `hc1` etc.
 
 Any help is appreciated!
 
 ## Development
 
--   Clone the repo
--   Run `npm install`
--   Run `npm run build` to build (or press `Ctrl+Shift+B` in VSCode to start the watch task)
--   Export environment variables as needed
--   Run `npm start`
+- Clone the repo
+- Run `npm install`
+- Run `npm run build` to build (or press `Ctrl+Shift+B` in VSCode to start the watch task)
+- Export environment variables as needed
+- Run `npm start`
 
 Please use Prettier to auto-format any code before making a pull request.
 
 ## Changelog
 
--   v0.1.0:
-    -   Initial version
+- v0.1.0:
+    - Initial version
 
 ## Example metrics output
 

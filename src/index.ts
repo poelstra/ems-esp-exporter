@@ -11,7 +11,7 @@ import { runMain } from "./util";
 async function main(): Promise<void> {
     const EMS_ESP_URL = process.env.EMS_ESP_URL || "http://ems-esp.local";
     const ENTITIES_CSV =
-        process.env.ENTITIES_CSV || "../config/dump_entities.csv"; // https://emsesp.github.io/docs/data/dump_entities.csv
+        process.env.ENTITIES_CSV || "../config/dump_entities.csv"; // https://docs.emsesp.org/data/dump_entities.csv
     const METRICS_PORT = process.env.METRICS_PORT || 3000;
 
     console.log("Environment configuration:");
