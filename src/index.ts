@@ -4,7 +4,7 @@ import * as path from "path";
 import "source-map-support/register";
 import { Api } from "./api";
 import { Entities, readEntities } from "./entities";
-import { buildGetMetrics } from "./metrics";
+import { getMetrics } from "./metrics";
 import { buildServer } from "./server";
 import { runMain } from "./util";
 
@@ -29,7 +29,7 @@ async function main(): Promise<void> {
     console.log("Retrieving devices from EMS-ESP...");
     const api = new Api(EMS_ESP_URL);
 
-    const server = buildServer(buildGetMetrics(api, entities));
+    const server = buildServer(() => getMetrics(api, entities));
 
     server.listen(METRICS_PORT);
     console.log(

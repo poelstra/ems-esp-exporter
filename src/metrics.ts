@@ -3,52 +3,42 @@ import { Api, System } from "./api";
 import { DeviceType, Entities, Value, ValueType } from "./entities";
 import { warnOnce } from "./util";
 
-export function buildGetMetrics(
+export async function getMetrics(
     api: Api,
-    entities: Entities
-): () => Promise<Registry> {
-    return async () => {
-        // Rebuilding the registry (metrics) isn't the most efficient,
-        // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
-        // etc)
-        const registry = new Registry();
+    entities: Entities,
+): Promise<Registry> {
+    // Rebuilding the registry (metrics) isn't the most efficient,
+    // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
+    // etc)
+    const registry = new Registry();
 
-        const system = await api.getSystem();
-        addSystemMetrics(registry, system);
+    const system = await api.getSystem();
+    addSystemMetrics(registry, system);
 
-        const seen: Set<DeviceType> = new Set();
-        for (const device of system.devices) {
-            if (device.entities === 0) {
-                // Skip devices without entities like the controller.
-                // It throws an error when trying to access their API.
-                continue;
-            }
-
-            // TODO This 'seen' logic is just to prevent weird stuff
-            // when someone has multiple devices of the same type, as
-            // I don't yet know how these would be handled...
-            if (seen.has(device.type)) {
-                warnOnce(
-                    `TODO: Cannot handle multiple devices of the same type yet. Please file an issue and attach output of /api/system and the relevant devices.`
-                );
-            }
-            seen.add(device.type);
-
-            const rawDeviceValues = await api.getRawValues(device.type);
-            const values = entities.parseValues(
-                device.productId,
-                rawDeviceValues
-            );
-            addDeviceMetrics(
-                registry,
-                values,
-                device.deviceId,
-                device.productId
-            );
+    const seen: Set<DeviceType> = new Set();
+    for (const device of system.devices) {
+        if (device.entities === 0) {
+            // Skip devices without entities like the controller.
+            // It throws an error when trying to access their API.
+            continue;
         }
 
-        return registry;
-    };
+        // TODO This 'seen' logic is just to prevent weird stuff
+        // when someone has multiple devices of the same type, as
+        // I don't yet know how these would be handled...
+        if (seen.has(device.type)) {
+            warnOnce(
+                `TODO: Cannot handle multiple devices of the same type yet. Please file an issue and attach output of /api/system and the relevant devices.`,
+            );
+        }
+        seen.add(device.type);
+
+        const rawDeviceValues = await api.getRawValues(device.type);
+        const values = entities.parseValues(device.productId, rawDeviceValues);
+        addDeviceMetrics(registry, values, device.deviceId, device.productId);
+    }
+
+    return registry;
 }
 
 export function addSystemMetrics(register: Registry, system: System): void {
@@ -65,12 +55,12 @@ export function addDeviceMetrics(
     registry: Registry,
     values: Value[],
     deviceId: number,
-    productId: number
+    productId: number,
 ): void {
     for (const value of values) {
         if (!value.entity) {
             warnOnce(
-                `Ignoring ${value.shortName}, missing entity configuration`
+                `Ignoring ${value.shortName}, missing entity configuration`,
             );
             // TODO Could probably just convert it into an untyped metric instead,
             // if it happens to be numeric
@@ -125,7 +115,7 @@ export function addDeviceMetrics(
                                 device_id: deviceId,
                                 product_id: productId,
                             },
-                            value.value === lit ? 1 : 0
+                            value.value === lit ? 1 : 0,
                         );
                     }
                     continue;
@@ -147,14 +137,14 @@ export function addDeviceMetrics(
                             device_id: deviceId,
                             product_id: productId,
                         },
-                        1
+                        1,
                     );
                     continue;
                 }
                 break;
             default:
                 warnOnce(
-                    `Ignoring '${value.shortName}', unsupported type '${ent.type}' (value '${value.value}')`
+                    `Ignoring '${value.shortName}', unsupported type '${ent.type}' (value '${value.value}')`,
                 );
                 continue;
         }
@@ -180,7 +170,7 @@ export function addDeviceMetrics(
             });
             counter.inc(
                 { device_id: deviceId, product_id: productId },
-                metricValue
+                metricValue,
             );
         } else {
             const gauge = new Gauge({
@@ -191,7 +181,7 @@ export function addDeviceMetrics(
             });
             gauge.set(
                 { device_id: deviceId, product_id: productId },
-                metricValue
+                metricValue,
             );
         }
     }

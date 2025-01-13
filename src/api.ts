@@ -299,7 +299,7 @@ export class Api {
     }
 }
 
-function parseSystem(raw: RawSystem): System {
+export function parseSystem(raw: RawSystem): System {
     return {
         systemInfo: {
             version: raw["System Info"].version,
@@ -416,25 +416,29 @@ function parseSystem(raw: RawSystem): System {
     };
 }
 
-function parseDevices(raw: RawDevice[]): Device[] {
-    return raw.map<Device>((dev) => ({
-        type: parseEnum(dev.type.toLowerCase(), DeviceType, "DeviceType"),
-        name: dev.name,
-        deviceId: parseInt(dev["device id"]), // given as e.g. 0x08
-        productId: dev["product id"],
-        version: dev.version,
-        entities: dev.entities,
-        handlersReceived: dev["handlers received"]
+export function parseDevice(raw: RawDevice): Device {
+    return {
+        type: parseEnum(raw.type.toLowerCase(), DeviceType, "DeviceType"),
+        name: raw.name,
+        deviceId: parseInt(raw["device id"]), // given as e.g. 0x08
+        productId: raw["product id"],
+        version: raw.version,
+        entities: raw.entities,
+        handlersReceived: raw["handlers received"]
             ?.split(" ")
             .map((v) => parseInt(v)),
-        handlersFetched: dev["handlers fetched"]
+        handlersFetched: raw["handlers fetched"]
             ?.split(" ")
             .map((v) => parseInt(v)),
-        handlersPending: dev["handlers pending"]
+        handlersPending: raw["handlers pending"]
             ?.split(" ")
             .map((v) => parseInt(v)),
-        handlersIgnored: dev["handlers ignored"]
+        handlersIgnored: raw["handlers ignored"]
             ?.split(" ")
             .map((v) => parseInt(v)),
-    }));
+    };
+}
+
+export function parseDevices(raw: RawDevice[]): Device[] {
+    return raw.map(parseDevice);
 }
