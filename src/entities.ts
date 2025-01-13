@@ -4,6 +4,7 @@ import { RawValues } from "./api";
 import { JsonValue, parseEnum, warnOnce } from "./util";
 
 export enum DeviceType {
+    System = "system",
     Boiler = "boiler",
     Thermostat = "thermostat",
     Heatpump = "heatpump",
@@ -16,19 +17,24 @@ export enum DeviceType {
     Gateway = "gateway",
     Alert = "alert",
     Pump = "pump",
+    Extension = "extension",
+    Ventilation = "ventilation",
+    Water = "water",
+    Pool = "pool",
 }
 
 export enum ValueType {
-    UShort = "ushort",
-    Command = "cmd",
     Boolean = "boolean",
-    UInt = "uint",
-    Short = "short",
-    Int = "int",
-    ULong = "ulong",
+    Int8 = "int8",
+    UInt8 = "uint8",
+    Int16 = "int16",
+    UInt16 = "uint16",
+    UInt24 = "uint24",
     Time = "time",
-    String = "string",
+    UInt32 = "uint32",
     Enum = "enum",
+    String = "string",
+    Command = "cmd",
 }
 
 export interface Value {
@@ -61,14 +67,23 @@ interface RawEntity {
     type: string;
     unit: string;
     writable: string;
-    discoveryEntityIdOld: string;
+    discoveryEntityIdOld: string; // Until version 3.4
     discoveryEntityId: string;
+    modbusUnitId?: number;
+    modbusBlock?: number;
+    modbusScaleFactor?: string; // e.g. "1/100"
+    modbusOffset?: number;
+    modbusCount?: number;
 }
 
 function rawEntityToEntity(raw: RawEntity): Entity {
     const deviceType = parseEnum(raw.deviceType, DeviceType, "DeviceType");
     const typeElements = raw.type.split(" ");
-    const type = parseEnum(typeElements[0], ValueType, "ValueType");
+    const type = parseEnum(
+        remapOldValueType(typeElements[0]),
+        ValueType,
+        "ValueType",
+    );
     const trimmedUnit = raw.unit.trim();
     const unit = trimmedUnit !== "" ? trimmedUnit : undefined;
     const result: Entity = {
@@ -85,10 +100,12 @@ function rawEntityToEntity(raw: RawEntity): Entity {
     };
 
     if (type === ValueType.Enum) {
-        const matches = raw.type.match(/^enum \[(.*)\]$/);
+        // Parse "selTemp" and "roomTemp" out of a string like "enum [selTemp\|roomTemp] (>=5<=30)",
+        // where the " (>=5<=30)" piece only seems to exist for "haclimate".
+        const matches = raw.type.match(/^enum \[(.*)\]( \([^\)]+\))?$/);
         if (!matches) {
             throw new Error(
-                `error parsing ${raw.shortName}, missing enum literals`
+                `error parsing ${raw.shortName}, missing enum literals`,
             );
         }
         result.literals = matches[1].split("\\|");
@@ -96,33 +113,56 @@ function rawEntityToEntity(raw: RawEntity): Entity {
 
     // Heuristically determine whether value is an absolute counter
     // Holds true for everything mentioned in dump_entities.csv of 20230128
-    if (type === ValueType.Time || type === ValueType.ULong) {
+    if (type === ValueType.Time || type === ValueType.UInt32) {
         result.counter = true;
     }
 
     return result;
 }
 
+const CSV_COLUMN_MAPPING: Record<string, keyof RawEntity> = {
+    "device name": "deviceName",
+    "device type": "deviceType",
+    "product id": "productId",
+    shortname: "shortName",
+    fullname: "fullName",
+    "type [options...] \\| (min/max)": "type",
+    uom: "unit",
+    writeable: "writable",
+    "discovery entityid v3.4": "discoveryEntityIdOld",
+    "discovery entityid": "discoveryEntityId",
+    " discovery entityid": "discoveryEntityId",
+    "modbus unit identifier": "modbusUnitId",
+    "modbus block": "modbusBlock",
+    "modbus scale factor": "modbusScaleFactor",
+    "modbus offset": "modbusOffset",
+    "modbus count": "modbusCount",
+};
+
+const OLD_VALUE_TYPE_MAPPING: Record<string, ValueType> = {
+    int: ValueType.Int8,
+    uint: ValueType.UInt8,
+    short: ValueType.Int16,
+    ushort: ValueType.UInt16,
+    ulong: ValueType.UInt32,
+};
+
 export async function readEntities(filename: string): Promise<Entity[]> {
     const entitiesText = await readFile(filename, "utf8");
     const rawEntities: RawEntity[] = parse(entitiesText, {
-        columns: [
-            "deviceName",
-            "deviceType",
-            "productId",
-            "shortName",
-            "fullName",
-            "type", // [options...] \| (min/max)
-            "unit",
-            "writable",
-            "discoveryEntityIdOld",
-            "discoveryEntityId",
-        ],
-        fromLine: 2, // skip header
-        autoParse: true,
+        columns: (names: string[]) => names.map(remapColumnName),
+        cast: true,
     });
 
     return rawEntities.map(rawEntityToEntity);
+}
+
+function remapColumnName(columnName: string): string {
+    return CSV_COLUMN_MAPPING[columnName] ?? columnName;
+}
+
+function remapOldValueType(valueType: string): string {
+    return OLD_VALUE_TYPE_MAPPING[valueType] ?? valueType;
 }
 
 export class Entities {
@@ -146,7 +186,7 @@ export class Entities {
             const entity = prodEntities?.get(key);
             if (prodEntities && !entity) {
                 warnOnce(
-                    `Unknown entity ${key} for product model id ${productModelId}`
+                    `Unknown entity ${key} for product model id ${productModelId}`,
                 );
             }
             if (entity) {
@@ -168,7 +208,7 @@ export class Entities {
                             warnOnce(
                                 `Enum index ${value} out of range for ${key} in product model id ${productModelId}, expected 0..${
                                     literals.length - 1
-                                }`
+                                }`,
                             );
                         }
                         value = literal;
@@ -177,8 +217,8 @@ export class Entities {
                         if (enumIdx < 0) {
                             warnOnce(
                                 `Unknown or invalid enum value ${value} for ${key} in product model id ${productModelId}, expected one of ${literals.join(
-                                    ", "
-                                )}`
+                                    ", ",
+                                )}`,
                             );
                         }
                     }
@@ -195,7 +235,7 @@ export class Entities {
     private _add(
         productModelId: number,
         shortName: string,
-        entity: Entity
+        entity: Entity,
     ): void {
         let ents = this._entities.get(productModelId);
         if (!ents) {

@@ -3,24 +3,37 @@ import * as path from "path";
 import { Entities, Entity, readEntities } from "./entities";
 
 const ENTITIES_CSV_PATH = "../config/dump_entities.csv";
+const ENTITIES_CSV_ORIGINAL_PATH = "../config/dump_entities.csv.20230128";
 
-async function getParsedEntities(): Promise<Entity[]> {
-    const entitiesPath = path.resolve(__dirname, ENTITIES_CSV_PATH);
+async function getParsedEntities(
+    csv_path: string = ENTITIES_CSV_PATH,
+): Promise<Entity[]> {
+    const entitiesPath = path.resolve(__dirname, csv_path);
     return readEntities(entitiesPath);
 }
+
+it("parses original entities dump", async () => {
+    // Initial import of dump_entities.csv, using less columns
+    // and different value type names.
+    expect(
+        await getParsedEntities(ENTITIES_CSV_ORIGINAL_PATH),
+    ).toMatchSnapshot();
+});
 
 it("parses bundled entities dump", async () => {
     expect(await getParsedEntities()).toMatchSnapshot();
 });
 
-it("parses raw values into canonical form", async () => {
-    const entities = new Entities(await getParsedEntities());
+it("parses original raw values into canonical form", async () => {
+    const entities = new Entities(
+        await getParsedEntities(ENTITIES_CSV_ORIGINAL_PATH),
+    );
     expect(
-        entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_RESPONSE)),
+        entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_ORIGINAL_RESPONSE)),
     ).toMatchSnapshot();
 });
 
-const EXAMPLE_DEVICE_RESPONSE = `{
+const EXAMPLE_DEVICE_ORIGINAL_RESPONSE = `{
     "wwsettemp": 61,
     "wwseltemp": 60,
     "wwtype": "buffer",

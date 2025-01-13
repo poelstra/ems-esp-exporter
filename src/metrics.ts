@@ -84,11 +84,12 @@ export function addDeviceMetrics(
 
         let metricValue: number;
         switch (ent.type) {
-            case ValueType.Int:
-            case ValueType.Short:
-            case ValueType.UInt:
-            case ValueType.ULong:
-            case ValueType.UShort:
+            case ValueType.Int8:
+            case ValueType.UInt8:
+            case ValueType.Int16:
+            case ValueType.UInt16:
+            case ValueType.UInt24:
+            case ValueType.UInt32:
             case ValueType.Time:
                 metricValue =
                     typeof value.value === "number"
@@ -142,7 +143,7 @@ export function addDeviceMetrics(
                     continue;
                 }
                 break;
-            default:
+            case ValueType.Command:
                 warnOnce(
                     `Ignoring '${value.shortName}', unsupported type '${ent.type}' (value '${value.value}')`,
                 );
