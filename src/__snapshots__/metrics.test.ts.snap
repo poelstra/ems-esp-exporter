@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`handles system metrics 1`] = `
+"# HELP emsesp_version_info EMS-ESP version
+# TYPE emsesp_version_info gauge
+emsesp_version_info{version="3.5.1-dev.0"} 1
+"
+`;
