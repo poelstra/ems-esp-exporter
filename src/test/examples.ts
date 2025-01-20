@@ -18,6 +18,10 @@ export function getExampleSystem_3_5(): System {
     return parseSystem(JSON.parse(EXAMPLE_SYSTEM_RESPONSE_3_5));
 }
 
+export function getExampleSystem_3_7(): System {
+    return parseSystem(JSON.parse(EXAMPLE_SYSTEM_RESPONSE_3_7));
+}
+
 export async function getExampleDeviceValues_3_5(): Promise<Value[]> {
     try {
         disableWarnings(true); // 3.5 has issues with duplicate entries

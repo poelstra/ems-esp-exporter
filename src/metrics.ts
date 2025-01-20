@@ -69,7 +69,7 @@ export function addDeviceMetrics(
 
         const ent = value.entity;
 
-        const metricName = `emsesp_${ent.shortName.replace(/\./g, "_")}`;
+        const metricName = `emsesp_${value.shortName.replace(/\./g, "_")}`;
         let unit = ent.unit ?? ent.type;
 
         // Convert time to seconds, it's the canonical unit for Prometheus times

@@ -53,11 +53,11 @@ export interface System {
         network: string; // e.g. 'WiFi'
         hostname: string; // e.g. 'ems-esp'
         RSSI: number; // e.g. -53
-        ipv4Address: string; // e.g. '192.168.3.10/255.255.255.0'
-        ipv4Gateway: string; // e.g. '192.168.3.1'
-        ipv4Nameserver: string; // e.g. '192.168.3.1'
+        ipv4Address?: string; // e.g. '192.168.3.10/255.255.255.0'
+        ipv4Gateway?: string; // e.g. '192.168.3.1'
+        ipv4Nameserver?: string; // e.g. '192.168.3.1'
         staticIpConfig: boolean;
-        enableIpv6: boolean;
+        enableIpv6?: boolean;
         lowBandwidth: boolean;
         disableSleep: boolean;
         enableMdns: boolean;
@@ -73,7 +73,7 @@ export interface System {
         server: string; // e.g. 'nl.pool.ntp.org'
         tzLabel: string; // e.g. 'Europe/Amsterdam'
     };
-    otaInfo: {
+    otaInfo?: {
         enabled: boolean;
         port: number; // e.g. 8266
     };
@@ -149,7 +149,9 @@ export interface System {
     devices: Device[];
 }
 
-interface RawSystem {
+type RawSystem = RawSystem35 | RawSystem37;
+
+interface RawSystem35 {
     "System Info": {
         version: string; // e.g. '3.5.1-dev.0'
         platform: string; // e.g. 'ESP32'
@@ -257,10 +259,10 @@ interface RawSystem {
         "max web log buffer": number; // e.g. 50
         "web log buffer": number; // e.g. 50
     };
-    Devices: RawDevice[];
+    Devices: RawDevice35[];
 }
 
-interface RawDevice {
+interface RawDevice35 {
     type: string; // e.g. 'boiler'
     name: string; // e.g. 'Topline/GB162'
     "device id": string; // e.g. '0x08'
@@ -271,6 +273,144 @@ interface RawDevice {
     "handlers fetched"?: string; // e.g. '0x14 0x16 0x33'
     "handlers pending"?: string; // e.g. '0xBF 0xC2 0x1A 0x35 0x26 0x2A 0xD1 0xE3 0xE4 0xE5 0xE6 0xE9 0xEA'
     "handlers ignored"?: string;
+}
+
+export interface RawSystem37 {
+    system: {
+        version: string; // e.g. "3.7.1"
+        uptime: string; // e.g. "000+00:01:04.366"
+        uptimeSec: number; // e.g. 64
+        platform: string; // e.g. "ESP32"
+        cpuType: string; // e.g. "ESP32-D0WD-V3"
+        arduino: string; // e.g. "Tasmota Arduino v2.0.17"
+        sdk: string; // e.g. "4.4.8.240628"
+        freeMem: number; // e.g. 175
+        maxAlloc: number; // e.g. 107
+        freeCaps: number; // e.g. 125
+        usedApp: number; // e.g. 1740
+        freeApp: number; // e.g. 6388
+        partition: string; // e.g. "app1"
+        resetReason: string; // e.g. "Software reset CPU / Software reset CPU"
+        psram: boolean; // e.g. false
+        model: string; // e.g. ""
+    };
+    network: {
+        network: string; // e.g. "WiFi"
+        hostname: string; // e.g. "ems-esp"
+        RSSI: number; // e.g. -56
+        WIFIReconnects: number; // e.g. 0
+        TxPowerSetting: number; // e.g. 78
+        staticIP: boolean; // e.g. false
+        lowBandwidth: boolean; // e.g. false
+        disableSleep: boolean; // e.g. true
+        enableMDNS: boolean; // e.g. true
+        enableCORS: boolean; // e.g. false
+        APProvisionMode: string; // e.g. "disconnected"
+        APSecurity: string; // e.g. "wpa2"
+        APSSID: string; // e.g. "ems-esp"
+    };
+    ntp: {
+        NTPStatus: string; // e.g. "connected"
+        enabled: boolean; // e.g. true
+        server: string; // e.g. "nl.pool.ntp.org"
+        tzLabel: string; // e.g. "Europe/Amsterdam"
+    };
+    mqtt: {
+        MQTTStatus: string; // e.g. "connected"
+        MQTTPublishes: number; // e.g. 102
+        MQTTQueued: number; // e.g. 0
+        MQTTPublishFails: number; // e.g. 0
+        MQTTReconnects: number; // e.g. 0
+        enabled: boolean; // e.g. true
+        clientID: string; // e.g. "ems-esp"
+        keepAlive: number; // e.g. 60
+        cleanSession: boolean; // e.g. true
+        entityFormat: number; // e.g. 0
+        base: string; // e.g. "ems-esp"
+        discoveryPrefix: string; // e.g. "homeassistant"
+        discoveryType: number; // e.g. 0
+        nestedFormat: number; // e.g. 1
+        haEnabled: boolean; // e.g. true
+        mqttQos: number; // e.g. 0
+        mqttRetain: boolean; // e.g. false
+        publishTimeHeartbeat: number; // e.g. 60
+        publishTimeBoiler: number; // e.g. 10
+        publishTimeThermostat: number; // e.g. 10
+        publishTimeSolar: number; // e.g. 10
+        publishTimeMixer: number; // e.g. 10
+        publishTimeWater: number; // e.g. 10
+        publishTimeOther: number; // e.g. 10
+        publishTimeSensor: number; // e.g. 10
+        publishSingle: boolean; // e.g. false
+        publish2command: boolean; // e.g. false
+        sendResponse: boolean; // e.g. false
+    };
+    syslog: {
+        enabled: boolean; // e.g. false
+    };
+    sensor: {
+        temperatureSensors: number; // e.g. 0
+        temperatureSensorReads: number; // e.g. 0
+        temperatureSensorFails: number; // e.g. 0
+        analogSensors: number; // e.g. 0
+        analogSensorReads: number; // e.g. 0
+        analogSensorFails: number; // e.g. 0
+    };
+    api: {
+        APICalls: number; // e.g. 8
+        APIFails: number; // e.g. 0
+    };
+    bus: {
+        busStatus: string; // e.g. "connected"
+        busProtocol: string; // e.g. "Buderus"
+        busTelegramsReceived: number; // e.g. 80
+        busReads: number; // e.g. 30
+        busWrites: number; // e.g. 1
+        busIncompleteTelegrams: number; // e.g. 0
+        busReadsFailed: number; // e.g. 0
+        busWritesFailed: number; // e.g. 0
+        busRxLineQuality: number; // e.g. 100
+        busTxLineQuality: number; // e.g. 100
+    };
+    settings: {
+        boardProfile: string; // e.g. "S32"
+        locale: string; // e.g. "en"
+        txMode: number; // e.g. 1
+        emsBusID: number; // e.g. 11
+        showerTimer: boolean; // e.g. false
+        showerMinDuration: number; // e.g. 180
+        showerAlert: boolean; // e.g. false
+        hideLed: boolean; // e.g. false
+        noTokenApi: boolean; // e.g. false
+        readonlyMode: boolean; // e.g. false
+        fahrenheit: boolean; // e.g. false
+        dallasParasite: boolean; // e.g. false
+        boolFormat: number; // e.g. 1
+        boolDashboard: number; // e.g. 1
+        enumFormat: number; // e.g. 1
+        analogEnabled: boolean; // e.g. true
+        telnetEnabled: boolean; // e.g. true
+        maxWebLogBuffer: number; // e.g. 25
+        webLogBuffer: number; // e.g. 18
+        modbusEnabled: boolean; // e.g. false
+        forceHeatingOff: boolean; // e.g. false
+        developerMode: boolean; // e.g. false
+    };
+    devices: RawDevice37[];
+}
+
+export interface RawDevice37 {
+    type: string; // e.g. "boiler",
+    name: string; // e.g. "Topline, GB162",
+    deviceID: string; // e.g. "0x08",
+    productID: number; // e.g. 115,
+    brand: string; // e.g. "",
+    version: string; // e.g. "03.06",
+    entities: number; // e.g. 74,
+    handlersReceived?: string; // e.g. "0x10 0x11 0x15 0x1C 0x18 0x19 0x34 0x04",
+    handlersFetched?: string; // e.g. "0x14 0x16 0x33",
+    handlersPending?: string; // e.g. "0xBF 0xC2 0x1A 0x35 0x2A 0xD1 0xE3 0xE4 0xE5 0xE9 0x2E 0x3B"
+    handlersIgnored?: string; // not sure it still exists in 3.7
 }
 
 export type RawValues = Record<string, JsonValue>;
@@ -299,7 +439,16 @@ export class Api {
     }
 }
 
+// @internal
 export function parseSystem(raw: RawSystem): System {
+    if ("System Info" in raw) {
+        return parseSystem35(raw);
+    } else {
+        return parseSystem37(raw);
+    }
+}
+
+function parseSystem35(raw: RawSystem35): System {
     return {
         systemInfo: {
             version: raw["System Info"].version,
@@ -416,7 +565,11 @@ export function parseSystem(raw: RawSystem): System {
     };
 }
 
-export function parseDevice(raw: RawDevice): Device {
+function parseDevices(raw: RawDevice35[]): Device[] {
+    return raw.map(parseDevice);
+}
+
+function parseDevice(raw: RawDevice35): Device {
     return {
         type: parseEnum(raw.type.toLowerCase(), DeviceType, "DeviceType"),
         name: raw.name,
@@ -439,6 +592,142 @@ export function parseDevice(raw: RawDevice): Device {
     };
 }
 
-export function parseDevices(raw: RawDevice[]): Device[] {
-    return raw.map(parseDevice);
+function parseSystem37(raw: RawSystem37): System {
+    return {
+        systemInfo: {
+            version: raw["system"].version,
+            platform: raw["system"].platform,
+            uptimeSeconds: raw["system"].uptimeSec,
+            memFreeKb: raw["system"].freeMem,
+            memMaxAllocKb: raw["system"].maxAlloc,
+            appFreeKb: raw["system"].freeApp,
+            // resetReasonCore0: ResetReason;
+            // resetReasonCore1: ResetReason;
+        },
+        networkInfo: {
+            network: raw.network.network,
+            hostname: raw.network.hostname,
+            RSSI: raw.network.RSSI,
+            // ipv4Address: raw.network ["IPv4 address"],
+            // ipv4Gateway: raw.network["IPv4 gateway"],
+            // ipv4Nameserver: raw.network["IPv4 nameserver"],
+            staticIpConfig: raw.network.staticIP,
+            // enableIpv6: raw.network["enable IPv6"],
+            lowBandwidth: raw.network.lowBandwidth,
+            disableSleep: raw.network.disableSleep,
+            enableMdns: raw.network["enableMDNS"],
+            enableCors: raw.network["enableCORS"],
+            // corsOrigin: raw.network["CORSOrigin"],
+            ApProvisionMode: raw.network["APProvisionMode"] as ApProvisionMode,
+            ApSecurity: raw.network["APSecurity"] as ApSecurity,
+            ApSsid: raw.network["APSSID"],
+        },
+        ntpInfo: {
+            status: raw.ntp["NTPStatus"] as ConnectionStatus,
+            enabled: raw.ntp["enabled"],
+            server: raw.ntp["server"],
+            tzLabel: raw.ntp["tzLabel"],
+        },
+        // otaInfo: {
+        //     enabled: raw["OTA Info"].enabled,
+        //     port: raw["OTA Info"].port,
+        // },
+        mqttInfo: {
+            status: raw.mqtt["MQTTStatus"] as ConnectionStatus,
+            enabled: raw.mqtt["enabled"],
+            clientId: raw.mqtt["clientID"],
+            keepAlive: raw.mqtt["keepAlive"],
+            cleanSession: raw.mqtt["cleanSession"],
+            entityFormat: raw.mqtt["entityFormat"],
+            base: raw.mqtt["base"],
+            discoveryPrefix: raw.mqtt["discoveryPrefix"],
+            nestedFormat: raw.mqtt["nestedFormat"],
+            haEnabled: raw.mqtt["haEnabled"],
+            mqttQos: raw.mqtt["mqttQos"],
+            mqttRetain: raw.mqtt["mqttRetain"],
+            publishTimeHeartbeat: raw.mqtt["publishTimeHeartbeat"],
+            publishTimeBoiler: raw.mqtt["publishTimeBoiler"],
+            publishTimeThermostat: raw.mqtt["publishTimeThermostat"],
+            publishTimeSolar: raw.mqtt["publishTimeSolar"],
+            publishTimeMixer: raw.mqtt["publishTimeMixer"],
+            publishTimeOther: raw.mqtt["publishTimeOther"],
+            publishTimeSensor: raw.mqtt["publishTimeSensor"],
+            publishSingle: raw.mqtt["publishSingle"],
+            publish2command: raw.mqtt["publish2command"],
+            sendResponse: raw.mqtt["sendResponse"],
+        },
+        syslogInfo: { enabled: raw.syslog.enabled },
+        sensorInfo: {
+            temperatureSensors: raw.sensor["temperatureSensors"],
+            temperatureSensorReads: raw.sensor["temperatureSensorReads"],
+            temperatureSensorFails: raw.sensor["temperatureSensorFails"],
+            analogSensors: raw.sensor["analogSensors"],
+            analogSensorReads: raw.sensor["analogSensorReads"],
+            analogSensorFails: raw.sensor["analogSensorFails"],
+        },
+        apiInfo: {
+            apiCalls: raw.api["APICalls"],
+            apiFails: raw.api["APIFails"],
+        },
+        busInfo: {
+            status: raw.bus["busStatus"] as BusStatus,
+            protocol: raw.bus["busProtocol"],
+            rxTelegramsReceived: raw.bus["busTelegramsReceived"],
+            txReads: raw.bus["busReads"],
+            txWrites: raw.bus["busWrites"],
+            incompleteTelegrams: raw.bus["busIncompleteTelegrams"],
+            readsFailed: raw.bus["busReadsFailed"],
+            writesFailed: raw.bus["busWritesFailed"],
+            rxLineQuality: raw.bus["busRxLineQuality"],
+            txLineQuality: raw.bus["busTxLineQuality"],
+        },
+        settings: {
+            boardProfile: raw["settings"]["boardProfile"],
+            locale: raw["settings"]["locale"],
+            txMode: raw["settings"]["txMode"],
+            emsBusId: raw["settings"]["emsBusID"],
+            showerTimer: raw["settings"]["showerTimer"],
+            showerAlert: raw["settings"]["showerAlert"],
+            hideLed: raw["settings"]["hideLed"],
+            notokenApi: raw["settings"].noTokenApi,
+            readonlyMode: raw["settings"]["readonlyMode"],
+            fahrenheit: raw["settings"]["fahrenheit"],
+            dallasParasite: raw["settings"]["dallasParasite"],
+            boolFormat: raw["settings"]["boolFormat"],
+            boolDashboard: raw["settings"]["boolDashboard"],
+            enumFormat: raw["settings"]["enumFormat"],
+            analogEnabled: raw["settings"]["analogEnabled"],
+            telnetEnabled: raw["settings"]["telnetEnabled"],
+            maxWebLogBuffer: raw["settings"]["maxWebLogBuffer"],
+            webLogBuffer: raw["settings"]["webLogBuffer"],
+        },
+        devices: parseDevices37(raw.devices),
+    };
+}
+
+function parseDevices37(raw: RawDevice37[]): Device[] {
+    return raw.map(parseDevice37);
+}
+
+function parseDevice37(raw: RawDevice37): Device {
+    return {
+        type: parseEnum(raw.type.toLowerCase(), DeviceType, "DeviceType"),
+        name: raw.name,
+        deviceId: parseInt(raw.deviceID), // given as e.g. 0x08
+        productId: raw.productID,
+        version: raw.version,
+        entities: raw.entities,
+        handlersReceived: raw.handlersReceived
+            ?.split(" ")
+            .map((v) => parseInt(v)),
+        handlersFetched: raw.handlersFetched
+            ?.split(" ")
+            .map((v) => parseInt(v)),
+        handlersPending: raw.handlersPending
+            ?.split(" ")
+            .map((v) => parseInt(v)),
+        handlersIgnored: raw.handlersIgnored
+            ?.split(" ")
+            .map((v) => parseInt(v)),
+    };
 }
