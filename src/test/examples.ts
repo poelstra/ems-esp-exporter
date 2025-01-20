@@ -2,8 +2,9 @@ import path = require("path");
 import { parseSystem, System } from "../api";
 import { Entities, Entity, readEntities, Value } from "../entities";
 
-export const ENTITIES_CSV_PATH = "config/dump_entities.csv";
-export const ENTITIES_CSV_ORIGINAL_PATH = "config/dump_entities.csv.20230128";
+export const ENTITIES_CSV_3_7_PATH = "config/dump_entities.csv";
+export const ENTITIES_CSV_3_5_PATH = "config/dump_entities.csv.20230128";
+export const ENTITIES_CSV_PATH = ENTITIES_CSV_3_7_PATH;
 
 export async function getParsedEntities(
     csv_path: string = ENTITIES_CSV_PATH,
@@ -12,21 +13,25 @@ export async function getParsedEntities(
     return readEntities(entitiesPath);
 }
 
-export function getExampleSystem(): System {
-    return parseSystem(JSON.parse(EXAMPLE_SYSTEM_RESPONSE));
+export function getExampleSystem_3_5(): System {
+    return parseSystem(JSON.parse(EXAMPLE_SYSTEM_RESPONSE_3_5));
 }
 
-export async function getExampleDeviceValues(): Promise<Value[]> {
+export async function getExampleDeviceValues_3_5(): Promise<Value[]> {
     const entities = new Entities(
-        await getParsedEntities(ENTITIES_CSV_ORIGINAL_PATH),
+        await getParsedEntities(ENTITIES_CSV_3_5_PATH),
     );
-    return entities.parseValues(
-        115,
-        JSON.parse(EXAMPLE_DEVICE_ORIGINAL_RESPONSE),
-    );
+    return entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_5));
 }
 
-export const EXAMPLE_SYSTEM_RESPONSE = `{
+export async function getExampleDeviceValues_3_7(): Promise<Value[]> {
+    const entities = new Entities(
+        await getParsedEntities(ENTITIES_CSV_3_7_PATH),
+    );
+    return entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_7));
+}
+
+export const EXAMPLE_SYSTEM_RESPONSE_3_5 = `{
     "System Info": {
       "version": "3.5.1-dev.0",
       "platform": "ESP32",
@@ -162,7 +167,7 @@ export const EXAMPLE_SYSTEM_RESPONSE = `{
     ]
   }`;
 
-export const EXAMPLE_DEVICE_ORIGINAL_RESPONSE = `{
+export const EXAMPLE_DEVICE_RESPONSE_3_5 = `{
     "wwsettemp": 61,
     "wwseltemp": 60,
     "wwtype": "buffer",
@@ -232,3 +237,228 @@ export const EXAMPLE_DEVICE_ORIGINAL_RESPONSE = `{
     "maintenancetime": 6000,
     "maintenancedate": "01.01.2004"
   }`;
+
+export const EXAMPLE_SYSTEM_RESPONSE_3_7 = `{
+    "system": {
+        "version": "3.7.1",
+        "uptime": "000+00:01:04.366",
+        "uptimeSec": 64,
+        "platform": "ESP32",
+        "cpuType": "ESP32-D0WD-V3",
+        "arduino": "Tasmota Arduino v2.0.17",
+        "sdk": "4.4.8.240628",
+        "freeMem": 175,
+        "maxAlloc": 107,
+        "freeCaps": 125,
+        "usedApp": 1740,
+        "freeApp": 6388,
+        "partition": "app1",
+        "resetReason": "Software reset CPU / Software reset CPU",
+        "psram": false,
+        "model": ""
+    },
+    "network": {
+        "network": "WiFi",
+        "hostname": "ems-esp",
+        "RSSI": -56,
+        "WIFIReconnects": 0,
+        "TxPowerSetting": 78,
+        "staticIP": false,
+        "lowBandwidth": false,
+        "disableSleep": true,
+        "enableMDNS": true,
+        "enableCORS": false,
+        "APProvisionMode": "disconnected",
+        "APSecurity": "wpa2",
+        "APSSID": "ems-esp"
+    },
+    "ntp": {
+        "NTPStatus": "connected",
+        "enabled": true,
+        "server": "nl.pool.ntp.org",
+        "tzLabel": "Europe/Amsterdam"
+    },
+    "mqtt": {
+        "MQTTStatus": "connected",
+        "MQTTPublishes": 102,
+        "MQTTQueued": 0,
+        "MQTTPublishFails": 0,
+        "MQTTReconnects": 0,
+        "enabled": true,
+        "clientID": "ems-esp",
+        "keepAlive": 60,
+        "cleanSession": true,
+        "entityFormat": 0,
+        "base": "ems-esp",
+        "discoveryPrefix": "homeassistant",
+        "discoveryType": 0,
+        "nestedFormat": 1,
+        "haEnabled": true,
+        "mqttQos": 0,
+        "mqttRetain": false,
+        "publishTimeHeartbeat": 60,
+        "publishTimeBoiler": 10,
+        "publishTimeThermostat": 10,
+        "publishTimeSolar": 10,
+        "publishTimeMixer": 10,
+        "publishTimeWater": 10,
+        "publishTimeOther": 10,
+        "publishTimeSensor": 10,
+        "publishSingle": false,
+        "publish2command": false,
+        "sendResponse": false
+    },
+    "syslog": {
+        "enabled": false
+    },
+    "sensor": {
+        "temperatureSensors": 0,
+        "temperatureSensorReads": 0,
+        "temperatureSensorFails": 0,
+        "analogSensors": 0,
+        "analogSensorReads": 0,
+        "analogSensorFails": 0
+    },
+    "api": {
+        "APICalls": 8,
+        "APIFails": 0
+    },
+    "bus": {
+        "busStatus": "connected",
+        "busProtocol": "Buderus",
+        "busTelegramsReceived": 80,
+        "busReads": 30,
+        "busWrites": 1,
+        "busIncompleteTelegrams": 0,
+        "busReadsFailed": 0,
+        "busWritesFailed": 0,
+        "busRxLineQuality": 100,
+        "busTxLineQuality": 100
+    },
+    "settings": {
+        "boardProfile": "S32",
+        "locale": "en",
+        "txMode": 1,
+        "emsBusID": 11,
+        "showerTimer": false,
+        "showerMinDuration": 180,
+        "showerAlert": false,
+        "hideLed": false,
+        "noTokenApi": false,
+        "readonlyMode": false,
+        "fahrenheit": false,
+        "dallasParasite": false,
+        "boolFormat": 1,
+        "boolDashboard": 1,
+        "enumFormat": 1,
+        "analogEnabled": true,
+        "telnetEnabled": true,
+        "maxWebLogBuffer": 25,
+        "webLogBuffer": 18,
+        "modbusEnabled": false,
+        "forceHeatingOff": false,
+        "developerMode": false
+    },
+    "devices": [
+        {
+            "type": "boiler",
+            "name": "Topline, GB162",
+            "deviceID": "0x08",
+            "productID": 115,
+            "brand": "",
+            "version": "03.06",
+            "entities": 74,
+            "handlersReceived": "0x10 0x11 0x15 0x1C 0x18 0x19 0x34 0x04",
+            "handlersFetched": "0x14 0x16 0x33",
+            "handlersPending": "0xBF 0xC2 0x1A 0x35 0x2A 0xD1 0xE3 0xE4 0xE5 0xE9 0x2E 0x3B"
+        },
+        {
+            "type": "controller",
+            "name": "BC10",
+            "deviceID": "0x09",
+            "productID": 114,
+            "brand": "",
+            "version": "01.03",
+            "entities": 0
+        }
+    ]
+}`;
+
+export const EXAMPLE_DEVICE_RESPONSE_3_7 = `{
+    "reset": "",
+    "heatingoff": "off",
+    "heatingactive": "on",
+    "tapwateractive": "off",
+    "selflowtemp": 70,
+    "heatingpumpmod": 71,
+    "curflowtemp": 70.1,
+    "rettemp": 58.7,
+    "switchtemp": 0.0,
+    "syspress": 1.5,
+    "boiltemp": 66.4,
+    "burngas": "on",
+    "burngas2": "off",
+    "flamecurr": 23.0,
+    "fanwork": "on",
+    "ignwork": "off",
+    "oilpreheat": "off",
+    "burnminpower": 0,
+    "burnmaxpower": 80,
+    "burnminperiod": 10,
+    "boilhyston": -6,
+    "boilhystoff": 6,
+    "heatingactivated": "on",
+    "heatingtemp": 80,
+    "heatingpump": "on",
+    "pumpmodmax": 100,
+    "pumpmodmin": 60,
+    "pumpmode": "proportional",
+    "pumpdelay": 12,
+    "selburnpow": 80,
+    "curburnpow": 34,
+    "burnstarts": 136570,
+    "burnworkmin": 1188977,
+    "burn2workmin": 0,
+    "heatworkmin": 996060,
+    "heatstarts": 107037,
+    "ubauptime": 8949480,
+    "servicecode": "-H",
+    "servicecodenumber": 200,
+    "maintenancemessage": "H00",
+    "maintenance": "off",
+    "maintenancetime": 6000,
+    "maintenancedate": "01.01.2004",
+    "nompower": 30,
+    "nrgtotal": 2.25,
+    "nrgheat": 2.25,
+    "dhw": {
+        "settemp": 61,
+        "seltemp": 60,
+        "type": "buffer",
+        "comfort": "hot",
+        "flowtempoffset": 20,
+        "circpump": "on",
+        "chargetype": "3-way valve",
+        "hyston": -11,
+        "hystoff": 0,
+        "disinfectiontemp": 70,
+        "circmode": "2x3min",
+        "circ": "off",
+        "curtemp": 46.1,
+        "curtemp2": 60.2,
+        "curflow": 0.0,
+        "storagetemp1": 46.0,
+        "storagetemp2": 60.2,
+        "activated": "on",
+        "onetime": "off",
+        "disinfecting": "off",
+        "charging": "off",
+        "recharging": "off",
+        "tempok": "on",
+        "active": "off",
+        "3wayvalve": "off",
+        "starts": 29533,
+        "workm": 192917,
+        "nrg": 0.00
+    }
+}`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`handles original device metrics 1`] = `
+exports[`handles device metrics v3.5 1`] = `
 "# HELP emsesp_wwsettemp set temperature [C]
 # TYPE emsesp_wwsettemp gauge
 emsesp_wwsettemp{device_id="8",product_id="115"} 61
@@ -295,7 +295,7 @@ emsesp_maintenancedate{emsesp_maintenancedate="01.01.2004",device_id="8",product
 "
 `;
 
-exports[`handles system metrics 1`] = `
+exports[`handles system metrics v3.5 1`] = `
 "# HELP emsesp_version_info EMS-ESP version
 # TYPE emsesp_version_info gauge
 emsesp_version_info{version="3.5.1-dev.0"} 1
