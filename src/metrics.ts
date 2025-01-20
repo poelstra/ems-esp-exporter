@@ -144,6 +144,10 @@ export function addDeviceMetrics(
                 }
                 break;
             case ValueType.Command:
+                // Set-only value, ignore
+                continue;
+            default:
+                // In case new values are added to the enumerations
                 warnOnce(
                     `Ignoring '${value.shortName}', unsupported type '${ent.type}' (value '${value.value}')`,
                 );
