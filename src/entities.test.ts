@@ -3,6 +3,7 @@ import {
     ENTITIES_CSV_3_5_PATH,
     ENTITIES_CSV_3_7_PATH,
     getExampleDeviceValues_3_5,
+    getExampleDeviceValues_3_7,
     getParsedEntities,
 } from "./test/examples";
 
@@ -22,4 +23,8 @@ it("parses bundled entities dump", async () => {
 
 it("parses raw values v3.5 into canonical form", async () => {
     expect(await getExampleDeviceValues_3_5()).toMatchSnapshot();
+});
+
+it("parses raw values v3.7 into canonical form", async () => {
+    expect(await getExampleDeviceValues_3_7()).toMatchSnapshot();
 });

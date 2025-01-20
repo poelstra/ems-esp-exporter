@@ -182,8 +182,36 @@ export class Entities {
         if (!prodEntities) {
             warnOnce(`Unknown product model id ${productModelId}`);
         }
-        return Array.from(Object.entries(rawValues)).map(([key, value]) => {
-            const entity = prodEntities?.get(key);
+        return this._parseProductValues(
+            rawValues,
+            prodEntities,
+            productModelId,
+            [],
+        );
+    }
+
+    private _parseProductValues(
+        rawValues: RawValues,
+        prodEntities: Map<string, Entity> | undefined,
+        productModelId: number,
+        path: string[],
+    ): Value[] {
+        return Array.from(Object.entries(rawValues)).flatMap(([key, value]) => {
+            // Values can be namespaced, like `dhw.3wayvalve`, but historically, they were not like that
+            // in dump_entities.csv. So try to look up using both. If path is empty, it will just be the key.
+            const fullKey = [...path, key].join(".");
+            const entity = prodEntities?.get(fullKey) ?? prodEntities?.get(key);
+
+            if (!entity && !!value && typeof value === "object") {
+                // The value is a 'namespaced' object, like `dhw`.
+                return this._parseProductValues(
+                    value as RawValues,
+                    prodEntities,
+                    productModelId,
+                    [...path, key],
+                );
+            }
+
             if (prodEntities && !entity) {
                 warnOnce(
                     `Unknown entity ${key} for product model id ${productModelId}`,
@@ -206,9 +234,7 @@ export class Entities {
                         const literal = literals[value];
                         if (!literal) {
                             warnOnce(
-                                `Enum index ${value} out of range for ${key} in product model id ${productModelId}, expected 0..${
-                                    literals.length - 1
-                                }`,
+                                `Enum index ${value} out of range for ${key} in product model id ${productModelId}, expected 0..${literals.length - 1}`,
                             );
                         }
                         value = literal;
@@ -225,7 +251,7 @@ export class Entities {
                 }
             }
             return {
-                shortName: key,
+                shortName: fullKey,
                 value,
                 entity,
             };
@@ -242,6 +268,13 @@ export class Entities {
             ents = new Map();
             this._entities.set(productModelId, ents);
         }
+        // This check is disabled, as it gives too many hits due to issues with the
+        // CSV file (the duplicates are indeed duplicates as far as I can see).
+        // if (ents.has(shortName)) {
+        //     warnOnce(
+        //         `Duplicate shortname ${shortName} for product model id ${productModelId}`,
+        //     );
+        // }
         ents.set(shortName, entity);
     }
 }

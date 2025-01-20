@@ -13,7 +13,7 @@ function enumMembers<E extends EnumType>(enumType: E): Record<keyof E, true> {
         Array.from(Object.entries(enumType)).map(([name, value]) => [
             value,
             true,
-        ])
+        ]),
     ) as Record<keyof E, true>;
 }
 
@@ -22,7 +22,7 @@ const literalsCache: WeakMap<EnumType, Record<string, true>> = new WeakMap();
 export function parseEnum<E extends EnumType>(
     value: string,
     enumType: E,
-    enumName: string = "enum"
+    enumName: string = "enum",
 ): E[keyof E] {
     if (!literalsCache.has(enumType)) {
         literalsCache.set(enumType, enumMembers(enumType));
@@ -31,16 +31,23 @@ export function parseEnum<E extends EnumType>(
     if (!validLiterals[value]) {
         throw new Error(
             `invalid ${enumName} value, got '${value}' expected one of ${Object.keys(
-                validLiterals
+                validLiterals,
             )
                 .map((v) => `'${v}'`)
-                .join(", ")}`
+                .join(", ")}`,
         );
     }
     return value as E[keyof E];
 }
 
 const warnedMsgs: Set<string> = new Set();
+
+let DISABLE_WARNINGS = false;
+
+// Disable warnings (useful in specific tests...)
+export function disableWarnings(value: boolean): void {
+    DISABLE_WARNINGS = value;
+}
 
 export function warnOnce(msg: string): void {
     if (warnedMsgs.has(msg)) {

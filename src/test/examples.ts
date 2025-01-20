@@ -1,6 +1,7 @@
 import path = require("path");
 import { parseSystem, System } from "../api";
 import { Entities, Entity, readEntities, Value } from "../entities";
+import { disableWarnings } from "../util";
 
 export const ENTITIES_CSV_3_7_PATH = "config/dump_entities.csv";
 export const ENTITIES_CSV_3_5_PATH = "config/dump_entities.csv.20230128";
@@ -18,10 +19,18 @@ export function getExampleSystem_3_5(): System {
 }
 
 export async function getExampleDeviceValues_3_5(): Promise<Value[]> {
-    const entities = new Entities(
-        await getParsedEntities(ENTITIES_CSV_3_5_PATH),
-    );
-    return entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_5));
+    try {
+        disableWarnings(true); // 3.5 has issues with duplicate entries
+        const entities = new Entities(
+            await getParsedEntities(ENTITIES_CSV_3_5_PATH),
+        );
+        return entities.parseValues(
+            115,
+            JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_5),
+        );
+    } finally {
+        disableWarnings(false);
+    }
 }
 
 export async function getExampleDeviceValues_3_7(): Promise<Value[]> {
