@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { DeviceType } from "./common";
+import { RawEntityValues } from "./entityvalue";
 import { JsonValue, parseEnum } from "./util";
 
 export interface Device {
@@ -436,6 +437,10 @@ export class Api {
 
     public async getRawValues(device: DeviceType): Promise<RawValues> {
         return this.get<RawValues>(`/${device}/values`);
+    }
+
+    public async getEntityValues(device: DeviceType): Promise<RawEntityValues> {
+        return this.get<RawEntityValues>(`/${device}/entities`);
     }
 }
 

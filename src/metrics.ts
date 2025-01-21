@@ -2,6 +2,7 @@ import { Counter, Gauge, Registry } from "prom-client";
 import { Api, System } from "./api";
 import { DeviceType, Value, ValueType } from "./common";
 import { Entities } from "./entities";
+import { parseEntityValues } from "./entityvalue";
 import { warnOnce } from "./util";
 
 export async function getMetrics(
@@ -34,12 +35,23 @@ export async function getMetrics(
         }
         seen.add(device.type);
 
-        const rawDeviceValues = await api.getRawValues(device.type);
-        const values = entities.parseValues(device.productId, rawDeviceValues);
+        let values: Value[];
+        if (supportsEntityValues(system.systemInfo.version)) {
+            const rawValues = await api.getEntityValues(device.type);
+            values = parseEntityValues(rawValues);
+        } else {
+            const rawValues = await api.getRawValues(device.type);
+            values = entities.parseValues(device.productId, rawValues);
+        }
         addDeviceMetrics(registry, values, device.deviceId, device.productId);
     }
 
     return registry;
+}
+
+export function supportsEntityValues(version: string): boolean {
+    const [major, minor] = version.split(".").map(Number);
+    return major > 3 || (major === 3 && minor >= 7);
 }
 
 export function addSystemMetrics(register: Registry, system: System): void {
