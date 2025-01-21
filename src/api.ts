@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { DeviceType } from "./entities";
+import { DeviceType } from "./common";
 import { JsonValue, parseEnum } from "./util";
 
 export interface Device {

@@ -1,6 +1,7 @@
 import { Counter, Gauge, Registry } from "prom-client";
 import { Api, System } from "./api";
-import { DeviceType, Entities, Value, ValueType } from "./entities";
+import { DeviceType, Value, ValueType } from "./common";
+import { Entities } from "./entities";
 import { warnOnce } from "./util";
 
 export async function getMetrics(
@@ -85,13 +86,7 @@ export function addDeviceMetrics(
 
         let metricValue: number;
         switch (ent.type) {
-            case ValueType.Int8:
-            case ValueType.UInt8:
-            case ValueType.Int16:
-            case ValueType.UInt16:
-            case ValueType.UInt24:
-            case ValueType.UInt32:
-            case ValueType.Time:
+            case ValueType.Number:
                 metricValue =
                     typeof value.value === "number"
                         ? value.value

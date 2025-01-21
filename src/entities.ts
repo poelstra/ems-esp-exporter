@@ -1,29 +1,10 @@
 import { parse } from "csv-parse/sync";
 import { readFile } from "fs/promises";
 import { RawValues } from "./api";
-import { JsonValue, parseEnum, warnOnce } from "./util";
+import { DeviceType, Entity, Value, ValueType } from "./common";
+import { parseEnum, warnOnce } from "./util";
 
-export enum DeviceType {
-    System = "system",
-    Boiler = "boiler",
-    Thermostat = "thermostat",
-    Heatpump = "heatpump",
-    Heatsource = "heatsource",
-    Solar = "solar",
-    Connect = "connect",
-    Mixer = "mixer",
-    Controller = "controller",
-    Switch = "switch",
-    Gateway = "gateway",
-    Alert = "alert",
-    Pump = "pump",
-    Extension = "extension",
-    Ventilation = "ventilation",
-    Water = "water",
-    Pool = "pool",
-}
-
-export enum ValueType {
+export enum RawValueType {
     Boolean = "boolean",
     Int8 = "int8",
     UInt8 = "uint8",
@@ -37,28 +18,15 @@ export enum ValueType {
     Command = "cmd",
 }
 
-export interface Value {
-    shortName: string;
-    value: JsonValue;
-    entity?: Entity;
-}
-
-export interface Entity {
+export interface FullEntity extends Entity {
     deviceName: string;
     deviceType: DeviceType;
     productId: number;
-    shortName: string;
-    fullName: string;
-    type: ValueType;
-    literals?: string[]; // in case type == ValueType.Enum
-    unit?: string;
-    counter?: boolean; // Whether (numeric) value is a monotonically increasing value
-    writable: boolean;
-    discoveryEntityIdOld: string;
+    discoveryEntityIdOld: string; // Until version 3.4
     discoveryEntityId: string;
 }
 
-interface RawEntity {
+interface RawCsvEntity {
     deviceName: string;
     deviceType: string;
     productId: string;
@@ -76,30 +44,45 @@ interface RawEntity {
     modbusCount?: number;
 }
 
-function rawEntityToEntity(raw: RawEntity): Entity {
+function rawValueTypeToValueType(raw: RawValueType): ValueType {
+    switch (raw) {
+        case RawValueType.Boolean:
+            return ValueType.Boolean;
+        case RawValueType.Enum:
+            return ValueType.Enum;
+        case RawValueType.String:
+            return ValueType.String;
+        case RawValueType.Command:
+            return ValueType.Command;
+        default:
+            return ValueType.Number;
+    }
+}
+
+function rawEntityToEntity(raw: RawCsvEntity): FullEntity {
     const deviceType = parseEnum(raw.deviceType, DeviceType, "DeviceType");
     const typeElements = raw.type.split(" ");
-    const type = parseEnum(
+    const rawType = parseEnum(
         remapOldValueType(typeElements[0]),
-        ValueType,
+        RawValueType,
         "ValueType",
     );
     const trimmedUnit = raw.unit.trim();
     const unit = trimmedUnit !== "" ? trimmedUnit : undefined;
-    const result: Entity = {
+    const result: FullEntity = {
         deviceName: raw.deviceName,
         deviceType,
         productId: parseInt(raw.productId, 10),
         shortName: raw.shortName,
         fullName: raw.fullName,
-        type,
+        type: rawValueTypeToValueType(rawType),
         unit,
         writable: raw.writable === "true",
         discoveryEntityIdOld: raw.discoveryEntityIdOld,
         discoveryEntityId: raw.discoveryEntityId,
     };
 
-    if (type === ValueType.Enum) {
+    if (rawType === RawValueType.Enum) {
         // Parse "selTemp" and "roomTemp" out of a string like "enum [selTemp\|roomTemp] (>=5<=30)",
         // where the " (>=5<=30)" piece only seems to exist for "haclimate".
         const matches = raw.type.match(/^enum \[(.*)\]( \([^\)]+\))?$/);
@@ -124,7 +107,7 @@ function rawEntityToEntity(raw: RawEntity): Entity {
     return result;
 }
 
-const CSV_COLUMN_MAPPING: Record<string, keyof RawEntity> = {
+const CSV_COLUMN_MAPPING: Record<string, keyof RawCsvEntity> = {
     "device name": "deviceName",
     "device type": "deviceType",
     "product id": "productId",
@@ -143,17 +126,20 @@ const CSV_COLUMN_MAPPING: Record<string, keyof RawEntity> = {
     "modbus count": "modbusCount",
 };
 
-const OLD_VALUE_TYPE_MAPPING: Record<string, ValueType> = {
-    int: ValueType.Int8,
-    uint: ValueType.UInt8,
-    short: ValueType.Int16,
-    ushort: ValueType.UInt16,
-    ulong: ValueType.UInt32,
+const OLD_VALUE_TYPE_MAPPING: Record<string, RawValueType> = {
+    int: RawValueType.Int8,
+    uint: RawValueType.UInt8,
+    short: RawValueType.Int16,
+    ushort: RawValueType.UInt16,
+    ulong: RawValueType.UInt32,
 };
 
-export async function readEntities(filename: string): Promise<Entity[]> {
+/**
+ * Parse entity definitions from dump_entities.csv file.
+ */
+export async function readEntities(filename: string): Promise<FullEntity[]> {
     const entitiesText = await readFile(filename, "utf8");
-    const rawEntities: RawEntity[] = parse(entitiesText, {
+    const rawEntities: RawCsvEntity[] = parse(entitiesText, {
         columns: (names: string[]) => names.map(remapColumnName),
         cast: true,
     });
@@ -173,9 +159,9 @@ export class Entities {
     /**
      * Map (productModelId, shortName) to Entity
      */
-    private _entities: Map<number, Map<string, Entity>> = new Map();
+    private _entities: Map<number, Map<string, FullEntity>> = new Map();
 
-    constructor(entities: Entity[]) {
+    constructor(entities: FullEntity[]) {
         for (const ent of entities) {
             this._add(ent.productId, ent.shortName, ent);
         }
@@ -265,7 +251,7 @@ export class Entities {
     private _add(
         productModelId: number,
         shortName: string,
-        entity: Entity,
+        entity: FullEntity,
     ): void {
         let ents = this._entities.get(productModelId);
         if (!ents) {
