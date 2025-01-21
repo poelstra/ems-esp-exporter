@@ -44,12 +44,12 @@ export async function getMetrics(
 
 export function addSystemMetrics(register: Registry, system: System): void {
     const versionGauge = new Gauge({
-        name: "emsesp_version_info",
+        name: "emsesp_version",
         help: "EMS-ESP version",
-        labelNames: ["version"],
+        labelNames: ["emsesp_version"],
         registers: [register],
     });
-    versionGauge.set({ version: system.systemInfo.version }, 1);
+    versionGauge.set({ emsesp_version: system.systemInfo.version }, 1);
 }
 
 export function addDeviceMetrics(
