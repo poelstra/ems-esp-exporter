@@ -74,7 +74,8 @@ export function addDeviceMetrics(
 
         // Convert time to seconds, it's the canonical unit for Prometheus times
         // See e.g. https://prometheus.io/docs/practices/naming/#base-units
-        if (ent.type === ValueType.Time) {
+        if (ent.unit === "minutes") {
+            // Note: conversion performed below
             unit = "seconds";
         }
 
@@ -156,8 +157,9 @@ export function addDeviceMetrics(
 
         // Convert values to canonical units, as typically expected
         // by Prometheus
-        if (ent.type === ValueType.Time) {
+        if (ent.unit === "minutes") {
             // Convert to seconds
+            // Note: unit already converted, above
             metricValue *= 60;
         }
         if (ent.unit === "%") {
