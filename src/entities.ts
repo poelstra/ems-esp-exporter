@@ -113,7 +113,11 @@ function rawEntityToEntity(raw: RawEntity): Entity {
 
     // Heuristically determine whether value is an absolute counter
     // Holds true for everything mentioned in dump_entities.csv of 20230128
-    if (type === ValueType.Time || type === ValueType.UInt32) {
+    if (
+        rawType === RawValueType.Time ||
+        rawType === RawValueType.UInt24 ||
+        rawType === RawValueType.UInt32
+    ) {
         result.counter = true;
     }
 
