@@ -50,7 +50,7 @@ export function disableWarnings(value: boolean): void {
 }
 
 export function warnOnce(msg: string): void {
-    if (warnedMsgs.has(msg)) {
+    if (warnedMsgs.has(msg) || DISABLE_WARNINGS) {
         return;
     }
     warnedMsgs.add(msg);

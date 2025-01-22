@@ -159,25 +159,27 @@ export class Entities {
     /**
      * Map (productModelId, shortName) to Entity
      */
-    private _entities: Map<number, Map<string, FullEntity>> = new Map();
+    private _entities: Map<string, Map<string, FullEntity>> = new Map();
 
     constructor(entities: FullEntity[]) {
         for (const ent of entities) {
-            this._add(ent.productId, ent.shortName, ent);
+            this._add(ent);
         }
     }
 
-    public parseValues(productModelId: number, rawValues: RawValues): Value[] {
-        const prodEntities = this._entities.get(productModelId);
+    public parseValues(
+        deviceType: DeviceType,
+        productId: number,
+        rawValues: RawValues,
+    ): Value[] {
+        const key = `${deviceType}:${productId}`;
+        const prodEntities = this._entities.get(key);
         if (!prodEntities) {
-            warnOnce(`Unknown product model id ${productModelId}`);
+            warnOnce(
+                `Unknown product id ${productId} for device type ${deviceType}`,
+            );
         }
-        return this._parseProductValues(
-            rawValues,
-            prodEntities,
-            productModelId,
-            [],
-        );
+        return this._parseProductValues(rawValues, prodEntities, productId, []);
     }
 
     private _parseProductValues(
@@ -248,23 +250,18 @@ export class Entities {
         });
     }
 
-    private _add(
-        productModelId: number,
-        shortName: string,
-        entity: FullEntity,
-    ): void {
-        let ents = this._entities.get(productModelId);
+    private _add(ent: FullEntity): void {
+        const key = `${ent.deviceType}:${ent.productId}`;
+        let ents = this._entities.get(key);
         if (!ents) {
             ents = new Map();
-            this._entities.set(productModelId, ents);
+            this._entities.set(key, ents);
         }
-        // This check is disabled, as it gives too many hits due to issues with the
-        // CSV file (the duplicates are indeed duplicates as far as I can see).
-        // if (ents.has(shortName)) {
-        //     warnOnce(
-        //         `Duplicate shortname ${shortName} for product model id ${productModelId}`,
-        //     );
-        // }
-        ents.set(shortName, entity);
+        if (ents.has(ent.shortName)) {
+            warnOnce(
+                `Duplicate shortname ${ent.shortName} for device type ${ent.deviceType} product id ${ent.productId}`,
+            );
+        }
+        ents.set(ent.shortName, ent);
     }
 }

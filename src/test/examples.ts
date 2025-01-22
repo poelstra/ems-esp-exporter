@@ -1,6 +1,6 @@
 import path = require("path");
 import { parseSystem, System } from "../api";
-import { Value } from "../common";
+import { DeviceType, Value } from "../common";
 import { Entities, FullEntity, readEntities } from "../entities";
 import { parseEntityValues } from "../entityvalue";
 import { disableWarnings } from "../util";
@@ -25,25 +25,29 @@ export function getExampleSystem_3_7(): System {
 }
 
 export async function getExampleDeviceValues_3_5(): Promise<Value[]> {
+    let entities: Entities;
     try {
         disableWarnings(true); // 3.5 has issues with duplicate entries
-        const entities = new Entities(
-            await getParsedEntities(ENTITIES_CSV_3_5_PATH),
-        );
-        return entities.parseValues(
-            115,
-            JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_5),
-        );
+        entities = new Entities(await getParsedEntities(ENTITIES_CSV_3_5_PATH));
     } finally {
         disableWarnings(false);
     }
+    return entities.parseValues(
+        DeviceType.Boiler,
+        115,
+        JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_5),
+    );
 }
 
 export async function getExampleDeviceValues_3_7(): Promise<Value[]> {
     const entities = new Entities(
         await getParsedEntities(ENTITIES_CSV_3_7_PATH),
     );
-    return entities.parseValues(115, JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_7));
+    return entities.parseValues(
+        DeviceType.Boiler,
+        115,
+        JSON.parse(EXAMPLE_DEVICE_RESPONSE_3_7),
+    );
 }
 
 export function getExampleEntityValues_3_7(): Value[] {

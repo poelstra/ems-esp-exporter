@@ -41,7 +41,11 @@ export async function getMetrics(
             values = parseEntityValues(rawValues);
         } else {
             const rawValues = await api.getRawValues(device.type);
-            values = entities.parseValues(device.productId, rawValues);
+            values = entities.parseValues(
+                device.type,
+                device.productId,
+                rawValues,
+            );
         }
         addDeviceMetrics(registry, values, device.deviceId, device.productId);
     }
