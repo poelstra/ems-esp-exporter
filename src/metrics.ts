@@ -84,6 +84,12 @@ export function addDeviceMetrics(
             continue;
         }
 
+        if (value.value === undefined) {
+            // Skip metrics without a value, as there are quite a few of them,
+            // and they'll then waste storage space
+            continue;
+        }
+
         const ent = value.entity;
 
         const metricName = `emsesp_${value.shortName.replace(/\./g, "_")}`;

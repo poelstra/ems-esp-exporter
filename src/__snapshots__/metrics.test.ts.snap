@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`handles device entity value metrics v3.7 1`] = `
-"# HELP emsesp_reset reset [enum]
-# TYPE emsesp_reset gauge
-emsesp_reset{emsesp_reset="-",device_id="8",product_id="115"} 0
-emsesp_reset{emsesp_reset="maintenance",device_id="8",product_id="115"} 0
-emsesp_reset{emsesp_reset="error",device_id="8",product_id="115"} 0
-emsesp_reset{emsesp_reset="history",device_id="8",product_id="115"} 0
-emsesp_reset{emsesp_reset="message",device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatingoff force heating off [boolean]
+"# HELP emsesp_heatingoff force heating off [boolean]
 # TYPE emsesp_heatingoff gauge
 emsesp_heatingoff{device_id="8",product_id="115"} 0
 
@@ -28,10 +20,6 @@ emsesp_selflowtemp{device_id="8",product_id="115"} 7
 # HELP emsesp_heatingpumpmod heating pump modulation [%]
 # TYPE emsesp_heatingpumpmod gauge
 emsesp_heatingpumpmod{device_id="8",product_id="115"} 0
-
-# HELP emsesp_outdoortemp outside temperature [°C]
-# TYPE emsesp_outdoortemp gauge
-emsesp_outdoortemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_curflowtemp current flow temperature [°C]
 # TYPE emsesp_curflowtemp gauge
@@ -52,14 +40,6 @@ emsesp_syspress{device_id="8",product_id="115"} 0.9
 # HELP emsesp_boiltemp actual boiler temperature [°C]
 # TYPE emsesp_boiltemp gauge
 emsesp_boiltemp{device_id="8",product_id="115"} 60.5
-
-# HELP emsesp_headertemp low loss header [°C]
-# TYPE emsesp_headertemp gauge
-emsesp_headertemp{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_exhausttemp exhaust temperature [°C]
-# TYPE emsesp_exhausttemp gauge
-emsesp_exhausttemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_burngas gas [boolean]
 # TYPE emsesp_burngas gauge
@@ -97,14 +77,6 @@ emsesp_burnmaxpower{device_id="8",product_id="115"} 0.8
 # TYPE emsesp_burnminperiod gauge
 emsesp_burnminperiod{device_id="8",product_id="115"} 600
 
-# HELP emsesp_absburnpow burner current power (absolute) [%]
-# TYPE emsesp_absburnpow gauge
-emsesp_absburnpow{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_heatblock heating block [°C]
-# TYPE emsesp_heatblock gauge
-emsesp_heatblock{device_id="8",product_id="115"} Nan
-
 # HELP emsesp_boilhyston hysteresis on temperature [°C]
 # TYPE emsesp_boilhyston gauge
 emsesp_boilhyston{device_id="8",product_id="115"} -6
@@ -112,38 +84,6 @@ emsesp_boilhyston{device_id="8",product_id="115"} -6
 # HELP emsesp_boilhystoff hysteresis off temperature [°C]
 # TYPE emsesp_boilhystoff gauge
 emsesp_boilhystoff{device_id="8",product_id="115"} 6
-
-# HELP emsesp_boil2hyston hysteresis stage 2 on temperature [°C]
-# TYPE emsesp_boil2hyston gauge
-emsesp_boil2hyston{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_boil2hystoff hysteresis stage 2 off temperature [°C]
-# TYPE emsesp_boil2hystoff gauge
-emsesp_boil2hystoff{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_curveon heatingcurve on [boolean]
-# TYPE emsesp_curveon gauge
-emsesp_curveon{device_id="8",product_id="115"} 0
-
-# HELP emsesp_curvebase heatingcurve base [°C]
-# TYPE emsesp_curvebase gauge
-emsesp_curvebase{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_curveend heatingcurve end [°C]
-# TYPE emsesp_curveend gauge
-emsesp_curveend{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_summertemp summer temperature [°C]
-# TYPE emsesp_summertemp gauge
-emsesp_summertemp{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_nofrostmode nofrost mode [boolean]
-# TYPE emsesp_nofrostmode gauge
-emsesp_nofrostmode{device_id="8",product_id="115"} 0
-
-# HELP emsesp_nofrosttemp nofrost temperature [°C]
-# TYPE emsesp_nofrosttemp gauge
-emsesp_nofrosttemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_heatingactivated heating activated [boolean]
 # TYPE emsesp_heatingactivated gauge
@@ -173,23 +113,9 @@ emsesp_pumpmode{emsesp_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
 emsesp_pumpmode{emsesp_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
 emsesp_pumpmode{emsesp_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
 
-# HELP emsesp_pumpcharacter boiler pump characteristic [enum]
-# TYPE emsesp_pumpcharacter gauge
-emsesp_pumpcharacter{emsesp_pumpcharacter="proportional",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="150mbar",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="200mbar",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="250mbar",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="300mbar",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="350mbar",device_id="8",product_id="115"} 0
-emsesp_pumpcharacter{emsesp_pumpcharacter="400mbar",device_id="8",product_id="115"} 0
-
 # HELP emsesp_pumpdelay pump delay [seconds]
 # TYPE emsesp_pumpdelay gauge
 emsesp_pumpdelay{device_id="8",product_id="115"} 720
-
-# HELP emsesp_pumpontemp pump logic temperature [°C]
-# TYPE emsesp_pumpontemp gauge
-emsesp_pumpontemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_selburnpow burner selected max power [%]
 # TYPE emsesp_selburnpow gauge
@@ -223,10 +149,6 @@ emsesp_heatstarts{device_id="8",product_id="115"} 107044
 # TYPE emsesp_ubauptime gauge
 emsesp_ubauptime{device_id="8",product_id="115"} 537011280
 
-# HELP emsesp_lastcode last error code [string]
-# TYPE emsesp_lastcode gauge
-emsesp_lastcode{emsesp_lastcode="undefined",device_id="8",product_id="115"} 1
-
 # HELP emsesp_servicecode service code [string]
 # TYPE emsesp_servicecode gauge
 emsesp_servicecode{emsesp_servicecode="0H",device_id="8",product_id="115"} 1
@@ -254,42 +176,6 @@ emsesp_maintenancetime{device_id="8",product_id="115"} 6000
 # TYPE emsesp_maintenancedate gauge
 emsesp_maintenancedate{emsesp_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
 
-# HELP emsesp_emergencyops emergency operation [boolean]
-# TYPE emsesp_emergencyops gauge
-emsesp_emergencyops{device_id="8",product_id="115"} 0
-
-# HELP emsesp_emergencytemp emergency temperature [°C]
-# TYPE emsesp_emergencytemp gauge
-emsesp_emergencytemp{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_meterheat meter heating [kWh]
-# TYPE emsesp_meterheat gauge
-emsesp_meterheat{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_meter dhw meter [kWh]
-# TYPE emsesp_dhw_meter gauge
-emsesp_dhw_meter{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_gasmeterheat gas meter heating [kWh]
-# TYPE emsesp_gasmeterheat gauge
-emsesp_gasmeterheat{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_gasmeter dhw gas meter [kWh]
-# TYPE emsesp_dhw_gasmeter gauge
-emsesp_dhw_gasmeter{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_nrgheat2 energy heating 2 [kWh]
-# TYPE emsesp_nrgheat2 gauge
-emsesp_nrgheat2{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_nrg2 dhw energy 2 [kWh]
-# TYPE emsesp_dhw_nrg2 gauge
-emsesp_dhw_nrg2{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_tapactivated dhw turn on/off [boolean]
-# TYPE emsesp_dhw_tapactivated gauge
-emsesp_dhw_tapactivated{device_id="8",product_id="115"} 0
-
 # HELP emsesp_dhw_settemp dhw set temperature [°C]
 # TYPE emsesp_dhw_settemp gauge
 emsesp_dhw_settemp{device_id="8",product_id="115"} 61
@@ -297,26 +183,6 @@ emsesp_dhw_settemp{device_id="8",product_id="115"} 61
 # HELP emsesp_dhw_seltemp dhw selected temperature [°C]
 # TYPE emsesp_dhw_seltemp gauge
 emsesp_dhw_seltemp{device_id="8",product_id="115"} 60
-
-# HELP emsesp_dhw_seltemplow dhw selected lower temperature [°C]
-# TYPE emsesp_dhw_seltemplow gauge
-emsesp_dhw_seltemplow{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_tempecoplus dhw selected eco+ temperature [°C]
-# TYPE emsesp_dhw_tempecoplus gauge
-emsesp_dhw_tempecoplus{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_seltempoff dhw selected temperature for off [°C]
-# TYPE emsesp_dhw_seltempoff gauge
-emsesp_dhw_seltempoff{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_seltempsingle dhw single charge temperature [°C]
-# TYPE emsesp_dhw_seltempsingle gauge
-emsesp_dhw_seltempsingle{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_solartemp dhw solar boiler temperature [°C]
-# TYPE emsesp_dhw_solartemp gauge
-emsesp_dhw_solartemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_dhw_type dhw type [enum]
 # TYPE emsesp_dhw_type gauge
@@ -332,26 +198,9 @@ emsesp_dhw_comfort{emsesp_dhw_comfort="hot",device_id="8",product_id="115"} 1
 emsesp_dhw_comfort{emsesp_dhw_comfort="eco",device_id="8",product_id="115"} 0
 emsesp_dhw_comfort{emsesp_dhw_comfort="intelligent",device_id="8",product_id="115"} 0
 
-# HELP emsesp_dhw_comfort1 dhw comfort mode [enum]
-# TYPE emsesp_dhw_comfort1 gauge
-emsesp_dhw_comfort1{emsesp_dhw_comfort1="high comfort",device_id="8",product_id="115"} 0
-emsesp_dhw_comfort1{emsesp_dhw_comfort1="eco",device_id="8",product_id="115"} 0
-
 # HELP emsesp_dhw_flowtempoffset dhw flow temperature offset [°C]
 # TYPE emsesp_dhw_flowtempoffset gauge
 emsesp_dhw_flowtempoffset{device_id="8",product_id="115"} 20
-
-# HELP emsesp_dhw_chargeoptimization dhw charge optimization [boolean]
-# TYPE emsesp_dhw_chargeoptimization gauge
-emsesp_dhw_chargeoptimization{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_maxpower dhw max power [%]
-# TYPE emsesp_dhw_maxpower gauge
-emsesp_dhw_maxpower{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_maxtemp dhw maximum temperature [°C]
-# TYPE emsesp_dhw_maxtemp gauge
-emsesp_dhw_maxtemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_dhw_circpump dhw circulation pump available [boolean]
 # TYPE emsesp_dhw_circpump gauge
@@ -440,14 +289,6 @@ emsesp_dhw_active{device_id="8",product_id="115"} 0
 # HELP emsesp_dhw_3wayvalve dhw 3-way valve active [boolean]
 # TYPE emsesp_dhw_3wayvalve gauge
 emsesp_dhw_3wayvalve{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_mixertemp dhw mixer temperature [°C]
-# TYPE emsesp_dhw_mixertemp gauge
-emsesp_dhw_mixertemp{device_id="8",product_id="115"} Nan
-
-# HELP emsesp_dhw_cylmiddletemp dhw cylinder middle temperature (TS3) [°C]
-# TYPE emsesp_dhw_cylmiddletemp gauge
-emsesp_dhw_cylmiddletemp{device_id="8",product_id="115"} Nan
 
 # HELP emsesp_dhw_starts dhw starts [number]
 # TYPE emsesp_dhw_starts gauge
