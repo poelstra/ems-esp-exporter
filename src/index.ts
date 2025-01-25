@@ -14,6 +14,8 @@ async function main(): Promise<void> {
         process.env.ENTITIES_CSV || "../config/dump_entities.csv"; // https://docs.emsesp.org/data/dump_entities.csv
     const METRICS_PORT = process.env.METRICS_PORT || 3000;
 
+    const { version } = require("../package.json");
+    console.log(`Version: ${version}`);
     console.log("Environment configuration:");
     console.log(`EMS_ESP_URL=${EMS_ESP_URL}`);
     console.log(`ENTITIES_CSV=${ENTITIES_CSV}`);
