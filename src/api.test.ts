@@ -6,5 +6,5 @@ it("parses system info v3.5", async () => {
 });
 
 it("parses system info v3.7", async () => {
-    expect(getExampleSystem_3_7()).toMatchSnapshot();
+    expect(await getExampleSystem_3_7()).toMatchSnapshot();
 });

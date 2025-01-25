@@ -5,17 +5,24 @@ import { Entities } from "./entities";
 import { parseEntityValues } from "./entityvalue";
 import { warnOnce } from "./util";
 
-export async function getMetrics(
+export interface ScrapedValues {
+    system: System;
+    devices: ScrapedDevice[];
+}
+
+export interface ScrapedDevice {
+    type: DeviceType;
+    deviceId: number; // e.g. 8
+    productId: number; // e.g. 115
+    values: Value[];
+}
+
+export async function scrapeValues(
     api: Api,
     entities: Entities,
-): Promise<Registry> {
-    // Rebuilding the registry (metrics) isn't the most efficient,
-    // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
-    // etc)
-    const registry = new Registry();
-
+): Promise<ScrapedValues> {
     const system = await api.getSystem();
-    addSystemMetrics(registry, system);
+    const devices: ScrapedDevice[] = [];
 
     const seen: Set<DeviceType> = new Set();
     for (const device of system.devices) {
@@ -47,9 +54,28 @@ export async function getMetrics(
                 rawValues,
             );
         }
-        addDeviceMetrics(registry, values, device.deviceId, device.productId);
+        devices.push({
+            type: device.type,
+            deviceId: device.deviceId,
+            productId: device.productId,
+            values,
+        });
     }
 
+    return { system, devices };
+}
+
+export function getMetrics(values: ScrapedValues): Registry {
+    // Rebuilding the registry (metrics) isn't the most efficient,
+    // but it is simple and robust (e.g. parallel scrapes, disappearing metrics,
+    // etc)
+    const registry = new Registry();
+
+    addSystemMetrics(registry, values.system);
+
+    for (const device of values.devices) {
+        addDeviceMetrics(registry, device);
+    }
     return registry;
 }
 
@@ -70,11 +96,9 @@ export function addSystemMetrics(register: Registry, system: System): void {
 
 export function addDeviceMetrics(
     registry: Registry,
-    values: Value[],
-    deviceId: number,
-    productId: number,
+    device: ScrapedDevice,
 ): void {
-    for (const value of values) {
+    for (const value of device.values) {
         if (!value.entity) {
             warnOnce(
                 `Ignoring ${value.shortName}, missing entity configuration`,
@@ -131,8 +155,8 @@ export function addDeviceMetrics(
                         gauge.set(
                             {
                                 [metricName]: lit,
-                                device_id: deviceId,
-                                product_id: productId,
+                                device_id: device.deviceId,
+                                product_id: device.productId,
                             },
                             value.value === lit ? 1 : 0,
                         );
@@ -153,8 +177,8 @@ export function addDeviceMetrics(
                     gauge.set(
                         {
                             [metricName]: `${value.value}`,
-                            device_id: deviceId,
-                            product_id: productId,
+                            device_id: device.deviceId,
+                            product_id: device.productId,
                         },
                         1,
                     );
@@ -193,7 +217,7 @@ export function addDeviceMetrics(
                 registers: [registry],
             });
             counter.inc(
-                { device_id: deviceId, product_id: productId },
+                { device_id: device.deviceId, product_id: device.productId },
                 metricValue,
             );
         } else {
@@ -204,7 +228,7 @@ export function addDeviceMetrics(
                 registers: [registry],
             });
             gauge.set(
-                { device_id: deviceId, product_id: productId },
+                { device_id: device.deviceId, product_id: device.productId },
                 metricValue,
             );
         }
