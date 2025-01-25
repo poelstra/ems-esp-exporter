@@ -5,7 +5,6 @@ import { addDeviceMetrics, addSystemMetrics, getMetrics } from "./metrics";
 import {
     getExampleDeviceValues_3_5,
     getExampleDeviceValues_3_7,
-    getExampleScrapedDevice_3_7,
     getExampleScrapedValues,
     getExampleSystem_3_5,
     getExampleSystem_3_7,
@@ -46,10 +45,8 @@ it("handles device metrics v3.7", async () => {
     expect(await registry.metrics()).toMatchSnapshot();
 });
 
-it("handles device entity value metrics v3.7", async () => {
-    const registry = new Registry();
-    // Build metrics from /entities response directly
-    addDeviceMetrics(registry, await getExampleScrapedDevice_3_7());
+it("handles entity-based metrics v3.7", async () => {
+    const registry = getMetrics(await getExampleScrapedValues("example-37"));
     expect(await registry.metrics()).toMatchSnapshot();
 });
 
