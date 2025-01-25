@@ -3226,7 +3226,6 @@ device name,device type,product id,shortname,fullname,type [options...] \| (min/
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.circ,circulation active,boolean, ,true,switch.boiler_dhw_circulation_active,switch.boiler_dhw_circ,5,9,1,49,1
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.curtemp,current intern temperature,uint16 (>=0<=3199),C,false,sensor.boiler_dhw_current_intern_temperature,sensor.boiler_dhw_curtemp,5,9,1/10,50,1
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.curtemp2,current extern temperature,uint16 (>=0<=3199),C,false,sensor.boiler_dhw_current_extern_temperature,sensor.boiler_dhw_curtemp2,5,9,1/10,51,1
-"Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.curflow,current tap water flow,uint8 (>=0<=25),l/min,false,sensor.boiler_dhw_current_tap_water_flow,sensor.boiler_dhw_curflow,5,9,1/10,52,1
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.storagetemp1,storage intern temperature,uint16 (>=0<=3199),C,false,sensor.boiler_dhw_storage_intern_temperature,sensor.boiler_dhw_storagetemp1,5,9,1/10,53,1
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.storagetemp2,storage extern temperature,uint16 (>=0<=3199),C,false,sensor.boiler_dhw_storage_extern_temperature,sensor.boiler_dhw_storagetemp2,5,9,1/10,54,1
 "Greenstar HIU, Logamax kompakt WS170",boiler,219,dhw.activated,activated,boolean, ,true,switch.boiler_dhw_activated,switch.boiler_dhw_activated,5,9,1,55,1
