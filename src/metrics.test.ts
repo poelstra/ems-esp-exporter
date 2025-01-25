@@ -57,3 +57,8 @@ it("handles boiler and thermostat metrics having overlapping entities", async ()
     const registry = getMetrics(await getExampleScrapedValues("mihok-en"));
     expect(await registry.metrics()).toMatchSnapshot();
 });
+
+it("handles localized entities response", async () => {
+    const registry = getMetrics(await getExampleScrapedValues("mihok-sk"));
+    expect(await registry.metrics()).toMatchSnapshot();
+});

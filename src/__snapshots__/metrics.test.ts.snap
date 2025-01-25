@@ -1521,6 +1521,600 @@ emsesp_boiler_dhw_nrg{device_id="8",product_id="115"} 0
 "
 `;
 
+exports[`handles localized entities response 1`] = `
+"# HELP emsesp_version EMS-ESP version
+# TYPE emsesp_version gauge
+emsesp_version{emsesp_version="3.7.1"} 1
+
+# HELP emsesp_boiler_heatingoff vynútené vypnutie kúrenia [boolean]
+# TYPE emsesp_boiler_heatingoff gauge
+emsesp_boiler_heatingoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_heatingactive vykurovanie aktívne [boolean]
+# TYPE emsesp_boiler_heatingactive gauge
+emsesp_boiler_heatingactive{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_tapwateractive TÚV aktívna [boolean]
+# TYPE emsesp_boiler_tapwateractive gauge
+emsesp_boiler_tapwateractive{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_selflowtemp zvolená teplota na výstupe [°C]
+# TYPE emsesp_boiler_selflowtemp gauge
+emsesp_boiler_selflowtemp{device_id="8",product_id="123"} 5
+
+# HELP emsesp_boiler_heatingpumpmod modulácia tepelného čerpadla [%]
+# TYPE emsesp_boiler_heatingpumpmod gauge
+emsesp_boiler_heatingpumpmod{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curflowtemp aktuálna výstupná teplota [°C]
+# TYPE emsesp_boiler_curflowtemp gauge
+emsesp_boiler_curflowtemp{device_id="8",product_id="123"} 23.8
+
+# HELP emsesp_boiler_burngas plyn [boolean]
+# TYPE emsesp_boiler_burngas gauge
+emsesp_boiler_burngas{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burngas2 plynový stupeň 2 [boolean]
+# TYPE emsesp_boiler_burngas2 gauge
+emsesp_boiler_burngas2{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_flamecurr prúd plameňa [µA]
+# TYPE emsesp_boiler_flamecurr gauge
+emsesp_boiler_flamecurr{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_fanwork ventilátor [boolean]
+# TYPE emsesp_boiler_fanwork gauge
+emsesp_boiler_fanwork{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_ignwork zapálenie [boolean]
+# TYPE emsesp_boiler_ignwork gauge
+emsesp_boiler_ignwork{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_oilpreheat predohrev oleja [boolean]
+# TYPE emsesp_boiler_oilpreheat gauge
+emsesp_boiler_oilpreheat{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burnminpower min. výkon horáka [%]
+# TYPE emsesp_boiler_burnminpower gauge
+emsesp_boiler_burnminpower{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burnmaxpower max. výkon horáka [%]
+# TYPE emsesp_boiler_burnmaxpower gauge
+emsesp_boiler_burnmaxpower{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_burnminperiod minimálne obdobie horáka [minúty]
+# TYPE emsesp_boiler_burnminperiod gauge
+emsesp_boiler_burnminperiod{device_id="8",product_id="123"} 10
+
+# HELP emsesp_boiler_boilhyston hysterézia teploty pri zapnutí [°C]
+# TYPE emsesp_boiler_boilhyston gauge
+emsesp_boiler_boilhyston{device_id="8",product_id="123"} -6
+
+# HELP emsesp_boiler_boilhystoff hysterézia teploty pri vypnutí [°C]
+# TYPE emsesp_boiler_boilhystoff gauge
+emsesp_boiler_boilhystoff{device_id="8",product_id="123"} 6
+
+# HELP emsesp_boiler_boil2hyston 2. stupeň hysterézie pri teplote [°C]
+# TYPE emsesp_boiler_boil2hyston gauge
+emsesp_boiler_boil2hyston{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_boil2hystoff teplota vypnutia hysterézneho stupňa 2 [°C]
+# TYPE emsesp_boiler_boil2hystoff gauge
+emsesp_boiler_boil2hystoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curveon vykurovacia krivka zapnutá [boolean]
+# TYPE emsesp_boiler_curveon gauge
+emsesp_boiler_curveon{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curvebase základňa vykurovacej krivky [°C]
+# TYPE emsesp_boiler_curvebase gauge
+emsesp_boiler_curvebase{device_id="8",product_id="123"} 20
+
+# HELP emsesp_boiler_curveend koniec vykurovacej krivky [°C]
+# TYPE emsesp_boiler_curveend gauge
+emsesp_boiler_curveend{device_id="8",product_id="123"} 90
+
+# HELP emsesp_boiler_summertemp letná teplota [°C]
+# TYPE emsesp_boiler_summertemp gauge
+emsesp_boiler_summertemp{device_id="8",product_id="123"} 16
+
+# HELP emsesp_boiler_nofrostmode nofrost režim [boolean]
+# TYPE emsesp_boiler_nofrostmode gauge
+emsesp_boiler_nofrostmode{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_nofrosttemp nofrost teplota [°C]
+# TYPE emsesp_boiler_nofrosttemp gauge
+emsesp_boiler_nofrosttemp{device_id="8",product_id="123"} 5
+
+# HELP emsesp_boiler_heatingactivated kúrenie aktivované [boolean]
+# TYPE emsesp_boiler_heatingactivated gauge
+emsesp_boiler_heatingactivated{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_heatingtemp teplota vykurovania [°C]
+# TYPE emsesp_boiler_heatingtemp gauge
+emsesp_boiler_heatingtemp{device_id="8",product_id="123"} 48
+
+# HELP emsesp_boiler_heatingpump tepelné čerpadlo [boolean]
+# TYPE emsesp_boiler_heatingpump gauge
+emsesp_boiler_heatingpump{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_pumpmodmax maximálny výkon čerpadla kotla [%]
+# TYPE emsesp_boiler_pumpmodmax gauge
+emsesp_boiler_pumpmodmax{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_pumpmodmin min. výkon čerpadla kotla [%]
+# TYPE emsesp_boiler_pumpmodmin gauge
+emsesp_boiler_pumpmodmin{device_id="8",product_id="123"} 0.1
+
+# HELP emsesp_boiler_pumpmode režim kotlového čerpadla [enum]
+# TYPE emsesp_boiler_pumpmode gauge
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="proporcionálne",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-1",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-2",device_id="8",product_id="123"} 1
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-3",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-4",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_pumpdelay oneskorenie čerpadla [minúty]
+# TYPE emsesp_boiler_pumpdelay gauge
+emsesp_boiler_pumpdelay{device_id="8",product_id="123"} 3
+
+# HELP emsesp_boiler_pumpontemp teplota logiky čerpadla [°C]
+# TYPE emsesp_boiler_pumpontemp gauge
+emsesp_boiler_pumpontemp{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_selburnpow horák zvolený maximálny výkon [%]
+# TYPE emsesp_boiler_selburnpow gauge
+emsesp_boiler_selburnpow{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curburnpow aktuálny výkon horáka [%]
+# TYPE emsesp_boiler_curburnpow gauge
+emsesp_boiler_curburnpow{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burnstarts štarty horáka [number]
+# TYPE emsesp_boiler_burnstarts gauge
+emsesp_boiler_burnstarts{device_id="8",product_id="123"} 26861
+
+# HELP emsesp_boiler_burnworkmin celkový prevádzkový čas horáka [minúty]
+# TYPE emsesp_boiler_burnworkmin gauge
+emsesp_boiler_burnworkmin{device_id="8",product_id="123"} 738667
+
+# HELP emsesp_boiler_burn2workmin doba prevádzky 2. stupňa horáka [minúty]
+# TYPE emsesp_boiler_burn2workmin gauge
+emsesp_boiler_burn2workmin{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_heatworkmin celkový prevádzkový čas kúrenia [minúty]
+# TYPE emsesp_boiler_heatworkmin gauge
+emsesp_boiler_heatworkmin{device_id="8",product_id="123"} 609070
+
+# HELP emsesp_boiler_heatstarts štarty horáka na kúrenie [number]
+# TYPE emsesp_boiler_heatstarts gauge
+emsesp_boiler_heatstarts{device_id="8",product_id="123"} 12635
+
+# HELP emsesp_boiler_ubauptime Celkový čas chodu systému [minúty]
+# TYPE emsesp_boiler_ubauptime gauge
+emsesp_boiler_ubauptime{device_id="8",product_id="123"} 4759956
+
+# HELP emsesp_boiler_lastcode posledný chybový kód [string]
+# TYPE emsesp_boiler_lastcode gauge
+emsesp_boiler_lastcode{emsesp_boiler_lastcode="6L(229) 07.12.2021 08:33 (0 min)",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_servicecode servisný kód [string]
+# TYPE emsesp_boiler_servicecode gauge
+emsesp_boiler_servicecode{emsesp_boiler_servicecode="0H",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_servicecodenumber servisný kód - číslo [number]
+# TYPE emsesp_boiler_servicecodenumber gauge
+emsesp_boiler_servicecodenumber{device_id="8",product_id="123"} 203
+
+# HELP emsesp_boiler_maintenancemessage správa o údržbe [string]
+# TYPE emsesp_boiler_maintenancemessage gauge
+emsesp_boiler_maintenancemessage{emsesp_boiler_maintenancemessage="H00",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_maintenance plánovaná údržba [enum]
+# TYPE emsesp_boiler_maintenance gauge
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="vyp",device_id="8",product_id="123"} 1
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="čas",device_id="8",product_id="123"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="dátum",device_id="8",product_id="123"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="manuálny",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_maintenancetime čas do ďalšej údržby [hodiny]
+# TYPE emsesp_boiler_maintenancetime gauge
+emsesp_boiler_maintenancetime{device_id="8",product_id="123"} 6000
+
+# HELP emsesp_boiler_maintenancedate dátum ďalšej údržby [string]
+# TYPE emsesp_boiler_maintenancedate gauge
+emsesp_boiler_maintenancedate{emsesp_boiler_maintenancedate="25.06.2021",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_settemp TÚV nastavená teplota [°C]
+# TYPE emsesp_boiler_dhw_settemp gauge
+emsesp_boiler_dhw_settemp{device_id="8",product_id="123"} 10
+
+# HELP emsesp_boiler_dhw_seltemp TÚV zvolená teplota [°C]
+# TYPE emsesp_boiler_dhw_seltemp gauge
+emsesp_boiler_dhw_seltemp{device_id="8",product_id="123"} 45
+
+# HELP emsesp_boiler_dhw_type TÚV typ [enum]
+# TYPE emsesp_boiler_dhw_type gauge
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="vyp",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="tok",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="zásobníkový prietok",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="zásobník",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="vrstvený zásobník",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_comfort TÚV komfort [enum]
+# TYPE emsesp_boiler_dhw_comfort gauge
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="horúci",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="eko",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="inteligentný",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_flowtempoffset TÚV Posun teploty prívodu [°C]
+# TYPE emsesp_boiler_dhw_flowtempoffset gauge
+emsesp_boiler_dhw_flowtempoffset{device_id="8",product_id="123"} 40
+
+# HELP emsesp_boiler_dhw_maxpower TÚV maximálny výkon [%]
+# TYPE emsesp_boiler_dhw_maxpower gauge
+emsesp_boiler_dhw_maxpower{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_circpump TÚV dostupné obehové čerpadlo [boolean]
+# TYPE emsesp_boiler_dhw_circpump gauge
+emsesp_boiler_dhw_circpump{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_chargetype TÚV typ nabíjania [enum]
+# TYPE emsesp_boiler_dhw_chargetype gauge
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="nabíjacie čerpadlo",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="3-cestný ventil",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_hyston TÚV hysterézia teploty [°C]
+# TYPE emsesp_boiler_dhw_hyston gauge
+emsesp_boiler_dhw_hyston{device_id="8",product_id="123"} -5
+
+# HELP emsesp_boiler_dhw_hystoff TÚV teplota hysterézie [°C]
+# TYPE emsesp_boiler_dhw_hystoff gauge
+emsesp_boiler_dhw_hystoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_disinfectiontemp TÚV teplota dezinfekcie [°C]
+# TYPE emsesp_boiler_dhw_disinfectiontemp gauge
+emsesp_boiler_dhw_disinfectiontemp{device_id="8",product_id="123"} 70
+
+# HELP emsesp_boiler_dhw_circmode TÚV režim obehového čerpadla [enum]
+# TYPE emsesp_boiler_dhw_circmode gauge
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="vyp",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="1x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="2x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="3x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="4x3min",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="5x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="6x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="nepretržité",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_circ TÚV obeh aktívny [boolean]
+# TYPE emsesp_boiler_dhw_circ gauge
+emsesp_boiler_dhw_circ{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_curtemp TÚV aktuálna vnútorná teplota [°C]
+# TYPE emsesp_boiler_dhw_curtemp gauge
+emsesp_boiler_dhw_curtemp{device_id="8",product_id="123"} 33.2
+
+# HELP emsesp_boiler_dhw_curtemp2 TÚV aktuálna vonkajšia teplota [°C]
+# TYPE emsesp_boiler_dhw_curtemp2 gauge
+emsesp_boiler_dhw_curtemp2{device_id="8",product_id="123"} 33.2
+
+# HELP emsesp_boiler_dhw_curflow TÚV aktuálny prietok vody z vodovodu [l/min]
+# TYPE emsesp_boiler_dhw_curflow gauge
+emsesp_boiler_dhw_curflow{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_storagetemp2 TÚV vonkajšia teplota skladovania [°C]
+# TYPE emsesp_boiler_dhw_storagetemp2 gauge
+emsesp_boiler_dhw_storagetemp2{device_id="8",product_id="123"} 33.2
+
+# HELP emsesp_boiler_dhw_activated TÚV aktivovaný [boolean]
+# TYPE emsesp_boiler_dhw_activated gauge
+emsesp_boiler_dhw_activated{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_onetime TÚV jednorazové nabíjanie [boolean]
+# TYPE emsesp_boiler_dhw_onetime gauge
+emsesp_boiler_dhw_onetime{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_disinfecting TÚV dezinfekcia [boolean]
+# TYPE emsesp_boiler_dhw_disinfecting gauge
+emsesp_boiler_dhw_disinfecting{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_charging TÚV nabíjanie [boolean]
+# TYPE emsesp_boiler_dhw_charging gauge
+emsesp_boiler_dhw_charging{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_recharging TÚV nabíjanie [boolean]
+# TYPE emsesp_boiler_dhw_recharging gauge
+emsesp_boiler_dhw_recharging{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_tempok TÚV teplota ok [boolean]
+# TYPE emsesp_boiler_dhw_tempok gauge
+emsesp_boiler_dhw_tempok{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_active TÚV aktívny [boolean]
+# TYPE emsesp_boiler_dhw_active gauge
+emsesp_boiler_dhw_active{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_3wayvalve TÚV 3-cestný ventil aktívny [boolean]
+# TYPE emsesp_boiler_dhw_3wayvalve gauge
+emsesp_boiler_dhw_3wayvalve{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_starts TÚV Počet štartov [number]
+# TYPE emsesp_boiler_dhw_starts gauge
+emsesp_boiler_dhw_starts{device_id="8",product_id="123"} 14226
+
+# HELP emsesp_boiler_dhw_workm TÚV aktívny čas [minúty]
+# TYPE emsesp_boiler_dhw_workm gauge
+emsesp_boiler_dhw_workm{device_id="8",product_id="123"} 129597
+
+# HELP emsesp_boiler_nompower nominálny výkon [kW]
+# TYPE emsesp_boiler_nompower gauge
+emsesp_boiler_nompower{device_id="8",product_id="123"} 24
+
+# HELP emsesp_boiler_nrgtotal celková energia [kWh]
+# TYPE emsesp_boiler_nrgtotal gauge
+emsesp_boiler_nrgtotal{device_id="8",product_id="123"} 1077.86
+
+# HELP emsesp_boiler_nrgheat energetické vykurovanie [kWh]
+# TYPE emsesp_boiler_nrgheat counter
+emsesp_boiler_nrgheat{device_id="8",product_id="123"} 864.88
+
+# HELP emsesp_boiler_dhw_nrg TÚV energia [kWh]
+# TYPE emsesp_boiler_dhw_nrg counter
+emsesp_boiler_dhw_nrg{device_id="8",product_id="123"} 212.98
+
+# HELP emsesp_thermostat_datetime dátum/čas [string]
+# TYPE emsesp_thermostat_datetime gauge
+emsesp_thermostat_datetime{emsesp_thermostat_datetime="24.01.2025 13:44",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_intoffset odchýlka vnútornej teploty [°C]
+# TYPE emsesp_thermostat_intoffset gauge
+emsesp_thermostat_intoffset{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_floordry sušenie podlahy [enum]
+# TYPE emsesp_thermostat_floordry gauge
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="vyp",device_id="16",product_id="158"} 1
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="štart",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="kúrenie",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="pauza",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="chladenie",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="koniec",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dampedoutdoortemp tlmená vonkajšia teplota [°C]
+# TYPE emsesp_thermostat_dampedoutdoortemp gauge
+emsesp_thermostat_dampedoutdoortemp{device_id="16",product_id="158"} -10
+
+# HELP emsesp_thermostat_floordrytemp teplota sušenia podlahy [°C]
+# TYPE emsesp_thermostat_floordrytemp gauge
+emsesp_thermostat_floordrytemp{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_building typ budovy [enum]
+# TYPE emsesp_thermostat_building gauge
+emsesp_thermostat_building{emsesp_thermostat_building="ľahký",device_id="16",product_id="158"} 0
+emsesp_thermostat_building{emsesp_thermostat_building="stredný",device_id="16",product_id="158"} 1
+emsesp_thermostat_building{emsesp_thermostat_building="ťažký",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_minexttemp minimálna vonkajšia teplota [°C]
+# TYPE emsesp_thermostat_minexttemp gauge
+emsesp_thermostat_minexttemp{device_id="16",product_id="158"} -10
+
+# HELP emsesp_thermostat_damping tlmenie vonkajšej teploty [boolean]
+# TYPE emsesp_thermostat_damping gauge
+emsesp_thermostat_damping{device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_seltemp hc1 zvolená izbová teplota [°C]
+# TYPE emsesp_thermostat_hc1_seltemp gauge
+emsesp_thermostat_hc1_seltemp{device_id="16",product_id="158"} 21.5
+
+# HELP emsesp_thermostat_hc1_currtemp hc1 aktuálna izbová teplota [°C]
+# TYPE emsesp_thermostat_hc1_currtemp gauge
+emsesp_thermostat_hc1_currtemp{device_id="16",product_id="158"} 22.1
+
+# HELP emsesp_thermostat_hc1_haclimate hc1 mqtt discovery aktuálna teplota v miestnosti [enum]
+# TYPE emsesp_thermostat_hc1_haclimate gauge
+emsesp_thermostat_hc1_haclimate{emsesp_thermostat_hc1_haclimate="zadaná teplota",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_haclimate{emsesp_thermostat_hc1_haclimate="izbová teplota",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_mode hc1 režim [enum]
+# TYPE emsesp_thermostat_hc1_mode gauge
+emsesp_thermostat_hc1_mode{emsesp_thermostat_hc1_mode="manuálny",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_mode{emsesp_thermostat_hc1_mode="auto",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_modetype hc1 typ režimu [enum]
+# TYPE emsesp_thermostat_hc1_modetype gauge
+emsesp_thermostat_hc1_modetype{emsesp_thermostat_hc1_modetype="eko",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_modetype{emsesp_thermostat_hc1_modetype="komfortný",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_ecotemp hc1 eko teplota [°C]
+# TYPE emsesp_thermostat_hc1_ecotemp gauge
+emsesp_thermostat_hc1_ecotemp{device_id="16",product_id="158"} 21
+
+# HELP emsesp_thermostat_hc1_manualtemp hc1 manuálna teplota [°C]
+# TYPE emsesp_thermostat_hc1_manualtemp gauge
+emsesp_thermostat_hc1_manualtemp{device_id="16",product_id="158"} 20.5
+
+# HELP emsesp_thermostat_hc1_comforttemp hc1 komfortná teplota [°C]
+# TYPE emsesp_thermostat_hc1_comforttemp gauge
+emsesp_thermostat_hc1_comforttemp{device_id="16",product_id="158"} 22
+
+# HELP emsesp_thermostat_hc1_summertemp hc1 letná teplota [°C]
+# TYPE emsesp_thermostat_hc1_summertemp gauge
+emsesp_thermostat_hc1_summertemp{device_id="16",product_id="158"} 17
+
+# HELP emsesp_thermostat_hc1_designtemp hc1 návrhová teplota [°C]
+# TYPE emsesp_thermostat_hc1_designtemp gauge
+emsesp_thermostat_hc1_designtemp{device_id="16",product_id="158"} 75
+
+# HELP emsesp_thermostat_hc1_offsettemp hc1 offsetová teplota [°C]
+# TYPE emsesp_thermostat_hc1_offsettemp gauge
+emsesp_thermostat_hc1_offsettemp{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_minflowtemp hc1 min. výstupná teplota [°C]
+# TYPE emsesp_thermostat_hc1_minflowtemp gauge
+emsesp_thermostat_hc1_minflowtemp{device_id="16",product_id="158"} 25
+
+# HELP emsesp_thermostat_hc1_maxflowtemp hc1 maximálna teplota prívodu [°C]
+# TYPE emsesp_thermostat_hc1_maxflowtemp gauge
+emsesp_thermostat_hc1_maxflowtemp{device_id="16",product_id="158"} 65
+
+# HELP emsesp_thermostat_hc1_roominfluence hc1 vplyv miestnosti [°C]
+# TYPE emsesp_thermostat_hc1_roominfluence gauge
+emsesp_thermostat_hc1_roominfluence{device_id="16",product_id="158"} 3
+
+# HELP emsesp_thermostat_hc1_roominflfactor hc1 faktor vplyvu miestnosti [number]
+# TYPE emsesp_thermostat_hc1_roominflfactor gauge
+emsesp_thermostat_hc1_roominflfactor{device_id="16",product_id="158"} 4
+
+# HELP emsesp_thermostat_hc1_curroominfl hc1 aktuálny vplyv miestnosti [°C]
+# TYPE emsesp_thermostat_hc1_curroominfl gauge
+emsesp_thermostat_hc1_curroominfl{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_nofrostmode hc1 nofrost režim [enum]
+# TYPE emsesp_thermostat_hc1_nofrostmode gauge
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="izba",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="vonku",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="miestnosť vonku",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_nofrosttemp hc1 nofrost teplota [°C]
+# TYPE emsesp_thermostat_hc1_nofrosttemp gauge
+emsesp_thermostat_hc1_nofrosttemp{device_id="16",product_id="158"} 5
+
+# HELP emsesp_thermostat_hc1_targetflowtemp hc1 cieľová teplota prívodu [°C]
+# TYPE emsesp_thermostat_hc1_targetflowtemp gauge
+emsesp_thermostat_hc1_targetflowtemp{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_heatingtype hc1 typ vykurovania [enum]
+# TYPE emsesp_thermostat_hc1_heatingtype gauge
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="vyp",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="radiátor",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="konvektor",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="podlaha",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_summersetmode hc1 nastaviť letný režim [enum]
+# TYPE emsesp_thermostat_hc1_summersetmode gauge
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="leto",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="auto",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="zima",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_summermode hc1 letný režim [enum]
+# TYPE emsesp_thermostat_hc1_summermode gauge
+emsesp_thermostat_hc1_summermode{emsesp_thermostat_hc1_summermode="zima",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_summermode{emsesp_thermostat_hc1_summermode="leto",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_controlmode hc1 kontrolný režim [enum]
+# TYPE emsesp_thermostat_hc1_controlmode gauge
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="kompenzácia počasia",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="vonkajší základný bod",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="n/a",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="izba",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="výkon",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="konštantný",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_program hc1 program [enum]
+# TYPE emsesp_thermostat_hc1_program gauge
+emsesp_thermostat_hc1_program{emsesp_thermostat_hc1_program="prog 1",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_program{emsesp_thermostat_hc1_program="prog 2",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_tempautotemp hc1 automatický režim dočasnej nastavenej teploty [°C]
+# TYPE emsesp_thermostat_hc1_tempautotemp gauge
+emsesp_thermostat_hc1_tempautotemp{device_id="16",product_id="158"} 21.5
+
+# HELP emsesp_thermostat_hc1_fastheatup hc1 rýchle zahriatie [%]
+# TYPE emsesp_thermostat_hc1_fastheatup gauge
+emsesp_thermostat_hc1_fastheatup{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_switchonoptimization hc1 optimalizácia pri zapnutí [boolean]
+# TYPE emsesp_thermostat_hc1_switchonoptimization gauge
+emsesp_thermostat_hc1_switchonoptimization{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_reducemode hc1 znížený režim [enum]
+# TYPE emsesp_thermostat_hc1_reducemode gauge
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="vonku",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="izba",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="znížený",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_noreducetemp hc1 žiadne zníženie teploty pod teplotu [°C]
+# TYPE emsesp_thermostat_hc1_noreducetemp gauge
+emsesp_thermostat_hc1_noreducetemp{device_id="16",product_id="158"} -31
+
+# HELP emsesp_thermostat_hc1_reducetemp hc1 vypnúť/znížiť teplotu spínača [°C]
+# TYPE emsesp_thermostat_hc1_reducetemp gauge
+emsesp_thermostat_hc1_reducetemp{device_id="16",product_id="158"} 5
+
+# HELP emsesp_thermostat_hc1_coolingon hc1 chladenie [boolean]
+# TYPE emsesp_thermostat_hc1_coolingon gauge
+emsesp_thermostat_hc1_coolingon{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_hpmode hc1 Režim HP [enum]
+# TYPE emsesp_thermostat_hc1_hpmode gauge
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="kúrenie",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="chladenie",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="kúrenie a chladenie",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_control hc1 ovládacie zariadenie [enum]
+# TYPE emsesp_thermostat_hc1_control gauge
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC310",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC200",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC100",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC100H",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="TC100",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_mode TÚV režim [enum]
+# TYPE emsesp_thermostat_dhw_mode gauge
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="vyp",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="normálny",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="komfortný",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="auto",device_id="16",product_id="158"} 1
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="vlastný prog.",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_circmode TÚV režim obehového čerpadla [enum]
+# TYPE emsesp_thermostat_dhw_circmode gauge
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="vyp",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="zap",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="auto",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="vlastný prog.",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_dhw_chargeduration TÚV doba nabíjania [minúty]
+# TYPE emsesp_thermostat_dhw_chargeduration gauge
+emsesp_thermostat_dhw_chargeduration{device_id="16",product_id="158"} 30
+
+# HELP emsesp_thermostat_dhw_charge TÚV nabiť [boolean]
+# TYPE emsesp_thermostat_dhw_charge gauge
+emsesp_thermostat_dhw_charge{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_extra TÚV extra [boolean]
+# TYPE emsesp_thermostat_dhw_extra gauge
+emsesp_thermostat_dhw_extra{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfecting TÚV dezinfekcia [boolean]
+# TYPE emsesp_thermostat_dhw_disinfecting gauge
+emsesp_thermostat_dhw_disinfecting{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfectday TÚV deň dezinfekcie [enum]
+# TYPE emsesp_thermostat_dhw_disinfectday gauge
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="po",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="ut",device_id="16",product_id="158"} 1
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="st",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="št",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="pi",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="so",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="ne",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="všetko",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfecttime TÚV čas na dezinfekciu [minúty]
+# TYPE emsesp_thermostat_dhw_disinfecttime gauge
+emsesp_thermostat_dhw_disinfecttime{device_id="16",product_id="158"} 120
+
+# HELP emsesp_thermostat_dhw_dailyheating TÚV denné kúrenie [boolean]
+# TYPE emsesp_thermostat_dhw_dailyheating gauge
+emsesp_thermostat_dhw_dailyheating{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_dailyheattime TÚV denný čas vykurovania [minúty]
+# TYPE emsesp_thermostat_dhw_dailyheattime gauge
+emsesp_thermostat_dhw_dailyheattime{device_id="16",product_id="158"} 120
+"
+`;
+
 exports[`handles system metrics v3.5 1`] = `
 "# HELP emsesp_version EMS-ESP version
 # TYPE emsesp_version gauge

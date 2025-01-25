@@ -44,15 +44,10 @@ export function parseEntityValue(raw: RawEntityValue): Value {
                         : parseFloat(String(raw.value));
                 break;
             case ValueType.Boolean:
-                switch (String(raw.value).toLowerCase()) {
-                    case "true":
-                    case "on":
-                    case "1":
-                        value = true;
-                        break;
-                    default:
-                        value = false;
-                }
+                // Index will exist if value is defined, but
+                // value is a localized string, so use index
+                // instead (0 = false, 1 = true).
+                value = !!raw.index;
                 break;
             case ValueType.Enum:
                 value = raw.value;
