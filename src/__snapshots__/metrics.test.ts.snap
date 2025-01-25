@@ -1,929 +1,1523 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles boiler and thermostat metrics having overlapping entities 1`] = `
+"# HELP emsesp_version EMS-ESP version
+# TYPE emsesp_version gauge
+emsesp_version{emsesp_version="3.7.1"} 1
+
+# HELP emsesp_boiler_heatingoff force heating off [boolean]
+# TYPE emsesp_boiler_heatingoff gauge
+emsesp_boiler_heatingoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_heatingactive heating active [boolean]
+# TYPE emsesp_boiler_heatingactive gauge
+emsesp_boiler_heatingactive{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_tapwateractive tapwater active [boolean]
+# TYPE emsesp_boiler_tapwateractive gauge
+emsesp_boiler_tapwateractive{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_selflowtemp selected flow temperature [°C]
+# TYPE emsesp_boiler_selflowtemp gauge
+emsesp_boiler_selflowtemp{device_id="8",product_id="123"} 43
+
+# HELP emsesp_boiler_heatingpumpmod heating pump modulation [%]
+# TYPE emsesp_boiler_heatingpumpmod gauge
+emsesp_boiler_heatingpumpmod{device_id="8",product_id="123"} 0.68
+
+# HELP emsesp_boiler_curflowtemp current flow temperature [°C]
+# TYPE emsesp_boiler_curflowtemp gauge
+emsesp_boiler_curflowtemp{device_id="8",product_id="123"} 47.9
+
+# HELP emsesp_boiler_burngas gas [boolean]
+# TYPE emsesp_boiler_burngas gauge
+emsesp_boiler_burngas{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_burngas2 gas stage 2 [boolean]
+# TYPE emsesp_boiler_burngas2 gauge
+emsesp_boiler_burngas2{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_flamecurr flame current [µA]
+# TYPE emsesp_boiler_flamecurr gauge
+emsesp_boiler_flamecurr{device_id="8",product_id="123"} 21.4
+
+# HELP emsesp_boiler_fanwork fan [boolean]
+# TYPE emsesp_boiler_fanwork gauge
+emsesp_boiler_fanwork{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_ignwork ignition [boolean]
+# TYPE emsesp_boiler_ignwork gauge
+emsesp_boiler_ignwork{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_oilpreheat oil preheating [boolean]
+# TYPE emsesp_boiler_oilpreheat gauge
+emsesp_boiler_oilpreheat{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burnminpower burner min power [%]
+# TYPE emsesp_boiler_burnminpower gauge
+emsesp_boiler_burnminpower{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_burnmaxpower burner max power [%]
+# TYPE emsesp_boiler_burnmaxpower gauge
+emsesp_boiler_burnmaxpower{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_burnminperiod burner min period [seconds]
+# TYPE emsesp_boiler_burnminperiod gauge
+emsesp_boiler_burnminperiod{device_id="8",product_id="123"} 600
+
+# HELP emsesp_boiler_boilhyston hysteresis on temperature [°C]
+# TYPE emsesp_boiler_boilhyston gauge
+emsesp_boiler_boilhyston{device_id="8",product_id="123"} -6
+
+# HELP emsesp_boiler_boilhystoff hysteresis off temperature [°C]
+# TYPE emsesp_boiler_boilhystoff gauge
+emsesp_boiler_boilhystoff{device_id="8",product_id="123"} 6
+
+# HELP emsesp_boiler_boil2hyston hysteresis stage 2 on temperature [°C]
+# TYPE emsesp_boiler_boil2hyston gauge
+emsesp_boiler_boil2hyston{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_boil2hystoff hysteresis stage 2 off temperature [°C]
+# TYPE emsesp_boiler_boil2hystoff gauge
+emsesp_boiler_boil2hystoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curveon heatingcurve on [boolean]
+# TYPE emsesp_boiler_curveon gauge
+emsesp_boiler_curveon{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_curvebase heatingcurve base [°C]
+# TYPE emsesp_boiler_curvebase gauge
+emsesp_boiler_curvebase{device_id="8",product_id="123"} 20
+
+# HELP emsesp_boiler_curveend heatingcurve end [°C]
+# TYPE emsesp_boiler_curveend gauge
+emsesp_boiler_curveend{device_id="8",product_id="123"} 90
+
+# HELP emsesp_boiler_summertemp summer temperature [°C]
+# TYPE emsesp_boiler_summertemp gauge
+emsesp_boiler_summertemp{device_id="8",product_id="123"} 16
+
+# HELP emsesp_boiler_nofrostmode nofrost mode [boolean]
+# TYPE emsesp_boiler_nofrostmode gauge
+emsesp_boiler_nofrostmode{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_nofrosttemp nofrost temperature [°C]
+# TYPE emsesp_boiler_nofrosttemp gauge
+emsesp_boiler_nofrosttemp{device_id="8",product_id="123"} 5
+
+# HELP emsesp_boiler_heatingactivated heating activated [boolean]
+# TYPE emsesp_boiler_heatingactivated gauge
+emsesp_boiler_heatingactivated{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_heatingtemp heating temperature [°C]
+# TYPE emsesp_boiler_heatingtemp gauge
+emsesp_boiler_heatingtemp{device_id="8",product_id="123"} 48
+
+# HELP emsesp_boiler_heatingpump heating pump [boolean]
+# TYPE emsesp_boiler_heatingpump gauge
+emsesp_boiler_heatingpump{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_pumpmodmax boiler pump max power [%]
+# TYPE emsesp_boiler_pumpmodmax gauge
+emsesp_boiler_pumpmodmax{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_pumpmodmin boiler pump min power [%]
+# TYPE emsesp_boiler_pumpmodmin gauge
+emsesp_boiler_pumpmodmin{device_id="8",product_id="123"} 0.1
+
+# HELP emsesp_boiler_pumpmode boiler pump mode [enum]
+# TYPE emsesp_boiler_pumpmode gauge
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="proportional",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-1",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-2",device_id="8",product_id="123"} 1
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-3",device_id="8",product_id="123"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-4",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_pumpdelay pump delay [seconds]
+# TYPE emsesp_boiler_pumpdelay gauge
+emsesp_boiler_pumpdelay{device_id="8",product_id="123"} 180
+
+# HELP emsesp_boiler_pumpontemp pump logic temperature [°C]
+# TYPE emsesp_boiler_pumpontemp gauge
+emsesp_boiler_pumpontemp{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_selburnpow burner selected max power [%]
+# TYPE emsesp_boiler_selburnpow gauge
+emsesp_boiler_selburnpow{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_curburnpow burner current power [%]
+# TYPE emsesp_boiler_curburnpow gauge
+emsesp_boiler_curburnpow{device_id="8",product_id="123"} 0.31
+
+# HELP emsesp_boiler_burnstarts burner starts [number]
+# TYPE emsesp_boiler_burnstarts gauge
+emsesp_boiler_burnstarts{device_id="8",product_id="123"} 26865
+
+# HELP emsesp_boiler_burnworkmin total burner operating time [seconds]
+# TYPE emsesp_boiler_burnworkmin gauge
+emsesp_boiler_burnworkmin{device_id="8",product_id="123"} 44337540
+
+# HELP emsesp_boiler_burn2workmin burner stage 2 operating time [seconds]
+# TYPE emsesp_boiler_burn2workmin gauge
+emsesp_boiler_burn2workmin{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_heatworkmin total heat operating time [seconds]
+# TYPE emsesp_boiler_heatworkmin gauge
+emsesp_boiler_heatworkmin{device_id="8",product_id="123"} 36560700
+
+# HELP emsesp_boiler_heatstarts burner starts heating [number]
+# TYPE emsesp_boiler_heatstarts gauge
+emsesp_boiler_heatstarts{device_id="8",product_id="123"} 12637
+
+# HELP emsesp_boiler_ubauptime total UBA operating time [seconds]
+# TYPE emsesp_boiler_ubauptime gauge
+emsesp_boiler_ubauptime{device_id="8",product_id="123"} 286308360
+
+# HELP emsesp_boiler_lastcode last error code [string]
+# TYPE emsesp_boiler_lastcode gauge
+emsesp_boiler_lastcode{emsesp_boiler_lastcode="6L(229) 07.12.2021 08:33 (0 min)",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_servicecode service code [string]
+# TYPE emsesp_boiler_servicecode gauge
+emsesp_boiler_servicecode{emsesp_boiler_servicecode="-H",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_servicecodenumber service code number [number]
+# TYPE emsesp_boiler_servicecodenumber gauge
+emsesp_boiler_servicecodenumber{device_id="8",product_id="123"} 200
+
+# HELP emsesp_boiler_maintenancemessage maintenance message [string]
+# TYPE emsesp_boiler_maintenancemessage gauge
+emsesp_boiler_maintenancemessage{emsesp_boiler_maintenancemessage="H00",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_maintenance maintenance scheduled [enum]
+# TYPE emsesp_boiler_maintenance gauge
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="off",device_id="8",product_id="123"} 1
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="time",device_id="8",product_id="123"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="date",device_id="8",product_id="123"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="manual",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_maintenancetime time to next maintenance [hours]
+# TYPE emsesp_boiler_maintenancetime gauge
+emsesp_boiler_maintenancetime{device_id="8",product_id="123"} 6000
+
+# HELP emsesp_boiler_maintenancedate next maintenance date [string]
+# TYPE emsesp_boiler_maintenancedate gauge
+emsesp_boiler_maintenancedate{emsesp_boiler_maintenancedate="25.06.2021",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_settemp dhw set temperature [°C]
+# TYPE emsesp_boiler_dhw_settemp gauge
+emsesp_boiler_dhw_settemp{device_id="8",product_id="123"} 45
+
+# HELP emsesp_boiler_dhw_seltemp dhw selected temperature [°C]
+# TYPE emsesp_boiler_dhw_seltemp gauge
+emsesp_boiler_dhw_seltemp{device_id="8",product_id="123"} 45
+
+# HELP emsesp_boiler_dhw_type dhw type [enum]
+# TYPE emsesp_boiler_dhw_type gauge
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="off",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="flow",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffered flow",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffer",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="layered buffer",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_comfort dhw comfort [enum]
+# TYPE emsesp_boiler_dhw_comfort gauge
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="hot",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="eco",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="intelligent",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_flowtempoffset dhw flow temperature offset [°C]
+# TYPE emsesp_boiler_dhw_flowtempoffset gauge
+emsesp_boiler_dhw_flowtempoffset{device_id="8",product_id="123"} 40
+
+# HELP emsesp_boiler_dhw_maxpower dhw max power [%]
+# TYPE emsesp_boiler_dhw_maxpower gauge
+emsesp_boiler_dhw_maxpower{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_circpump dhw circulation pump available [boolean]
+# TYPE emsesp_boiler_dhw_circpump gauge
+emsesp_boiler_dhw_circpump{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_chargetype dhw charging type [enum]
+# TYPE emsesp_boiler_dhw_chargetype gauge
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="chargepump",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="3-way valve",device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_hyston dhw hysteresis on temperature [°C]
+# TYPE emsesp_boiler_dhw_hyston gauge
+emsesp_boiler_dhw_hyston{device_id="8",product_id="123"} -5
+
+# HELP emsesp_boiler_dhw_hystoff dhw hysteresis off temperature [°C]
+# TYPE emsesp_boiler_dhw_hystoff gauge
+emsesp_boiler_dhw_hystoff{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_disinfectiontemp dhw disinfection temperature [°C]
+# TYPE emsesp_boiler_dhw_disinfectiontemp gauge
+emsesp_boiler_dhw_disinfectiontemp{device_id="8",product_id="123"} 70
+
+# HELP emsesp_boiler_dhw_circmode dhw circulation pump mode [enum]
+# TYPE emsesp_boiler_dhw_circmode gauge
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="off",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="1x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="2x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="3x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="4x3min",device_id="8",product_id="123"} 1
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="5x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="6x3min",device_id="8",product_id="123"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="continuous",device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_circ dhw circulation active [boolean]
+# TYPE emsesp_boiler_dhw_circ gauge
+emsesp_boiler_dhw_circ{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_curtemp dhw current intern temperature [°C]
+# TYPE emsesp_boiler_dhw_curtemp gauge
+emsesp_boiler_dhw_curtemp{device_id="8",product_id="123"} 36
+
+# HELP emsesp_boiler_dhw_curtemp2 dhw current extern temperature [°C]
+# TYPE emsesp_boiler_dhw_curtemp2 gauge
+emsesp_boiler_dhw_curtemp2{device_id="8",product_id="123"} 36
+
+# HELP emsesp_boiler_dhw_curflow dhw current tap water flow [l/min]
+# TYPE emsesp_boiler_dhw_curflow gauge
+emsesp_boiler_dhw_curflow{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_storagetemp2 dhw storage extern temperature [°C]
+# TYPE emsesp_boiler_dhw_storagetemp2 gauge
+emsesp_boiler_dhw_storagetemp2{device_id="8",product_id="123"} 35.9
+
+# HELP emsesp_boiler_dhw_activated dhw activated [boolean]
+# TYPE emsesp_boiler_dhw_activated gauge
+emsesp_boiler_dhw_activated{device_id="8",product_id="123"} 1
+
+# HELP emsesp_boiler_dhw_onetime dhw one time charging [boolean]
+# TYPE emsesp_boiler_dhw_onetime gauge
+emsesp_boiler_dhw_onetime{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_disinfecting dhw disinfecting [boolean]
+# TYPE emsesp_boiler_dhw_disinfecting gauge
+emsesp_boiler_dhw_disinfecting{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_charging dhw charging [boolean]
+# TYPE emsesp_boiler_dhw_charging gauge
+emsesp_boiler_dhw_charging{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_recharging dhw recharging [boolean]
+# TYPE emsesp_boiler_dhw_recharging gauge
+emsesp_boiler_dhw_recharging{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_tempok dhw temperature ok [boolean]
+# TYPE emsesp_boiler_dhw_tempok gauge
+emsesp_boiler_dhw_tempok{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_active dhw active [boolean]
+# TYPE emsesp_boiler_dhw_active gauge
+emsesp_boiler_dhw_active{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_3wayvalve dhw 3-way valve active [boolean]
+# TYPE emsesp_boiler_dhw_3wayvalve gauge
+emsesp_boiler_dhw_3wayvalve{device_id="8",product_id="123"} 0
+
+# HELP emsesp_boiler_dhw_starts dhw starts [number]
+# TYPE emsesp_boiler_dhw_starts gauge
+emsesp_boiler_dhw_starts{device_id="8",product_id="123"} 14228
+
+# HELP emsesp_boiler_dhw_workm dhw active time [seconds]
+# TYPE emsesp_boiler_dhw_workm gauge
+emsesp_boiler_dhw_workm{device_id="8",product_id="123"} 7776840
+
+# HELP emsesp_boiler_nompower nominal Power [kW]
+# TYPE emsesp_boiler_nompower gauge
+emsesp_boiler_nompower{device_id="8",product_id="123"} 24
+
+# HELP emsesp_boiler_nrgtotal total energy [kWh]
+# TYPE emsesp_boiler_nrgtotal gauge
+emsesp_boiler_nrgtotal{device_id="8",product_id="123"} 1102.71
+
+# HELP emsesp_boiler_nrgheat energy heating [kWh]
+# TYPE emsesp_boiler_nrgheat counter
+emsesp_boiler_nrgheat{device_id="8",product_id="123"} 889.74
+
+# HELP emsesp_boiler_dhw_nrg dhw energy [kWh]
+# TYPE emsesp_boiler_dhw_nrg counter
+emsesp_boiler_dhw_nrg{device_id="8",product_id="123"} 212.98
+
+# HELP emsesp_thermostat_datetime date/time [string]
+# TYPE emsesp_thermostat_datetime gauge
+emsesp_thermostat_datetime{emsesp_thermostat_datetime="24.01.2025 20:47",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_intoffset internal temperature offset [°C]
+# TYPE emsesp_thermostat_intoffset gauge
+emsesp_thermostat_intoffset{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_floordry floor drying [enum]
+# TYPE emsesp_thermostat_floordry gauge
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="off",device_id="16",product_id="158"} 1
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="start",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="heat",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="hold",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="cool",device_id="16",product_id="158"} 0
+emsesp_thermostat_floordry{emsesp_thermostat_floordry="end",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dampedoutdoortemp damped outdoor temperature [°C]
+# TYPE emsesp_thermostat_dampedoutdoortemp gauge
+emsesp_thermostat_dampedoutdoortemp{device_id="16",product_id="158"} -10
+
+# HELP emsesp_thermostat_floordrytemp floor drying temperature [°C]
+# TYPE emsesp_thermostat_floordrytemp gauge
+emsesp_thermostat_floordrytemp{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_building building type [enum]
+# TYPE emsesp_thermostat_building gauge
+emsesp_thermostat_building{emsesp_thermostat_building="light",device_id="16",product_id="158"} 0
+emsesp_thermostat_building{emsesp_thermostat_building="medium",device_id="16",product_id="158"} 1
+emsesp_thermostat_building{emsesp_thermostat_building="heavy",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_minexttemp minimal external temperature [°C]
+# TYPE emsesp_thermostat_minexttemp gauge
+emsesp_thermostat_minexttemp{device_id="16",product_id="158"} -10
+
+# HELP emsesp_thermostat_damping damping outdoor temperature [boolean]
+# TYPE emsesp_thermostat_damping gauge
+emsesp_thermostat_damping{device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_seltemp hc1 selected room temperature [°C]
+# TYPE emsesp_thermostat_hc1_seltemp gauge
+emsesp_thermostat_hc1_seltemp{device_id="16",product_id="158"} 22
+
+# HELP emsesp_thermostat_hc1_currtemp hc1 current room temperature [°C]
+# TYPE emsesp_thermostat_hc1_currtemp gauge
+emsesp_thermostat_hc1_currtemp{device_id="16",product_id="158"} 22.7
+
+# HELP emsesp_thermostat_hc1_haclimate hc1 mqtt discovery current room temperature [enum]
+# TYPE emsesp_thermostat_hc1_haclimate gauge
+emsesp_thermostat_hc1_haclimate{emsesp_thermostat_hc1_haclimate="selTemp",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_haclimate{emsesp_thermostat_hc1_haclimate="roomTemp",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_mode hc1 operating mode [enum]
+# TYPE emsesp_thermostat_hc1_mode gauge
+emsesp_thermostat_hc1_mode{emsesp_thermostat_hc1_mode="manual",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_mode{emsesp_thermostat_hc1_mode="auto",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_modetype hc1 mode type [enum]
+# TYPE emsesp_thermostat_hc1_modetype gauge
+emsesp_thermostat_hc1_modetype{emsesp_thermostat_hc1_modetype="eco",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_modetype{emsesp_thermostat_hc1_modetype="comfort",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_ecotemp hc1 eco temperature [°C]
+# TYPE emsesp_thermostat_hc1_ecotemp gauge
+emsesp_thermostat_hc1_ecotemp{device_id="16",product_id="158"} 21
+
+# HELP emsesp_thermostat_hc1_manualtemp hc1 manual temperature [°C]
+# TYPE emsesp_thermostat_hc1_manualtemp gauge
+emsesp_thermostat_hc1_manualtemp{device_id="16",product_id="158"} 20.5
+
+# HELP emsesp_thermostat_hc1_comforttemp hc1 comfort temperature [°C]
+# TYPE emsesp_thermostat_hc1_comforttemp gauge
+emsesp_thermostat_hc1_comforttemp{device_id="16",product_id="158"} 22
+
+# HELP emsesp_thermostat_hc1_summertemp hc1 summer temperature [°C]
+# TYPE emsesp_thermostat_hc1_summertemp gauge
+emsesp_thermostat_hc1_summertemp{device_id="16",product_id="158"} 17
+
+# HELP emsesp_thermostat_hc1_designtemp hc1 design temperature [°C]
+# TYPE emsesp_thermostat_hc1_designtemp gauge
+emsesp_thermostat_hc1_designtemp{device_id="16",product_id="158"} 75
+
+# HELP emsesp_thermostat_hc1_offsettemp hc1 offset temperature [°C]
+# TYPE emsesp_thermostat_hc1_offsettemp gauge
+emsesp_thermostat_hc1_offsettemp{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_minflowtemp hc1 min flow temperature [°C]
+# TYPE emsesp_thermostat_hc1_minflowtemp gauge
+emsesp_thermostat_hc1_minflowtemp{device_id="16",product_id="158"} 25
+
+# HELP emsesp_thermostat_hc1_maxflowtemp hc1 max flow temperature [°C]
+# TYPE emsesp_thermostat_hc1_maxflowtemp gauge
+emsesp_thermostat_hc1_maxflowtemp{device_id="16",product_id="158"} 65
+
+# HELP emsesp_thermostat_hc1_roominfluence hc1 room influence [°C]
+# TYPE emsesp_thermostat_hc1_roominfluence gauge
+emsesp_thermostat_hc1_roominfluence{device_id="16",product_id="158"} 3
+
+# HELP emsesp_thermostat_hc1_roominflfactor hc1 room influence factor [number]
+# TYPE emsesp_thermostat_hc1_roominflfactor gauge
+emsesp_thermostat_hc1_roominflfactor{device_id="16",product_id="158"} 4
+
+# HELP emsesp_thermostat_hc1_curroominfl hc1 current room influence [°C]
+# TYPE emsesp_thermostat_hc1_curroominfl gauge
+emsesp_thermostat_hc1_curroominfl{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_nofrostmode hc1 nofrost mode [enum]
+# TYPE emsesp_thermostat_hc1_nofrostmode gauge
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="room",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="outdoor",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_nofrostmode{emsesp_thermostat_hc1_nofrostmode="room outdoor",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_nofrosttemp hc1 nofrost temperature [°C]
+# TYPE emsesp_thermostat_hc1_nofrosttemp gauge
+emsesp_thermostat_hc1_nofrosttemp{device_id="16",product_id="158"} 5
+
+# HELP emsesp_thermostat_hc1_targetflowtemp hc1 target flow temperature [°C]
+# TYPE emsesp_thermostat_hc1_targetflowtemp gauge
+emsesp_thermostat_hc1_targetflowtemp{device_id="16",product_id="158"} 42
+
+# HELP emsesp_thermostat_hc1_heatingtype hc1 heating type [enum]
+# TYPE emsesp_thermostat_hc1_heatingtype gauge
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="off",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="radiator",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="convector",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_heatingtype{emsesp_thermostat_hc1_heatingtype="floor",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_summersetmode hc1 set summer mode [enum]
+# TYPE emsesp_thermostat_hc1_summersetmode gauge
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="summer",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="auto",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_summersetmode{emsesp_thermostat_hc1_summersetmode="winter",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_summermode hc1 summer mode [enum]
+# TYPE emsesp_thermostat_hc1_summermode gauge
+emsesp_thermostat_hc1_summermode{emsesp_thermostat_hc1_summermode="winter",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_summermode{emsesp_thermostat_hc1_summermode="summer",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_controlmode hc1 control mode [enum]
+# TYPE emsesp_thermostat_hc1_controlmode gauge
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="weather compensated",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="outside basepoint",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="n/a",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="room",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="power",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_controlmode{emsesp_thermostat_hc1_controlmode="constant",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_program hc1 program [enum]
+# TYPE emsesp_thermostat_hc1_program gauge
+emsesp_thermostat_hc1_program{emsesp_thermostat_hc1_program="prog 1",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_program{emsesp_thermostat_hc1_program="prog 2",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_tempautotemp hc1 temporary set temperature automode [°C]
+# TYPE emsesp_thermostat_hc1_tempautotemp gauge
+emsesp_thermostat_hc1_tempautotemp{device_id="16",product_id="158"} 22
+
+# HELP emsesp_thermostat_hc1_fastheatup hc1 fast heatup [%]
+# TYPE emsesp_thermostat_hc1_fastheatup gauge
+emsesp_thermostat_hc1_fastheatup{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_switchonoptimization hc1 switch-on optimization [boolean]
+# TYPE emsesp_thermostat_hc1_switchonoptimization gauge
+emsesp_thermostat_hc1_switchonoptimization{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_reducemode hc1 reduce mode [enum]
+# TYPE emsesp_thermostat_hc1_reducemode gauge
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="outdoor",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="room",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_reducemode{emsesp_thermostat_hc1_reducemode="reduce",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_noreducetemp hc1 no reduce below temperature [°C]
+# TYPE emsesp_thermostat_hc1_noreducetemp gauge
+emsesp_thermostat_hc1_noreducetemp{device_id="16",product_id="158"} -31
+
+# HELP emsesp_thermostat_hc1_reducetemp hc1 off/reduce switch temperature [°C]
+# TYPE emsesp_thermostat_hc1_reducetemp gauge
+emsesp_thermostat_hc1_reducetemp{device_id="16",product_id="158"} 5
+
+# HELP emsesp_thermostat_hc1_coolingon hc1 cooling on [boolean]
+# TYPE emsesp_thermostat_hc1_coolingon gauge
+emsesp_thermostat_hc1_coolingon{device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_hc1_hpmode hc1 HP Mode [enum]
+# TYPE emsesp_thermostat_hc1_hpmode gauge
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="heating",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="cooling",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_hpmode{emsesp_thermostat_hc1_hpmode="heating & cooling",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_hc1_control hc1 control device [enum]
+# TYPE emsesp_thermostat_hc1_control gauge
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC310",device_id="16",product_id="158"} 1
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC200",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC100",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="RC100H",device_id="16",product_id="158"} 0
+emsesp_thermostat_hc1_control{emsesp_thermostat_hc1_control="TC100",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_mode dhw operating mode [enum]
+# TYPE emsesp_thermostat_dhw_mode gauge
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="off",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="normal",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="comfort",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="auto",device_id="16",product_id="158"} 1
+emsesp_thermostat_dhw_mode{emsesp_thermostat_dhw_mode="own prog",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_circmode dhw circulation pump mode [enum]
+# TYPE emsesp_thermostat_dhw_circmode gauge
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="off",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="on",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="auto",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_circmode{emsesp_thermostat_dhw_circmode="own prog",device_id="16",product_id="158"} 1
+
+# HELP emsesp_thermostat_dhw_chargeduration dhw charge duration [seconds]
+# TYPE emsesp_thermostat_dhw_chargeduration gauge
+emsesp_thermostat_dhw_chargeduration{device_id="16",product_id="158"} 1800
+
+# HELP emsesp_thermostat_dhw_charge dhw charge [boolean]
+# TYPE emsesp_thermostat_dhw_charge gauge
+emsesp_thermostat_dhw_charge{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_extra dhw extra [boolean]
+# TYPE emsesp_thermostat_dhw_extra gauge
+emsesp_thermostat_dhw_extra{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfecting dhw disinfecting [boolean]
+# TYPE emsesp_thermostat_dhw_disinfecting gauge
+emsesp_thermostat_dhw_disinfecting{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfectday dhw disinfection day [enum]
+# TYPE emsesp_thermostat_dhw_disinfectday gauge
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="mo",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="tu",device_id="16",product_id="158"} 1
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="we",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="th",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="fr",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="sa",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="su",device_id="16",product_id="158"} 0
+emsesp_thermostat_dhw_disinfectday{emsesp_thermostat_dhw_disinfectday="all",device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_disinfecttime dhw disinfection time [seconds]
+# TYPE emsesp_thermostat_dhw_disinfecttime gauge
+emsesp_thermostat_dhw_disinfecttime{device_id="16",product_id="158"} 7200
+
+# HELP emsesp_thermostat_dhw_dailyheating dhw daily heating [boolean]
+# TYPE emsesp_thermostat_dhw_dailyheating gauge
+emsesp_thermostat_dhw_dailyheating{device_id="16",product_id="158"} 0
+
+# HELP emsesp_thermostat_dhw_dailyheattime dhw daily heating time [seconds]
+# TYPE emsesp_thermostat_dhw_dailyheattime gauge
+emsesp_thermostat_dhw_dailyheattime{device_id="16",product_id="158"} 7200
+"
+`;
+
 exports[`handles device entity value metrics v3.7 1`] = `
-"# HELP emsesp_heatingoff force heating off [boolean]
-# TYPE emsesp_heatingoff gauge
-emsesp_heatingoff{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatingactive heating active [boolean]
-# TYPE emsesp_heatingactive gauge
-emsesp_heatingactive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_tapwateractive tapwater active [boolean]
-# TYPE emsesp_tapwateractive gauge
-emsesp_tapwateractive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_selflowtemp selected flow temperature [°C]
-# TYPE emsesp_selflowtemp gauge
-emsesp_selflowtemp{device_id="8",product_id="115"} 7
-
-# HELP emsesp_heatingpumpmod heating pump modulation [%]
-# TYPE emsesp_heatingpumpmod gauge
-emsesp_heatingpumpmod{device_id="8",product_id="115"} 0
-
-# HELP emsesp_curflowtemp current flow temperature [°C]
-# TYPE emsesp_curflowtemp gauge
-emsesp_curflowtemp{device_id="8",product_id="115"} 51.8
-
-# HELP emsesp_rettemp return temperature [°C]
-# TYPE emsesp_rettemp gauge
-emsesp_rettemp{device_id="8",product_id="115"} 56.1
-
-# HELP emsesp_switchtemp mixing switch temperature [°C]
-# TYPE emsesp_switchtemp gauge
-emsesp_switchtemp{device_id="8",product_id="115"} 0
-
-# HELP emsesp_syspress system pressure [bar]
-# TYPE emsesp_syspress gauge
-emsesp_syspress{device_id="8",product_id="115"} 0.9
-
-# HELP emsesp_boiltemp actual boiler temperature [°C]
-# TYPE emsesp_boiltemp gauge
-emsesp_boiltemp{device_id="8",product_id="115"} 60.5
-
-# HELP emsesp_burngas gas [boolean]
-# TYPE emsesp_burngas gauge
-emsesp_burngas{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burngas2 gas stage 2 [boolean]
-# TYPE emsesp_burngas2 gauge
-emsesp_burngas2{device_id="8",product_id="115"} 0
-
-# HELP emsesp_flamecurr flame current [µA]
-# TYPE emsesp_flamecurr gauge
-emsesp_flamecurr{device_id="8",product_id="115"} 0
-
-# HELP emsesp_fanwork fan [boolean]
-# TYPE emsesp_fanwork gauge
-emsesp_fanwork{device_id="8",product_id="115"} 0
-
-# HELP emsesp_ignwork ignition [boolean]
-# TYPE emsesp_ignwork gauge
-emsesp_ignwork{device_id="8",product_id="115"} 0
-
-# HELP emsesp_oilpreheat oil preheating [boolean]
-# TYPE emsesp_oilpreheat gauge
-emsesp_oilpreheat{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnminpower burner min power [%]
-# TYPE emsesp_burnminpower gauge
-emsesp_burnminpower{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnmaxpower burner max power [%]
-# TYPE emsesp_burnmaxpower gauge
-emsesp_burnmaxpower{device_id="8",product_id="115"} 0.8
-
-# HELP emsesp_burnminperiod burner min period [seconds]
-# TYPE emsesp_burnminperiod gauge
-emsesp_burnminperiod{device_id="8",product_id="115"} 600
-
-# HELP emsesp_boilhyston hysteresis on temperature [°C]
-# TYPE emsesp_boilhyston gauge
-emsesp_boilhyston{device_id="8",product_id="115"} -6
-
-# HELP emsesp_boilhystoff hysteresis off temperature [°C]
-# TYPE emsesp_boilhystoff gauge
-emsesp_boilhystoff{device_id="8",product_id="115"} 6
-
-# HELP emsesp_heatingactivated heating activated [boolean]
-# TYPE emsesp_heatingactivated gauge
-emsesp_heatingactivated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_heatingtemp heating temperature [°C]
-# TYPE emsesp_heatingtemp gauge
-emsesp_heatingtemp{device_id="8",product_id="115"} 80
-
-# HELP emsesp_heatingpump heating pump [boolean]
-# TYPE emsesp_heatingpump gauge
-emsesp_heatingpump{device_id="8",product_id="115"} 0
-
-# HELP emsesp_pumpmodmax boiler pump max power [%]
-# TYPE emsesp_pumpmodmax gauge
-emsesp_pumpmodmax{device_id="8",product_id="115"} 1
-
-# HELP emsesp_pumpmodmin boiler pump min power [%]
-# TYPE emsesp_pumpmodmin gauge
-emsesp_pumpmodmin{device_id="8",product_id="115"} 0.6
-
-# HELP emsesp_pumpmode boiler pump mode [enum]
-# TYPE emsesp_pumpmode gauge
-emsesp_pumpmode{emsesp_pumpmode="proportional",device_id="8",product_id="115"} 1
-emsesp_pumpmode{emsesp_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
-
-# HELP emsesp_pumpdelay pump delay [seconds]
-# TYPE emsesp_pumpdelay gauge
-emsesp_pumpdelay{device_id="8",product_id="115"} 720
-
-# HELP emsesp_selburnpow burner selected max power [%]
-# TYPE emsesp_selburnpow gauge
-emsesp_selburnpow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_curburnpow burner current power [%]
-# TYPE emsesp_curburnpow gauge
-emsesp_curburnpow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnstarts burner starts [number]
-# TYPE emsesp_burnstarts gauge
-emsesp_burnstarts{device_id="8",product_id="115"} 136578
-
-# HELP emsesp_burnworkmin total burner operating time [seconds]
-# TYPE emsesp_burnworkmin gauge
-emsesp_burnworkmin{device_id="8",product_id="115"} 71373120
-
-# HELP emsesp_burn2workmin burner stage 2 operating time [seconds]
-# TYPE emsesp_burn2workmin gauge
-emsesp_burn2workmin{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatworkmin total heat operating time [seconds]
-# TYPE emsesp_heatworkmin gauge
-emsesp_heatworkmin{device_id="8",product_id="115"} 59797800
-
-# HELP emsesp_heatstarts burner starts heating [number]
-# TYPE emsesp_heatstarts gauge
-emsesp_heatstarts{device_id="8",product_id="115"} 107044
-
-# HELP emsesp_ubauptime total UBA operating time [seconds]
-# TYPE emsesp_ubauptime gauge
-emsesp_ubauptime{device_id="8",product_id="115"} 537011280
-
-# HELP emsesp_servicecode service code [string]
-# TYPE emsesp_servicecode gauge
-emsesp_servicecode{emsesp_servicecode="0H",device_id="8",product_id="115"} 1
-
-# HELP emsesp_servicecodenumber service code number [number]
-# TYPE emsesp_servicecodenumber gauge
-emsesp_servicecodenumber{device_id="8",product_id="115"} 203
-
-# HELP emsesp_maintenancemessage maintenance message [string]
-# TYPE emsesp_maintenancemessage gauge
-emsesp_maintenancemessage{emsesp_maintenancemessage="H00",device_id="8",product_id="115"} 1
-
-# HELP emsesp_maintenance maintenance scheduled [enum]
-# TYPE emsesp_maintenance gauge
-emsesp_maintenance{emsesp_maintenance="off",device_id="8",product_id="115"} 1
-emsesp_maintenance{emsesp_maintenance="time",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="date",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="manual",device_id="8",product_id="115"} 0
-
-# HELP emsesp_maintenancetime time to next maintenance [hours]
-# TYPE emsesp_maintenancetime gauge
-emsesp_maintenancetime{device_id="8",product_id="115"} 6000
-
-# HELP emsesp_maintenancedate next maintenance date [string]
-# TYPE emsesp_maintenancedate gauge
-emsesp_maintenancedate{emsesp_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_settemp dhw set temperature [°C]
-# TYPE emsesp_dhw_settemp gauge
-emsesp_dhw_settemp{device_id="8",product_id="115"} 61
-
-# HELP emsesp_dhw_seltemp dhw selected temperature [°C]
-# TYPE emsesp_dhw_seltemp gauge
-emsesp_dhw_seltemp{device_id="8",product_id="115"} 60
-
-# HELP emsesp_dhw_type dhw type [enum]
-# TYPE emsesp_dhw_type gauge
-emsesp_dhw_type{emsesp_dhw_type="off",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="flow",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="buffered flow",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="buffer",device_id="8",product_id="115"} 1
-emsesp_dhw_type{emsesp_dhw_type="layered buffer",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_comfort dhw comfort [enum]
-# TYPE emsesp_dhw_comfort gauge
-emsesp_dhw_comfort{emsesp_dhw_comfort="hot",device_id="8",product_id="115"} 1
-emsesp_dhw_comfort{emsesp_dhw_comfort="eco",device_id="8",product_id="115"} 0
-emsesp_dhw_comfort{emsesp_dhw_comfort="intelligent",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_flowtempoffset dhw flow temperature offset [°C]
-# TYPE emsesp_dhw_flowtempoffset gauge
-emsesp_dhw_flowtempoffset{device_id="8",product_id="115"} 20
-
-# HELP emsesp_dhw_circpump dhw circulation pump available [boolean]
-# TYPE emsesp_dhw_circpump gauge
-emsesp_dhw_circpump{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_chargetype dhw charging type [enum]
-# TYPE emsesp_dhw_chargetype gauge
-emsesp_dhw_chargetype{emsesp_dhw_chargetype="chargepump",device_id="8",product_id="115"} 0
-emsesp_dhw_chargetype{emsesp_dhw_chargetype="3-way valve",device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_hyston dhw hysteresis on temperature [°C]
-# TYPE emsesp_dhw_hyston gauge
-emsesp_dhw_hyston{device_id="8",product_id="115"} -11
-
-# HELP emsesp_dhw_hystoff dhw hysteresis off temperature [°C]
-# TYPE emsesp_dhw_hystoff gauge
-emsesp_dhw_hystoff{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_disinfectiontemp dhw disinfection temperature [°C]
-# TYPE emsesp_dhw_disinfectiontemp gauge
-emsesp_dhw_disinfectiontemp{device_id="8",product_id="115"} 70
-
-# HELP emsesp_dhw_circmode dhw circulation pump mode [enum]
-# TYPE emsesp_dhw_circmode gauge
-emsesp_dhw_circmode{emsesp_dhw_circmode="off",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="1x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="2x3min",device_id="8",product_id="115"} 1
-emsesp_dhw_circmode{emsesp_dhw_circmode="3x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="4x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="5x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="6x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="continuous",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_circ dhw circulation active [boolean]
-# TYPE emsesp_dhw_circ gauge
-emsesp_dhw_circ{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_curtemp dhw current intern temperature [°C]
-# TYPE emsesp_dhw_curtemp gauge
-emsesp_dhw_curtemp{device_id="8",product_id="115"} 46.8
-
-# HELP emsesp_dhw_curtemp2 dhw current extern temperature [°C]
-# TYPE emsesp_dhw_curtemp2 gauge
-emsesp_dhw_curtemp2{device_id="8",product_id="115"} 60.1
-
-# HELP emsesp_dhw_curflow dhw current tap water flow [l/min]
-# TYPE emsesp_dhw_curflow gauge
-emsesp_dhw_curflow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_storagetemp1 dhw storage intern temperature [°C]
-# TYPE emsesp_dhw_storagetemp1 gauge
-emsesp_dhw_storagetemp1{device_id="8",product_id="115"} 46.6
-
-# HELP emsesp_dhw_storagetemp2 dhw storage extern temperature [°C]
-# TYPE emsesp_dhw_storagetemp2 gauge
-emsesp_dhw_storagetemp2{device_id="8",product_id="115"} 59.9
-
-# HELP emsesp_dhw_activated dhw activated [boolean]
-# TYPE emsesp_dhw_activated gauge
-emsesp_dhw_activated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_onetime dhw one time charging [boolean]
-# TYPE emsesp_dhw_onetime gauge
-emsesp_dhw_onetime{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_disinfecting dhw disinfecting [boolean]
-# TYPE emsesp_dhw_disinfecting gauge
-emsesp_dhw_disinfecting{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_charging dhw charging [boolean]
-# TYPE emsesp_dhw_charging gauge
-emsesp_dhw_charging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_recharging dhw recharging [boolean]
-# TYPE emsesp_dhw_recharging gauge
-emsesp_dhw_recharging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_tempok dhw temperature ok [boolean]
-# TYPE emsesp_dhw_tempok gauge
-emsesp_dhw_tempok{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_active dhw active [boolean]
-# TYPE emsesp_dhw_active gauge
-emsesp_dhw_active{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_3wayvalve dhw 3-way valve active [boolean]
-# TYPE emsesp_dhw_3wayvalve gauge
-emsesp_dhw_3wayvalve{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_starts dhw starts [number]
-# TYPE emsesp_dhw_starts gauge
-emsesp_dhw_starts{device_id="8",product_id="115"} 29534
-
-# HELP emsesp_dhw_workm dhw active time [seconds]
-# TYPE emsesp_dhw_workm gauge
-emsesp_dhw_workm{device_id="8",product_id="115"} 11575320
-
-# HELP emsesp_nompower nominal Power [kW]
-# TYPE emsesp_nompower gauge
-emsesp_nompower{device_id="8",product_id="115"} 30
-
-# HELP emsesp_nrgtotal total energy [kWh]
-# TYPE emsesp_nrgtotal gauge
-emsesp_nrgtotal{device_id="8",product_id="115"} 67.7
-
-# HELP emsesp_nrgheat energy heating [kWh]
-# TYPE emsesp_nrgheat counter
-emsesp_nrgheat{device_id="8",product_id="115"} 67.23
-
-# HELP emsesp_dhw_nrg dhw energy [kWh]
-# TYPE emsesp_dhw_nrg counter
-emsesp_dhw_nrg{device_id="8",product_id="115"} 0.47
+"# HELP emsesp_boiler_heatingoff force heating off [boolean]
+# TYPE emsesp_boiler_heatingoff gauge
+emsesp_boiler_heatingoff{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatingactive heating active [boolean]
+# TYPE emsesp_boiler_heatingactive gauge
+emsesp_boiler_heatingactive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_tapwateractive tapwater active [boolean]
+# TYPE emsesp_boiler_tapwateractive gauge
+emsesp_boiler_tapwateractive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_selflowtemp selected flow temperature [°C]
+# TYPE emsesp_boiler_selflowtemp gauge
+emsesp_boiler_selflowtemp{device_id="8",product_id="115"} 7
+
+# HELP emsesp_boiler_heatingpumpmod heating pump modulation [%]
+# TYPE emsesp_boiler_heatingpumpmod gauge
+emsesp_boiler_heatingpumpmod{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_curflowtemp current flow temperature [°C]
+# TYPE emsesp_boiler_curflowtemp gauge
+emsesp_boiler_curflowtemp{device_id="8",product_id="115"} 51.8
+
+# HELP emsesp_boiler_rettemp return temperature [°C]
+# TYPE emsesp_boiler_rettemp gauge
+emsesp_boiler_rettemp{device_id="8",product_id="115"} 56.1
+
+# HELP emsesp_boiler_switchtemp mixing switch temperature [°C]
+# TYPE emsesp_boiler_switchtemp gauge
+emsesp_boiler_switchtemp{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_syspress system pressure [bar]
+# TYPE emsesp_boiler_syspress gauge
+emsesp_boiler_syspress{device_id="8",product_id="115"} 0.9
+
+# HELP emsesp_boiler_boiltemp actual boiler temperature [°C]
+# TYPE emsesp_boiler_boiltemp gauge
+emsesp_boiler_boiltemp{device_id="8",product_id="115"} 60.5
+
+# HELP emsesp_boiler_burngas gas [boolean]
+# TYPE emsesp_boiler_burngas gauge
+emsesp_boiler_burngas{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burngas2 gas stage 2 [boolean]
+# TYPE emsesp_boiler_burngas2 gauge
+emsesp_boiler_burngas2{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_flamecurr flame current [µA]
+# TYPE emsesp_boiler_flamecurr gauge
+emsesp_boiler_flamecurr{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_fanwork fan [boolean]
+# TYPE emsesp_boiler_fanwork gauge
+emsesp_boiler_fanwork{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_ignwork ignition [boolean]
+# TYPE emsesp_boiler_ignwork gauge
+emsesp_boiler_ignwork{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_oilpreheat oil preheating [boolean]
+# TYPE emsesp_boiler_oilpreheat gauge
+emsesp_boiler_oilpreheat{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnminpower burner min power [%]
+# TYPE emsesp_boiler_burnminpower gauge
+emsesp_boiler_burnminpower{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnmaxpower burner max power [%]
+# TYPE emsesp_boiler_burnmaxpower gauge
+emsesp_boiler_burnmaxpower{device_id="8",product_id="115"} 0.8
+
+# HELP emsesp_boiler_burnminperiod burner min period [seconds]
+# TYPE emsesp_boiler_burnminperiod gauge
+emsesp_boiler_burnminperiod{device_id="8",product_id="115"} 600
+
+# HELP emsesp_boiler_boilhyston hysteresis on temperature [°C]
+# TYPE emsesp_boiler_boilhyston gauge
+emsesp_boiler_boilhyston{device_id="8",product_id="115"} -6
+
+# HELP emsesp_boiler_boilhystoff hysteresis off temperature [°C]
+# TYPE emsesp_boiler_boilhystoff gauge
+emsesp_boiler_boilhystoff{device_id="8",product_id="115"} 6
+
+# HELP emsesp_boiler_heatingactivated heating activated [boolean]
+# TYPE emsesp_boiler_heatingactivated gauge
+emsesp_boiler_heatingactivated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_heatingtemp heating temperature [°C]
+# TYPE emsesp_boiler_heatingtemp gauge
+emsesp_boiler_heatingtemp{device_id="8",product_id="115"} 80
+
+# HELP emsesp_boiler_heatingpump heating pump [boolean]
+# TYPE emsesp_boiler_heatingpump gauge
+emsesp_boiler_heatingpump{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_pumpmodmax boiler pump max power [%]
+# TYPE emsesp_boiler_pumpmodmax gauge
+emsesp_boiler_pumpmodmax{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_pumpmodmin boiler pump min power [%]
+# TYPE emsesp_boiler_pumpmodmin gauge
+emsesp_boiler_pumpmodmin{device_id="8",product_id="115"} 0.6
+
+# HELP emsesp_boiler_pumpmode boiler pump mode [enum]
+# TYPE emsesp_boiler_pumpmode gauge
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="proportional",device_id="8",product_id="115"} 1
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_pumpdelay pump delay [seconds]
+# TYPE emsesp_boiler_pumpdelay gauge
+emsesp_boiler_pumpdelay{device_id="8",product_id="115"} 720
+
+# HELP emsesp_boiler_selburnpow burner selected max power [%]
+# TYPE emsesp_boiler_selburnpow gauge
+emsesp_boiler_selburnpow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_curburnpow burner current power [%]
+# TYPE emsesp_boiler_curburnpow gauge
+emsesp_boiler_curburnpow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnstarts burner starts [number]
+# TYPE emsesp_boiler_burnstarts gauge
+emsesp_boiler_burnstarts{device_id="8",product_id="115"} 136578
+
+# HELP emsesp_boiler_burnworkmin total burner operating time [seconds]
+# TYPE emsesp_boiler_burnworkmin gauge
+emsesp_boiler_burnworkmin{device_id="8",product_id="115"} 71373120
+
+# HELP emsesp_boiler_burn2workmin burner stage 2 operating time [seconds]
+# TYPE emsesp_boiler_burn2workmin gauge
+emsesp_boiler_burn2workmin{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatworkmin total heat operating time [seconds]
+# TYPE emsesp_boiler_heatworkmin gauge
+emsesp_boiler_heatworkmin{device_id="8",product_id="115"} 59797800
+
+# HELP emsesp_boiler_heatstarts burner starts heating [number]
+# TYPE emsesp_boiler_heatstarts gauge
+emsesp_boiler_heatstarts{device_id="8",product_id="115"} 107044
+
+# HELP emsesp_boiler_ubauptime total UBA operating time [seconds]
+# TYPE emsesp_boiler_ubauptime gauge
+emsesp_boiler_ubauptime{device_id="8",product_id="115"} 537011280
+
+# HELP emsesp_boiler_servicecode service code [string]
+# TYPE emsesp_boiler_servicecode gauge
+emsesp_boiler_servicecode{emsesp_boiler_servicecode="0H",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_servicecodenumber service code number [number]
+# TYPE emsesp_boiler_servicecodenumber gauge
+emsesp_boiler_servicecodenumber{device_id="8",product_id="115"} 203
+
+# HELP emsesp_boiler_maintenancemessage maintenance message [string]
+# TYPE emsesp_boiler_maintenancemessage gauge
+emsesp_boiler_maintenancemessage{emsesp_boiler_maintenancemessage="H00",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_maintenance maintenance scheduled [enum]
+# TYPE emsesp_boiler_maintenance gauge
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="off",device_id="8",product_id="115"} 1
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="time",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="date",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="manual",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_maintenancetime time to next maintenance [hours]
+# TYPE emsesp_boiler_maintenancetime gauge
+emsesp_boiler_maintenancetime{device_id="8",product_id="115"} 6000
+
+# HELP emsesp_boiler_maintenancedate next maintenance date [string]
+# TYPE emsesp_boiler_maintenancedate gauge
+emsesp_boiler_maintenancedate{emsesp_boiler_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_settemp dhw set temperature [°C]
+# TYPE emsesp_boiler_dhw_settemp gauge
+emsesp_boiler_dhw_settemp{device_id="8",product_id="115"} 61
+
+# HELP emsesp_boiler_dhw_seltemp dhw selected temperature [°C]
+# TYPE emsesp_boiler_dhw_seltemp gauge
+emsesp_boiler_dhw_seltemp{device_id="8",product_id="115"} 60
+
+# HELP emsesp_boiler_dhw_type dhw type [enum]
+# TYPE emsesp_boiler_dhw_type gauge
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="off",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="flow",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffered flow",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffer",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="layered buffer",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_comfort dhw comfort [enum]
+# TYPE emsesp_boiler_dhw_comfort gauge
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="hot",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="eco",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="intelligent",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_flowtempoffset dhw flow temperature offset [°C]
+# TYPE emsesp_boiler_dhw_flowtempoffset gauge
+emsesp_boiler_dhw_flowtempoffset{device_id="8",product_id="115"} 20
+
+# HELP emsesp_boiler_dhw_circpump dhw circulation pump available [boolean]
+# TYPE emsesp_boiler_dhw_circpump gauge
+emsesp_boiler_dhw_circpump{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_chargetype dhw charging type [enum]
+# TYPE emsesp_boiler_dhw_chargetype gauge
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="chargepump",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="3-way valve",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_hyston dhw hysteresis on temperature [°C]
+# TYPE emsesp_boiler_dhw_hyston gauge
+emsesp_boiler_dhw_hyston{device_id="8",product_id="115"} -11
+
+# HELP emsesp_boiler_dhw_hystoff dhw hysteresis off temperature [°C]
+# TYPE emsesp_boiler_dhw_hystoff gauge
+emsesp_boiler_dhw_hystoff{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_disinfectiontemp dhw disinfection temperature [°C]
+# TYPE emsesp_boiler_dhw_disinfectiontemp gauge
+emsesp_boiler_dhw_disinfectiontemp{device_id="8",product_id="115"} 70
+
+# HELP emsesp_boiler_dhw_circmode dhw circulation pump mode [enum]
+# TYPE emsesp_boiler_dhw_circmode gauge
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="off",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="1x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="2x3min",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="3x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="4x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="5x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="6x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="continuous",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_circ dhw circulation active [boolean]
+# TYPE emsesp_boiler_dhw_circ gauge
+emsesp_boiler_dhw_circ{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_curtemp dhw current intern temperature [°C]
+# TYPE emsesp_boiler_dhw_curtemp gauge
+emsesp_boiler_dhw_curtemp{device_id="8",product_id="115"} 46.8
+
+# HELP emsesp_boiler_dhw_curtemp2 dhw current extern temperature [°C]
+# TYPE emsesp_boiler_dhw_curtemp2 gauge
+emsesp_boiler_dhw_curtemp2{device_id="8",product_id="115"} 60.1
+
+# HELP emsesp_boiler_dhw_curflow dhw current tap water flow [l/min]
+# TYPE emsesp_boiler_dhw_curflow gauge
+emsesp_boiler_dhw_curflow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_storagetemp1 dhw storage intern temperature [°C]
+# TYPE emsesp_boiler_dhw_storagetemp1 gauge
+emsesp_boiler_dhw_storagetemp1{device_id="8",product_id="115"} 46.6
+
+# HELP emsesp_boiler_dhw_storagetemp2 dhw storage extern temperature [°C]
+# TYPE emsesp_boiler_dhw_storagetemp2 gauge
+emsesp_boiler_dhw_storagetemp2{device_id="8",product_id="115"} 59.9
+
+# HELP emsesp_boiler_dhw_activated dhw activated [boolean]
+# TYPE emsesp_boiler_dhw_activated gauge
+emsesp_boiler_dhw_activated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_onetime dhw one time charging [boolean]
+# TYPE emsesp_boiler_dhw_onetime gauge
+emsesp_boiler_dhw_onetime{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_disinfecting dhw disinfecting [boolean]
+# TYPE emsesp_boiler_dhw_disinfecting gauge
+emsesp_boiler_dhw_disinfecting{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_charging dhw charging [boolean]
+# TYPE emsesp_boiler_dhw_charging gauge
+emsesp_boiler_dhw_charging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_recharging dhw recharging [boolean]
+# TYPE emsesp_boiler_dhw_recharging gauge
+emsesp_boiler_dhw_recharging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_tempok dhw temperature ok [boolean]
+# TYPE emsesp_boiler_dhw_tempok gauge
+emsesp_boiler_dhw_tempok{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_active dhw active [boolean]
+# TYPE emsesp_boiler_dhw_active gauge
+emsesp_boiler_dhw_active{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_3wayvalve dhw 3-way valve active [boolean]
+# TYPE emsesp_boiler_dhw_3wayvalve gauge
+emsesp_boiler_dhw_3wayvalve{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_starts dhw starts [number]
+# TYPE emsesp_boiler_dhw_starts gauge
+emsesp_boiler_dhw_starts{device_id="8",product_id="115"} 29534
+
+# HELP emsesp_boiler_dhw_workm dhw active time [seconds]
+# TYPE emsesp_boiler_dhw_workm gauge
+emsesp_boiler_dhw_workm{device_id="8",product_id="115"} 11575320
+
+# HELP emsesp_boiler_nompower nominal Power [kW]
+# TYPE emsesp_boiler_nompower gauge
+emsesp_boiler_nompower{device_id="8",product_id="115"} 30
+
+# HELP emsesp_boiler_nrgtotal total energy [kWh]
+# TYPE emsesp_boiler_nrgtotal gauge
+emsesp_boiler_nrgtotal{device_id="8",product_id="115"} 67.7
+
+# HELP emsesp_boiler_nrgheat energy heating [kWh]
+# TYPE emsesp_boiler_nrgheat counter
+emsesp_boiler_nrgheat{device_id="8",product_id="115"} 67.23
+
+# HELP emsesp_boiler_dhw_nrg dhw energy [kWh]
+# TYPE emsesp_boiler_dhw_nrg counter
+emsesp_boiler_dhw_nrg{device_id="8",product_id="115"} 0.47
 "
 `;
 
 exports[`handles device metrics v3.5 1`] = `
-"# HELP emsesp_wwsettemp set temperature [C]
-# TYPE emsesp_wwsettemp gauge
-emsesp_wwsettemp{device_id="8",product_id="115"} 61
-
-# HELP emsesp_wwseltemp selected temperature [C]
-# TYPE emsesp_wwseltemp gauge
-emsesp_wwseltemp{device_id="8",product_id="115"} 60
-
-# HELP emsesp_wwtype type [enum]
-# TYPE emsesp_wwtype gauge
-emsesp_wwtype{emsesp_wwtype="off",device_id="8",product_id="115"} 0
-emsesp_wwtype{emsesp_wwtype="flow",device_id="8",product_id="115"} 0
-emsesp_wwtype{emsesp_wwtype="buffered flow",device_id="8",product_id="115"} 0
-emsesp_wwtype{emsesp_wwtype="buffer",device_id="8",product_id="115"} 1
-emsesp_wwtype{emsesp_wwtype="layered buffer",device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwcomfort comfort [enum]
-# TYPE emsesp_wwcomfort gauge
-emsesp_wwcomfort{emsesp_wwcomfort="hot",device_id="8",product_id="115"} 1
-emsesp_wwcomfort{emsesp_wwcomfort="eco",device_id="8",product_id="115"} 0
-emsesp_wwcomfort{emsesp_wwcomfort="intelligent",device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwflowtempoffset flow temperature offset [C]
-# TYPE emsesp_wwflowtempoffset gauge
-emsesp_wwflowtempoffset{device_id="8",product_id="115"} 20
-
-# HELP emsesp_wwcircpump circulation pump available [boolean]
-# TYPE emsesp_wwcircpump gauge
-emsesp_wwcircpump{device_id="8",product_id="115"} 1
-
-# HELP emsesp_wwchargetype charging type [enum]
-# TYPE emsesp_wwchargetype gauge
-emsesp_wwchargetype{emsesp_wwchargetype="chargepump",device_id="8",product_id="115"} 0
-emsesp_wwchargetype{emsesp_wwchargetype="3-way valve",device_id="8",product_id="115"} 1
-
-# HELP emsesp_wwhyston hysteresis on temperature [C]
-# TYPE emsesp_wwhyston gauge
-emsesp_wwhyston{device_id="8",product_id="115"} -11
-
-# HELP emsesp_wwhystoff hysteresis off temperature [C]
-# TYPE emsesp_wwhystoff gauge
-emsesp_wwhystoff{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwdisinfectiontemp disinfection temperature [C]
-# TYPE emsesp_wwdisinfectiontemp gauge
-emsesp_wwdisinfectiontemp{device_id="8",product_id="115"} 70
-
-# HELP emsesp_wwcircmode circulation pump mode [enum]
-# TYPE emsesp_wwcircmode gauge
-emsesp_wwcircmode{emsesp_wwcircmode="1x3min",device_id="8",product_id="115"} 0
-emsesp_wwcircmode{emsesp_wwcircmode="2x3min",device_id="8",product_id="115"} 1
-emsesp_wwcircmode{emsesp_wwcircmode="3x3min",device_id="8",product_id="115"} 0
-emsesp_wwcircmode{emsesp_wwcircmode="4x3min",device_id="8",product_id="115"} 0
-emsesp_wwcircmode{emsesp_wwcircmode="5x3min",device_id="8",product_id="115"} 0
-emsesp_wwcircmode{emsesp_wwcircmode="6x3min",device_id="8",product_id="115"} 0
-emsesp_wwcircmode{emsesp_wwcircmode="continuous",device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwcirc circulation active [boolean]
-# TYPE emsesp_wwcirc gauge
-emsesp_wwcirc{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwcurtemp current intern temperature [C]
-# TYPE emsesp_wwcurtemp gauge
-emsesp_wwcurtemp{device_id="8",product_id="115"} 43.3
-
-# HELP emsesp_wwcurtemp2 current extern temperature [C]
-# TYPE emsesp_wwcurtemp2 gauge
-emsesp_wwcurtemp2{device_id="8",product_id="115"} 58.9
-
-# HELP emsesp_wwcurflow current tap water flow [l/min]
-# TYPE emsesp_wwcurflow gauge
-emsesp_wwcurflow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwstoragetemp1 storage intern temperature [C]
-# TYPE emsesp_wwstoragetemp1 gauge
-emsesp_wwstoragetemp1{device_id="8",product_id="115"} 43.3
-
-# HELP emsesp_wwstoragetemp2 storage extern temperature [C]
-# TYPE emsesp_wwstoragetemp2 gauge
-emsesp_wwstoragetemp2{device_id="8",product_id="115"} 58.9
-
-# HELP emsesp_wwactivated activated [boolean]
-# TYPE emsesp_wwactivated gauge
-emsesp_wwactivated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_wwonetime one time charging [boolean]
-# TYPE emsesp_wwonetime gauge
-emsesp_wwonetime{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwdisinfecting disinfecting [boolean]
-# TYPE emsesp_wwdisinfecting gauge
-emsesp_wwdisinfecting{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwcharging charging [boolean]
-# TYPE emsesp_wwcharging gauge
-emsesp_wwcharging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwrecharging recharging [boolean]
-# TYPE emsesp_wwrecharging gauge
-emsesp_wwrecharging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwtempok temperature ok [boolean]
-# TYPE emsesp_wwtempok gauge
-emsesp_wwtempok{device_id="8",product_id="115"} 1
+"# HELP emsesp_boiler_wwsettemp set temperature [C]
+# TYPE emsesp_boiler_wwsettemp gauge
+emsesp_boiler_wwsettemp{device_id="8",product_id="115"} 61
+
+# HELP emsesp_boiler_wwseltemp selected temperature [C]
+# TYPE emsesp_boiler_wwseltemp gauge
+emsesp_boiler_wwseltemp{device_id="8",product_id="115"} 60
+
+# HELP emsesp_boiler_wwtype type [enum]
+# TYPE emsesp_boiler_wwtype gauge
+emsesp_boiler_wwtype{emsesp_boiler_wwtype="off",device_id="8",product_id="115"} 0
+emsesp_boiler_wwtype{emsesp_boiler_wwtype="flow",device_id="8",product_id="115"} 0
+emsesp_boiler_wwtype{emsesp_boiler_wwtype="buffered flow",device_id="8",product_id="115"} 0
+emsesp_boiler_wwtype{emsesp_boiler_wwtype="buffer",device_id="8",product_id="115"} 1
+emsesp_boiler_wwtype{emsesp_boiler_wwtype="layered buffer",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwcomfort comfort [enum]
+# TYPE emsesp_boiler_wwcomfort gauge
+emsesp_boiler_wwcomfort{emsesp_boiler_wwcomfort="hot",device_id="8",product_id="115"} 1
+emsesp_boiler_wwcomfort{emsesp_boiler_wwcomfort="eco",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcomfort{emsesp_boiler_wwcomfort="intelligent",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwflowtempoffset flow temperature offset [C]
+# TYPE emsesp_boiler_wwflowtempoffset gauge
+emsesp_boiler_wwflowtempoffset{device_id="8",product_id="115"} 20
+
+# HELP emsesp_boiler_wwcircpump circulation pump available [boolean]
+# TYPE emsesp_boiler_wwcircpump gauge
+emsesp_boiler_wwcircpump{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_wwchargetype charging type [enum]
+# TYPE emsesp_boiler_wwchargetype gauge
+emsesp_boiler_wwchargetype{emsesp_boiler_wwchargetype="chargepump",device_id="8",product_id="115"} 0
+emsesp_boiler_wwchargetype{emsesp_boiler_wwchargetype="3-way valve",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_wwhyston hysteresis on temperature [C]
+# TYPE emsesp_boiler_wwhyston gauge
+emsesp_boiler_wwhyston{device_id="8",product_id="115"} -11
+
+# HELP emsesp_boiler_wwhystoff hysteresis off temperature [C]
+# TYPE emsesp_boiler_wwhystoff gauge
+emsesp_boiler_wwhystoff{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwdisinfectiontemp disinfection temperature [C]
+# TYPE emsesp_boiler_wwdisinfectiontemp gauge
+emsesp_boiler_wwdisinfectiontemp{device_id="8",product_id="115"} 70
+
+# HELP emsesp_boiler_wwcircmode circulation pump mode [enum]
+# TYPE emsesp_boiler_wwcircmode gauge
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="1x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="2x3min",device_id="8",product_id="115"} 1
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="3x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="4x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="5x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="6x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_wwcircmode{emsesp_boiler_wwcircmode="continuous",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwcirc circulation active [boolean]
+# TYPE emsesp_boiler_wwcirc gauge
+emsesp_boiler_wwcirc{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwcurtemp current intern temperature [C]
+# TYPE emsesp_boiler_wwcurtemp gauge
+emsesp_boiler_wwcurtemp{device_id="8",product_id="115"} 43.3
+
+# HELP emsesp_boiler_wwcurtemp2 current extern temperature [C]
+# TYPE emsesp_boiler_wwcurtemp2 gauge
+emsesp_boiler_wwcurtemp2{device_id="8",product_id="115"} 58.9
+
+# HELP emsesp_boiler_wwcurflow current tap water flow [l/min]
+# TYPE emsesp_boiler_wwcurflow gauge
+emsesp_boiler_wwcurflow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwstoragetemp1 storage intern temperature [C]
+# TYPE emsesp_boiler_wwstoragetemp1 gauge
+emsesp_boiler_wwstoragetemp1{device_id="8",product_id="115"} 43.3
+
+# HELP emsesp_boiler_wwstoragetemp2 storage extern temperature [C]
+# TYPE emsesp_boiler_wwstoragetemp2 gauge
+emsesp_boiler_wwstoragetemp2{device_id="8",product_id="115"} 58.9
+
+# HELP emsesp_boiler_wwactivated activated [boolean]
+# TYPE emsesp_boiler_wwactivated gauge
+emsesp_boiler_wwactivated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_wwonetime one time charging [boolean]
+# TYPE emsesp_boiler_wwonetime gauge
+emsesp_boiler_wwonetime{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwdisinfecting disinfecting [boolean]
+# TYPE emsesp_boiler_wwdisinfecting gauge
+emsesp_boiler_wwdisinfecting{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwcharging charging [boolean]
+# TYPE emsesp_boiler_wwcharging gauge
+emsesp_boiler_wwcharging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwrecharging recharging [boolean]
+# TYPE emsesp_boiler_wwrecharging gauge
+emsesp_boiler_wwrecharging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwtempok temperature ok [boolean]
+# TYPE emsesp_boiler_wwtempok gauge
+emsesp_boiler_wwtempok{device_id="8",product_id="115"} 1
 
-# HELP emsesp_wwactive active [boolean]
-# TYPE emsesp_wwactive gauge
-emsesp_wwactive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_ww3wayvalve 3-way valve active [boolean]
-# TYPE emsesp_ww3wayvalve gauge
-emsesp_ww3wayvalve{device_id="8",product_id="115"} 0
-
-# HELP emsesp_wwstarts starts [number]
-# TYPE emsesp_wwstarts counter
-emsesp_wwstarts{device_id="8",product_id="115"} 29519
-
-# HELP emsesp_wwworkm active time [seconds]
-# TYPE emsesp_wwworkm counter
-emsesp_wwworkm{device_id="8",product_id="115"} 11561640
-
-# HELP emsesp_heatingactive heating active [boolean]
-# TYPE emsesp_heatingactive gauge
-emsesp_heatingactive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_tapwateractive tapwater active [boolean]
-# TYPE emsesp_tapwateractive gauge
-emsesp_tapwateractive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_selflowtemp selected flow temperature [C]
-# TYPE emsesp_selflowtemp gauge
-emsesp_selflowtemp{device_id="8",product_id="115"} 20
-
-# HELP emsesp_heatingpumpmod heating pump modulation [%]
-# TYPE emsesp_heatingpumpmod gauge
-emsesp_heatingpumpmod{device_id="8",product_id="115"} 0.6
-
-# HELP emsesp_curflowtemp current flow temperature [C]
-# TYPE emsesp_curflowtemp gauge
-emsesp_curflowtemp{device_id="8",product_id="115"} 25.3
-
-# HELP emsesp_rettemp return temperature [C]
-# TYPE emsesp_rettemp gauge
-emsesp_rettemp{device_id="8",product_id="115"} 25.5
-
-# HELP emsesp_switchtemp mixing switch temperature [C]
-# TYPE emsesp_switchtemp gauge
-emsesp_switchtemp{device_id="8",product_id="115"} 0
-
-# HELP emsesp_syspress system pressure [bar]
-# TYPE emsesp_syspress gauge
-emsesp_syspress{device_id="8",product_id="115"} 0.9
-
-# HELP emsesp_boiltemp actual boiler temperature [C]
-# TYPE emsesp_boiltemp gauge
-emsesp_boiltemp{device_id="8",product_id="115"} 24.1
-
-# HELP emsesp_burngas gas [boolean]
-# TYPE emsesp_burngas gauge
-emsesp_burngas{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burngas2 gas stage 2 [boolean]
-# TYPE emsesp_burngas2 gauge
-emsesp_burngas2{device_id="8",product_id="115"} 0
-
-# HELP emsesp_flamecurr flame current [µA]
-# TYPE emsesp_flamecurr gauge
-emsesp_flamecurr{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatingpump heating pump [boolean]
-# TYPE emsesp_heatingpump gauge
-emsesp_heatingpump{device_id="8",product_id="115"} 1
-
-# HELP emsesp_fanwork fan [boolean]
-# TYPE emsesp_fanwork gauge
-emsesp_fanwork{device_id="8",product_id="115"} 0
-
-# HELP emsesp_ignwork ignition [boolean]
-# TYPE emsesp_ignwork gauge
-emsesp_ignwork{device_id="8",product_id="115"} 0
-
-# HELP emsesp_oilpreheat oil preheating [boolean]
-# TYPE emsesp_oilpreheat gauge
-emsesp_oilpreheat{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatingactivated heating activated [boolean]
-# TYPE emsesp_heatingactivated gauge
-emsesp_heatingactivated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_heatingtemp heating temperature [C]
-# TYPE emsesp_heatingtemp gauge
-emsesp_heatingtemp{device_id="8",product_id="115"} 80
-
-# HELP emsesp_pumpmodmax boiler pump max power [%]
-# TYPE emsesp_pumpmodmax gauge
-emsesp_pumpmodmax{device_id="8",product_id="115"} 1
-
-# HELP emsesp_pumpmodmin boiler pump min power [%]
-# TYPE emsesp_pumpmodmin gauge
-emsesp_pumpmodmin{device_id="8",product_id="115"} 0.6
-
-# HELP emsesp_pumpmode pump mode [enum]
-# TYPE emsesp_pumpmode gauge
-emsesp_pumpmode{emsesp_pumpmode="proportional",device_id="8",product_id="115"} 1
-emsesp_pumpmode{emsesp_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
-
-# HELP emsesp_pumpdelay pump delay [seconds]
-# TYPE emsesp_pumpdelay gauge
-emsesp_pumpdelay{device_id="8",product_id="115"} 720
-
-# HELP emsesp_burnminperiod burner min period [seconds]
-# TYPE emsesp_burnminperiod gauge
-emsesp_burnminperiod{device_id="8",product_id="115"} 600
-
-# HELP emsesp_burnminpower burner min power [%]
-# TYPE emsesp_burnminpower gauge
-emsesp_burnminpower{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnmaxpower burner max power [%]
-# TYPE emsesp_burnmaxpower gauge
-emsesp_burnmaxpower{device_id="8",product_id="115"} 0.8
-
-# HELP emsesp_boilhyston hysteresis on temperature [C]
-# TYPE emsesp_boilhyston gauge
-emsesp_boilhyston{device_id="8",product_id="115"} -6
-
-# HELP emsesp_boilhystoff hysteresis off temperature [C]
-# TYPE emsesp_boilhystoff gauge
-emsesp_boilhystoff{device_id="8",product_id="115"} 6
-
-# HELP emsesp_selburnpow burner selected max power [%]
-# TYPE emsesp_selburnpow gauge
-emsesp_selburnpow{device_id="8",product_id="115"} 0.8
-
-# HELP emsesp_curburnpow burner current power [%]
-# TYPE emsesp_curburnpow gauge
-emsesp_curburnpow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnstarts burner starts [number]
-# TYPE emsesp_burnstarts counter
-emsesp_burnstarts{device_id="8",product_id="115"} 136369
-
-# HELP emsesp_burnworkmin total burner operating time [seconds]
-# TYPE emsesp_burnworkmin counter
-emsesp_burnworkmin{device_id="8",product_id="115"} 71042640
-
-# HELP emsesp_burn2workmin burner stage 2 operating time [seconds]
-# TYPE emsesp_burn2workmin counter
-emsesp_burn2workmin{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatworkmin total heat operating time [seconds]
-# TYPE emsesp_heatworkmin counter
-emsesp_heatworkmin{device_id="8",product_id="115"} 59481000
-
-# HELP emsesp_heatstarts burner starts heating [number]
-# TYPE emsesp_heatstarts counter
-emsesp_heatstarts{device_id="8",product_id="115"} 106850
-
-# HELP emsesp_ubauptime total UBA operating time [seconds]
-# TYPE emsesp_ubauptime counter
-emsesp_ubauptime{device_id="8",product_id="115"} 536363100
-
-# HELP emsesp_servicecode service code [string]
-# TYPE emsesp_servicecode gauge
-emsesp_servicecode{emsesp_servicecode="0Y",device_id="8",product_id="115"} 1
-
-# HELP emsesp_servicecodenumber service code number [number]
-# TYPE emsesp_servicecodenumber gauge
-emsesp_servicecodenumber{device_id="8",product_id="115"} 204
-
-# HELP emsesp_maintenancemessage maintenance message [string]
-# TYPE emsesp_maintenancemessage gauge
-emsesp_maintenancemessage{emsesp_maintenancemessage="H00",device_id="8",product_id="115"} 1
-
-# HELP emsesp_maintenance maintenance scheduled [enum]
-# TYPE emsesp_maintenance gauge
-emsesp_maintenance{emsesp_maintenance="off",device_id="8",product_id="115"} 1
-emsesp_maintenance{emsesp_maintenance="time",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="date",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="manual",device_id="8",product_id="115"} 0
-
-# HELP emsesp_maintenancetime time to next maintenance [hours]
-# TYPE emsesp_maintenancetime gauge
-emsesp_maintenancetime{device_id="8",product_id="115"} 6000
-
-# HELP emsesp_maintenancedate next maintenance date [string]
-# TYPE emsesp_maintenancedate gauge
-emsesp_maintenancedate{emsesp_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
+# HELP emsesp_boiler_wwactive active [boolean]
+# TYPE emsesp_boiler_wwactive gauge
+emsesp_boiler_wwactive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_ww3wayvalve 3-way valve active [boolean]
+# TYPE emsesp_boiler_ww3wayvalve gauge
+emsesp_boiler_ww3wayvalve{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_wwstarts starts [number]
+# TYPE emsesp_boiler_wwstarts counter
+emsesp_boiler_wwstarts{device_id="8",product_id="115"} 29519
+
+# HELP emsesp_boiler_wwworkm active time [seconds]
+# TYPE emsesp_boiler_wwworkm counter
+emsesp_boiler_wwworkm{device_id="8",product_id="115"} 11561640
+
+# HELP emsesp_boiler_heatingactive heating active [boolean]
+# TYPE emsesp_boiler_heatingactive gauge
+emsesp_boiler_heatingactive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_tapwateractive tapwater active [boolean]
+# TYPE emsesp_boiler_tapwateractive gauge
+emsesp_boiler_tapwateractive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_selflowtemp selected flow temperature [C]
+# TYPE emsesp_boiler_selflowtemp gauge
+emsesp_boiler_selflowtemp{device_id="8",product_id="115"} 20
+
+# HELP emsesp_boiler_heatingpumpmod heating pump modulation [%]
+# TYPE emsesp_boiler_heatingpumpmod gauge
+emsesp_boiler_heatingpumpmod{device_id="8",product_id="115"} 0.6
+
+# HELP emsesp_boiler_curflowtemp current flow temperature [C]
+# TYPE emsesp_boiler_curflowtemp gauge
+emsesp_boiler_curflowtemp{device_id="8",product_id="115"} 25.3
+
+# HELP emsesp_boiler_rettemp return temperature [C]
+# TYPE emsesp_boiler_rettemp gauge
+emsesp_boiler_rettemp{device_id="8",product_id="115"} 25.5
+
+# HELP emsesp_boiler_switchtemp mixing switch temperature [C]
+# TYPE emsesp_boiler_switchtemp gauge
+emsesp_boiler_switchtemp{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_syspress system pressure [bar]
+# TYPE emsesp_boiler_syspress gauge
+emsesp_boiler_syspress{device_id="8",product_id="115"} 0.9
+
+# HELP emsesp_boiler_boiltemp actual boiler temperature [C]
+# TYPE emsesp_boiler_boiltemp gauge
+emsesp_boiler_boiltemp{device_id="8",product_id="115"} 24.1
+
+# HELP emsesp_boiler_burngas gas [boolean]
+# TYPE emsesp_boiler_burngas gauge
+emsesp_boiler_burngas{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burngas2 gas stage 2 [boolean]
+# TYPE emsesp_boiler_burngas2 gauge
+emsesp_boiler_burngas2{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_flamecurr flame current [µA]
+# TYPE emsesp_boiler_flamecurr gauge
+emsesp_boiler_flamecurr{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatingpump heating pump [boolean]
+# TYPE emsesp_boiler_heatingpump gauge
+emsesp_boiler_heatingpump{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_fanwork fan [boolean]
+# TYPE emsesp_boiler_fanwork gauge
+emsesp_boiler_fanwork{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_ignwork ignition [boolean]
+# TYPE emsesp_boiler_ignwork gauge
+emsesp_boiler_ignwork{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_oilpreheat oil preheating [boolean]
+# TYPE emsesp_boiler_oilpreheat gauge
+emsesp_boiler_oilpreheat{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatingactivated heating activated [boolean]
+# TYPE emsesp_boiler_heatingactivated gauge
+emsesp_boiler_heatingactivated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_heatingtemp heating temperature [C]
+# TYPE emsesp_boiler_heatingtemp gauge
+emsesp_boiler_heatingtemp{device_id="8",product_id="115"} 80
+
+# HELP emsesp_boiler_pumpmodmax boiler pump max power [%]
+# TYPE emsesp_boiler_pumpmodmax gauge
+emsesp_boiler_pumpmodmax{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_pumpmodmin boiler pump min power [%]
+# TYPE emsesp_boiler_pumpmodmin gauge
+emsesp_boiler_pumpmodmin{device_id="8",product_id="115"} 0.6
+
+# HELP emsesp_boiler_pumpmode pump mode [enum]
+# TYPE emsesp_boiler_pumpmode gauge
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="proportional",device_id="8",product_id="115"} 1
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_pumpdelay pump delay [seconds]
+# TYPE emsesp_boiler_pumpdelay gauge
+emsesp_boiler_pumpdelay{device_id="8",product_id="115"} 720
+
+# HELP emsesp_boiler_burnminperiod burner min period [seconds]
+# TYPE emsesp_boiler_burnminperiod gauge
+emsesp_boiler_burnminperiod{device_id="8",product_id="115"} 600
+
+# HELP emsesp_boiler_burnminpower burner min power [%]
+# TYPE emsesp_boiler_burnminpower gauge
+emsesp_boiler_burnminpower{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnmaxpower burner max power [%]
+# TYPE emsesp_boiler_burnmaxpower gauge
+emsesp_boiler_burnmaxpower{device_id="8",product_id="115"} 0.8
+
+# HELP emsesp_boiler_boilhyston hysteresis on temperature [C]
+# TYPE emsesp_boiler_boilhyston gauge
+emsesp_boiler_boilhyston{device_id="8",product_id="115"} -6
+
+# HELP emsesp_boiler_boilhystoff hysteresis off temperature [C]
+# TYPE emsesp_boiler_boilhystoff gauge
+emsesp_boiler_boilhystoff{device_id="8",product_id="115"} 6
+
+# HELP emsesp_boiler_selburnpow burner selected max power [%]
+# TYPE emsesp_boiler_selburnpow gauge
+emsesp_boiler_selburnpow{device_id="8",product_id="115"} 0.8
+
+# HELP emsesp_boiler_curburnpow burner current power [%]
+# TYPE emsesp_boiler_curburnpow gauge
+emsesp_boiler_curburnpow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnstarts burner starts [number]
+# TYPE emsesp_boiler_burnstarts counter
+emsesp_boiler_burnstarts{device_id="8",product_id="115"} 136369
+
+# HELP emsesp_boiler_burnworkmin total burner operating time [seconds]
+# TYPE emsesp_boiler_burnworkmin counter
+emsesp_boiler_burnworkmin{device_id="8",product_id="115"} 71042640
+
+# HELP emsesp_boiler_burn2workmin burner stage 2 operating time [seconds]
+# TYPE emsesp_boiler_burn2workmin counter
+emsesp_boiler_burn2workmin{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatworkmin total heat operating time [seconds]
+# TYPE emsesp_boiler_heatworkmin counter
+emsesp_boiler_heatworkmin{device_id="8",product_id="115"} 59481000
+
+# HELP emsesp_boiler_heatstarts burner starts heating [number]
+# TYPE emsesp_boiler_heatstarts counter
+emsesp_boiler_heatstarts{device_id="8",product_id="115"} 106850
+
+# HELP emsesp_boiler_ubauptime total UBA operating time [seconds]
+# TYPE emsesp_boiler_ubauptime counter
+emsesp_boiler_ubauptime{device_id="8",product_id="115"} 536363100
+
+# HELP emsesp_boiler_servicecode service code [string]
+# TYPE emsesp_boiler_servicecode gauge
+emsesp_boiler_servicecode{emsesp_boiler_servicecode="0Y",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_servicecodenumber service code number [number]
+# TYPE emsesp_boiler_servicecodenumber gauge
+emsesp_boiler_servicecodenumber{device_id="8",product_id="115"} 204
+
+# HELP emsesp_boiler_maintenancemessage maintenance message [string]
+# TYPE emsesp_boiler_maintenancemessage gauge
+emsesp_boiler_maintenancemessage{emsesp_boiler_maintenancemessage="H00",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_maintenance maintenance scheduled [enum]
+# TYPE emsesp_boiler_maintenance gauge
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="off",device_id="8",product_id="115"} 1
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="time",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="date",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="manual",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_maintenancetime time to next maintenance [hours]
+# TYPE emsesp_boiler_maintenancetime gauge
+emsesp_boiler_maintenancetime{device_id="8",product_id="115"} 6000
+
+# HELP emsesp_boiler_maintenancedate next maintenance date [string]
+# TYPE emsesp_boiler_maintenancedate gauge
+emsesp_boiler_maintenancedate{emsesp_boiler_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
 "
 `;
 
 exports[`handles device metrics v3.7 1`] = `
-"# HELP emsesp_heatingoff force heating off [boolean]
-# TYPE emsesp_heatingoff gauge
-emsesp_heatingoff{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatingactive heating active [boolean]
-# TYPE emsesp_heatingactive gauge
-emsesp_heatingactive{device_id="8",product_id="115"} 1
-
-# HELP emsesp_tapwateractive tapwater active [boolean]
-# TYPE emsesp_tapwateractive gauge
-emsesp_tapwateractive{device_id="8",product_id="115"} 0
-
-# HELP emsesp_selflowtemp selected flow temperature [C]
-# TYPE emsesp_selflowtemp gauge
-emsesp_selflowtemp{device_id="8",product_id="115"} 70
-
-# HELP emsesp_heatingpumpmod heating pump modulation [%]
-# TYPE emsesp_heatingpumpmod gauge
-emsesp_heatingpumpmod{device_id="8",product_id="115"} 0.71
-
-# HELP emsesp_curflowtemp current flow temperature [C]
-# TYPE emsesp_curflowtemp gauge
-emsesp_curflowtemp{device_id="8",product_id="115"} 70.1
-
-# HELP emsesp_rettemp return temperature [C]
-# TYPE emsesp_rettemp gauge
-emsesp_rettemp{device_id="8",product_id="115"} 58.7
-
-# HELP emsesp_switchtemp mixing switch temperature [C]
-# TYPE emsesp_switchtemp gauge
-emsesp_switchtemp{device_id="8",product_id="115"} 0
-
-# HELP emsesp_syspress system pressure [bar]
-# TYPE emsesp_syspress gauge
-emsesp_syspress{device_id="8",product_id="115"} 1.5
-
-# HELP emsesp_boiltemp actual boiler temperature [C]
-# TYPE emsesp_boiltemp gauge
-emsesp_boiltemp{device_id="8",product_id="115"} 66.4
-
-# HELP emsesp_burngas gas [boolean]
-# TYPE emsesp_burngas gauge
-emsesp_burngas{device_id="8",product_id="115"} 1
-
-# HELP emsesp_burngas2 gas stage 2 [boolean]
-# TYPE emsesp_burngas2 gauge
-emsesp_burngas2{device_id="8",product_id="115"} 0
-
-# HELP emsesp_flamecurr flame current [µA]
-# TYPE emsesp_flamecurr gauge
-emsesp_flamecurr{device_id="8",product_id="115"} 23
-
-# HELP emsesp_fanwork fan [boolean]
-# TYPE emsesp_fanwork gauge
-emsesp_fanwork{device_id="8",product_id="115"} 1
-
-# HELP emsesp_ignwork ignition [boolean]
-# TYPE emsesp_ignwork gauge
-emsesp_ignwork{device_id="8",product_id="115"} 0
-
-# HELP emsesp_oilpreheat oil preheating [boolean]
-# TYPE emsesp_oilpreheat gauge
-emsesp_oilpreheat{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnminpower burner min power [%]
-# TYPE emsesp_burnminpower gauge
-emsesp_burnminpower{device_id="8",product_id="115"} 0
-
-# HELP emsesp_burnmaxpower burner max power [%]
-# TYPE emsesp_burnmaxpower gauge
-emsesp_burnmaxpower{device_id="8",product_id="115"} 0.8
-
-# HELP emsesp_burnminperiod burner min period [seconds]
-# TYPE emsesp_burnminperiod gauge
-emsesp_burnminperiod{device_id="8",product_id="115"} 600
-
-# HELP emsesp_boilhyston hysteresis on temperature [C]
-# TYPE emsesp_boilhyston gauge
-emsesp_boilhyston{device_id="8",product_id="115"} -6
-
-# HELP emsesp_boilhystoff hysteresis off temperature [C]
-# TYPE emsesp_boilhystoff gauge
-emsesp_boilhystoff{device_id="8",product_id="115"} 6
-
-# HELP emsesp_heatingactivated heating activated [boolean]
-# TYPE emsesp_heatingactivated gauge
-emsesp_heatingactivated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_heatingtemp heating temperature [C]
-# TYPE emsesp_heatingtemp gauge
-emsesp_heatingtemp{device_id="8",product_id="115"} 80
-
-# HELP emsesp_heatingpump heating pump [boolean]
-# TYPE emsesp_heatingpump gauge
-emsesp_heatingpump{device_id="8",product_id="115"} 1
-
-# HELP emsesp_pumpmodmax boiler pump max power [%]
-# TYPE emsesp_pumpmodmax gauge
-emsesp_pumpmodmax{device_id="8",product_id="115"} 1
-
-# HELP emsesp_pumpmodmin boiler pump min power [%]
-# TYPE emsesp_pumpmodmin gauge
-emsesp_pumpmodmin{device_id="8",product_id="115"} 0.6
-
-# HELP emsesp_pumpmode boiler pump mode [enum]
-# TYPE emsesp_pumpmode gauge
-emsesp_pumpmode{emsesp_pumpmode="proportional",device_id="8",product_id="115"} 1
-emsesp_pumpmode{emsesp_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
-emsesp_pumpmode{emsesp_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
-
-# HELP emsesp_pumpdelay pump delay [seconds]
-# TYPE emsesp_pumpdelay gauge
-emsesp_pumpdelay{device_id="8",product_id="115"} 720
-
-# HELP emsesp_selburnpow burner selected max power [%]
-# TYPE emsesp_selburnpow gauge
-emsesp_selburnpow{device_id="8",product_id="115"} 0.8
-
-# HELP emsesp_curburnpow burner current power [%]
-# TYPE emsesp_curburnpow gauge
-emsesp_curburnpow{device_id="8",product_id="115"} 0.34
-
-# HELP emsesp_burnstarts burner starts [number]
-# TYPE emsesp_burnstarts counter
-emsesp_burnstarts{device_id="8",product_id="115"} 136570
-
-# HELP emsesp_burnworkmin total burner operating time [seconds]
-# TYPE emsesp_burnworkmin counter
-emsesp_burnworkmin{device_id="8",product_id="115"} 71338620
-
-# HELP emsesp_burn2workmin burner stage 2 operating time [seconds]
-# TYPE emsesp_burn2workmin counter
-emsesp_burn2workmin{device_id="8",product_id="115"} 0
-
-# HELP emsesp_heatworkmin total heat operating time [seconds]
-# TYPE emsesp_heatworkmin counter
-emsesp_heatworkmin{device_id="8",product_id="115"} 59763600
-
-# HELP emsesp_heatstarts burner starts heating [number]
-# TYPE emsesp_heatstarts counter
-emsesp_heatstarts{device_id="8",product_id="115"} 107037
-
-# HELP emsesp_ubauptime total UBA operating time [seconds]
-# TYPE emsesp_ubauptime counter
-emsesp_ubauptime{device_id="8",product_id="115"} 536968800
-
-# HELP emsesp_servicecode service code [string]
-# TYPE emsesp_servicecode gauge
-emsesp_servicecode{emsesp_servicecode="-H",device_id="8",product_id="115"} 1
-
-# HELP emsesp_servicecodenumber service code number [number]
-# TYPE emsesp_servicecodenumber gauge
-emsesp_servicecodenumber{device_id="8",product_id="115"} 200
-
-# HELP emsesp_maintenancemessage maintenance message [string]
-# TYPE emsesp_maintenancemessage gauge
-emsesp_maintenancemessage{emsesp_maintenancemessage="H00",device_id="8",product_id="115"} 1
-
-# HELP emsesp_maintenance maintenance scheduled [enum]
-# TYPE emsesp_maintenance gauge
-emsesp_maintenance{emsesp_maintenance="off",device_id="8",product_id="115"} 1
-emsesp_maintenance{emsesp_maintenance="time",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="date",device_id="8",product_id="115"} 0
-emsesp_maintenance{emsesp_maintenance="manual",device_id="8",product_id="115"} 0
-
-# HELP emsesp_maintenancetime time to next maintenance [hours]
-# TYPE emsesp_maintenancetime gauge
-emsesp_maintenancetime{device_id="8",product_id="115"} 6000
-
-# HELP emsesp_maintenancedate next maintenance date [string]
-# TYPE emsesp_maintenancedate gauge
-emsesp_maintenancedate{emsesp_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
-
-# HELP emsesp_nompower nominal Power [kW]
-# TYPE emsesp_nompower gauge
-emsesp_nompower{device_id="8",product_id="115"} 30
-
-# HELP emsesp_nrgtotal total energy [kWh]
-# TYPE emsesp_nrgtotal counter
-emsesp_nrgtotal{device_id="8",product_id="115"} 2.25
-
-# HELP emsesp_nrgheat energy heating [kWh]
-# TYPE emsesp_nrgheat counter
-emsesp_nrgheat{device_id="8",product_id="115"} 2.25
-
-# HELP emsesp_dhw_settemp set temperature [C]
-# TYPE emsesp_dhw_settemp gauge
-emsesp_dhw_settemp{device_id="8",product_id="115"} 61
-
-# HELP emsesp_dhw_seltemp selected temperature [C]
-# TYPE emsesp_dhw_seltemp gauge
-emsesp_dhw_seltemp{device_id="8",product_id="115"} 60
-
-# HELP emsesp_dhw_type type [enum]
-# TYPE emsesp_dhw_type gauge
-emsesp_dhw_type{emsesp_dhw_type="off",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="flow",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="buffered flow",device_id="8",product_id="115"} 0
-emsesp_dhw_type{emsesp_dhw_type="buffer",device_id="8",product_id="115"} 1
-emsesp_dhw_type{emsesp_dhw_type="layered buffer",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_comfort comfort [enum]
-# TYPE emsesp_dhw_comfort gauge
-emsesp_dhw_comfort{emsesp_dhw_comfort="hot",device_id="8",product_id="115"} 1
-emsesp_dhw_comfort{emsesp_dhw_comfort="eco",device_id="8",product_id="115"} 0
-emsesp_dhw_comfort{emsesp_dhw_comfort="intelligent",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_flowtempoffset flow temperature offset [C]
-# TYPE emsesp_dhw_flowtempoffset gauge
-emsesp_dhw_flowtempoffset{device_id="8",product_id="115"} 20
-
-# HELP emsesp_dhw_circpump circulation pump available [boolean]
-# TYPE emsesp_dhw_circpump gauge
-emsesp_dhw_circpump{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_chargetype charging type [enum]
-# TYPE emsesp_dhw_chargetype gauge
-emsesp_dhw_chargetype{emsesp_dhw_chargetype="chargepump",device_id="8",product_id="115"} 0
-emsesp_dhw_chargetype{emsesp_dhw_chargetype="3-way valve",device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_hyston hysteresis on temperature [C]
-# TYPE emsesp_dhw_hyston gauge
-emsesp_dhw_hyston{device_id="8",product_id="115"} -11
-
-# HELP emsesp_dhw_hystoff hysteresis off temperature [C]
-# TYPE emsesp_dhw_hystoff gauge
-emsesp_dhw_hystoff{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_disinfectiontemp disinfection temperature [C]
-# TYPE emsesp_dhw_disinfectiontemp gauge
-emsesp_dhw_disinfectiontemp{device_id="8",product_id="115"} 70
-
-# HELP emsesp_dhw_circmode circulation pump mode [enum]
-# TYPE emsesp_dhw_circmode gauge
-emsesp_dhw_circmode{emsesp_dhw_circmode="off",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="1x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="2x3min",device_id="8",product_id="115"} 1
-emsesp_dhw_circmode{emsesp_dhw_circmode="3x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="4x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="5x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="6x3min",device_id="8",product_id="115"} 0
-emsesp_dhw_circmode{emsesp_dhw_circmode="continuous",device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_circ circulation active [boolean]
-# TYPE emsesp_dhw_circ gauge
-emsesp_dhw_circ{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_curtemp current intern temperature [C]
-# TYPE emsesp_dhw_curtemp gauge
-emsesp_dhw_curtemp{device_id="8",product_id="115"} 46.1
-
-# HELP emsesp_dhw_curtemp2 current extern temperature [C]
-# TYPE emsesp_dhw_curtemp2 gauge
-emsesp_dhw_curtemp2{device_id="8",product_id="115"} 60.2
-
-# HELP emsesp_dhw_curflow current tap water flow [l/min]
-# TYPE emsesp_dhw_curflow gauge
-emsesp_dhw_curflow{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_storagetemp1 storage intern temperature [C]
-# TYPE emsesp_dhw_storagetemp1 gauge
-emsesp_dhw_storagetemp1{device_id="8",product_id="115"} 46
-
-# HELP emsesp_dhw_storagetemp2 storage extern temperature [C]
-# TYPE emsesp_dhw_storagetemp2 gauge
-emsesp_dhw_storagetemp2{device_id="8",product_id="115"} 60.2
-
-# HELP emsesp_dhw_activated activated [boolean]
-# TYPE emsesp_dhw_activated gauge
-emsesp_dhw_activated{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_onetime one time charging [boolean]
-# TYPE emsesp_dhw_onetime gauge
-emsesp_dhw_onetime{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_disinfecting disinfecting [boolean]
-# TYPE emsesp_dhw_disinfecting gauge
-emsesp_dhw_disinfecting{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_charging charging [boolean]
-# TYPE emsesp_dhw_charging gauge
-emsesp_dhw_charging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_recharging recharging [boolean]
-# TYPE emsesp_dhw_recharging gauge
-emsesp_dhw_recharging{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_tempok temperature ok [boolean]
-# TYPE emsesp_dhw_tempok gauge
-emsesp_dhw_tempok{device_id="8",product_id="115"} 1
-
-# HELP emsesp_dhw_active active [boolean]
-# TYPE emsesp_dhw_active gauge
-emsesp_dhw_active{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_3wayvalve 3-way valve active [boolean]
-# TYPE emsesp_dhw_3wayvalve gauge
-emsesp_dhw_3wayvalve{device_id="8",product_id="115"} 0
-
-# HELP emsesp_dhw_starts starts [number]
-# TYPE emsesp_dhw_starts counter
-emsesp_dhw_starts{device_id="8",product_id="115"} 29533
-
-# HELP emsesp_dhw_workm active time [seconds]
-# TYPE emsesp_dhw_workm counter
-emsesp_dhw_workm{device_id="8",product_id="115"} 11575020
-
-# HELP emsesp_dhw_nrg energy [kWh]
-# TYPE emsesp_dhw_nrg counter
-emsesp_dhw_nrg{device_id="8",product_id="115"} 0
+"# HELP emsesp_boiler_heatingoff force heating off [boolean]
+# TYPE emsesp_boiler_heatingoff gauge
+emsesp_boiler_heatingoff{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatingactive heating active [boolean]
+# TYPE emsesp_boiler_heatingactive gauge
+emsesp_boiler_heatingactive{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_tapwateractive tapwater active [boolean]
+# TYPE emsesp_boiler_tapwateractive gauge
+emsesp_boiler_tapwateractive{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_selflowtemp selected flow temperature [C]
+# TYPE emsesp_boiler_selflowtemp gauge
+emsesp_boiler_selflowtemp{device_id="8",product_id="115"} 70
+
+# HELP emsesp_boiler_heatingpumpmod heating pump modulation [%]
+# TYPE emsesp_boiler_heatingpumpmod gauge
+emsesp_boiler_heatingpumpmod{device_id="8",product_id="115"} 0.71
+
+# HELP emsesp_boiler_curflowtemp current flow temperature [C]
+# TYPE emsesp_boiler_curflowtemp gauge
+emsesp_boiler_curflowtemp{device_id="8",product_id="115"} 70.1
+
+# HELP emsesp_boiler_rettemp return temperature [C]
+# TYPE emsesp_boiler_rettemp gauge
+emsesp_boiler_rettemp{device_id="8",product_id="115"} 58.7
+
+# HELP emsesp_boiler_switchtemp mixing switch temperature [C]
+# TYPE emsesp_boiler_switchtemp gauge
+emsesp_boiler_switchtemp{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_syspress system pressure [bar]
+# TYPE emsesp_boiler_syspress gauge
+emsesp_boiler_syspress{device_id="8",product_id="115"} 1.5
+
+# HELP emsesp_boiler_boiltemp actual boiler temperature [C]
+# TYPE emsesp_boiler_boiltemp gauge
+emsesp_boiler_boiltemp{device_id="8",product_id="115"} 66.4
+
+# HELP emsesp_boiler_burngas gas [boolean]
+# TYPE emsesp_boiler_burngas gauge
+emsesp_boiler_burngas{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_burngas2 gas stage 2 [boolean]
+# TYPE emsesp_boiler_burngas2 gauge
+emsesp_boiler_burngas2{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_flamecurr flame current [µA]
+# TYPE emsesp_boiler_flamecurr gauge
+emsesp_boiler_flamecurr{device_id="8",product_id="115"} 23
+
+# HELP emsesp_boiler_fanwork fan [boolean]
+# TYPE emsesp_boiler_fanwork gauge
+emsesp_boiler_fanwork{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_ignwork ignition [boolean]
+# TYPE emsesp_boiler_ignwork gauge
+emsesp_boiler_ignwork{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_oilpreheat oil preheating [boolean]
+# TYPE emsesp_boiler_oilpreheat gauge
+emsesp_boiler_oilpreheat{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnminpower burner min power [%]
+# TYPE emsesp_boiler_burnminpower gauge
+emsesp_boiler_burnminpower{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_burnmaxpower burner max power [%]
+# TYPE emsesp_boiler_burnmaxpower gauge
+emsesp_boiler_burnmaxpower{device_id="8",product_id="115"} 0.8
+
+# HELP emsesp_boiler_burnminperiod burner min period [seconds]
+# TYPE emsesp_boiler_burnminperiod gauge
+emsesp_boiler_burnminperiod{device_id="8",product_id="115"} 600
+
+# HELP emsesp_boiler_boilhyston hysteresis on temperature [C]
+# TYPE emsesp_boiler_boilhyston gauge
+emsesp_boiler_boilhyston{device_id="8",product_id="115"} -6
+
+# HELP emsesp_boiler_boilhystoff hysteresis off temperature [C]
+# TYPE emsesp_boiler_boilhystoff gauge
+emsesp_boiler_boilhystoff{device_id="8",product_id="115"} 6
+
+# HELP emsesp_boiler_heatingactivated heating activated [boolean]
+# TYPE emsesp_boiler_heatingactivated gauge
+emsesp_boiler_heatingactivated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_heatingtemp heating temperature [C]
+# TYPE emsesp_boiler_heatingtemp gauge
+emsesp_boiler_heatingtemp{device_id="8",product_id="115"} 80
+
+# HELP emsesp_boiler_heatingpump heating pump [boolean]
+# TYPE emsesp_boiler_heatingpump gauge
+emsesp_boiler_heatingpump{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_pumpmodmax boiler pump max power [%]
+# TYPE emsesp_boiler_pumpmodmax gauge
+emsesp_boiler_pumpmodmax{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_pumpmodmin boiler pump min power [%]
+# TYPE emsesp_boiler_pumpmodmin gauge
+emsesp_boiler_pumpmodmin{device_id="8",product_id="115"} 0.6
+
+# HELP emsesp_boiler_pumpmode boiler pump mode [enum]
+# TYPE emsesp_boiler_pumpmode gauge
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="proportional",device_id="8",product_id="115"} 1
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-1",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-2",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-3",device_id="8",product_id="115"} 0
+emsesp_boiler_pumpmode{emsesp_boiler_pumpmode="deltaP-4",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_pumpdelay pump delay [seconds]
+# TYPE emsesp_boiler_pumpdelay gauge
+emsesp_boiler_pumpdelay{device_id="8",product_id="115"} 720
+
+# HELP emsesp_boiler_selburnpow burner selected max power [%]
+# TYPE emsesp_boiler_selburnpow gauge
+emsesp_boiler_selburnpow{device_id="8",product_id="115"} 0.8
+
+# HELP emsesp_boiler_curburnpow burner current power [%]
+# TYPE emsesp_boiler_curburnpow gauge
+emsesp_boiler_curburnpow{device_id="8",product_id="115"} 0.34
+
+# HELP emsesp_boiler_burnstarts burner starts [number]
+# TYPE emsesp_boiler_burnstarts counter
+emsesp_boiler_burnstarts{device_id="8",product_id="115"} 136570
+
+# HELP emsesp_boiler_burnworkmin total burner operating time [seconds]
+# TYPE emsesp_boiler_burnworkmin counter
+emsesp_boiler_burnworkmin{device_id="8",product_id="115"} 71338620
+
+# HELP emsesp_boiler_burn2workmin burner stage 2 operating time [seconds]
+# TYPE emsesp_boiler_burn2workmin counter
+emsesp_boiler_burn2workmin{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_heatworkmin total heat operating time [seconds]
+# TYPE emsesp_boiler_heatworkmin counter
+emsesp_boiler_heatworkmin{device_id="8",product_id="115"} 59763600
+
+# HELP emsesp_boiler_heatstarts burner starts heating [number]
+# TYPE emsesp_boiler_heatstarts counter
+emsesp_boiler_heatstarts{device_id="8",product_id="115"} 107037
+
+# HELP emsesp_boiler_ubauptime total UBA operating time [seconds]
+# TYPE emsesp_boiler_ubauptime counter
+emsesp_boiler_ubauptime{device_id="8",product_id="115"} 536968800
+
+# HELP emsesp_boiler_servicecode service code [string]
+# TYPE emsesp_boiler_servicecode gauge
+emsesp_boiler_servicecode{emsesp_boiler_servicecode="-H",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_servicecodenumber service code number [number]
+# TYPE emsesp_boiler_servicecodenumber gauge
+emsesp_boiler_servicecodenumber{device_id="8",product_id="115"} 200
+
+# HELP emsesp_boiler_maintenancemessage maintenance message [string]
+# TYPE emsesp_boiler_maintenancemessage gauge
+emsesp_boiler_maintenancemessage{emsesp_boiler_maintenancemessage="H00",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_maintenance maintenance scheduled [enum]
+# TYPE emsesp_boiler_maintenance gauge
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="off",device_id="8",product_id="115"} 1
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="time",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="date",device_id="8",product_id="115"} 0
+emsesp_boiler_maintenance{emsesp_boiler_maintenance="manual",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_maintenancetime time to next maintenance [hours]
+# TYPE emsesp_boiler_maintenancetime gauge
+emsesp_boiler_maintenancetime{device_id="8",product_id="115"} 6000
+
+# HELP emsesp_boiler_maintenancedate next maintenance date [string]
+# TYPE emsesp_boiler_maintenancedate gauge
+emsesp_boiler_maintenancedate{emsesp_boiler_maintenancedate="01.01.2004",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_nompower nominal Power [kW]
+# TYPE emsesp_boiler_nompower gauge
+emsesp_boiler_nompower{device_id="8",product_id="115"} 30
+
+# HELP emsesp_boiler_nrgtotal total energy [kWh]
+# TYPE emsesp_boiler_nrgtotal counter
+emsesp_boiler_nrgtotal{device_id="8",product_id="115"} 2.25
+
+# HELP emsesp_boiler_nrgheat energy heating [kWh]
+# TYPE emsesp_boiler_nrgheat counter
+emsesp_boiler_nrgheat{device_id="8",product_id="115"} 2.25
+
+# HELP emsesp_boiler_dhw_settemp set temperature [C]
+# TYPE emsesp_boiler_dhw_settemp gauge
+emsesp_boiler_dhw_settemp{device_id="8",product_id="115"} 61
+
+# HELP emsesp_boiler_dhw_seltemp selected temperature [C]
+# TYPE emsesp_boiler_dhw_seltemp gauge
+emsesp_boiler_dhw_seltemp{device_id="8",product_id="115"} 60
+
+# HELP emsesp_boiler_dhw_type type [enum]
+# TYPE emsesp_boiler_dhw_type gauge
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="off",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="flow",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffered flow",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="buffer",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_type{emsesp_boiler_dhw_type="layered buffer",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_comfort comfort [enum]
+# TYPE emsesp_boiler_dhw_comfort gauge
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="hot",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="eco",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_comfort{emsesp_boiler_dhw_comfort="intelligent",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_flowtempoffset flow temperature offset [C]
+# TYPE emsesp_boiler_dhw_flowtempoffset gauge
+emsesp_boiler_dhw_flowtempoffset{device_id="8",product_id="115"} 20
+
+# HELP emsesp_boiler_dhw_circpump circulation pump available [boolean]
+# TYPE emsesp_boiler_dhw_circpump gauge
+emsesp_boiler_dhw_circpump{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_chargetype charging type [enum]
+# TYPE emsesp_boiler_dhw_chargetype gauge
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="chargepump",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_chargetype{emsesp_boiler_dhw_chargetype="3-way valve",device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_hyston hysteresis on temperature [C]
+# TYPE emsesp_boiler_dhw_hyston gauge
+emsesp_boiler_dhw_hyston{device_id="8",product_id="115"} -11
+
+# HELP emsesp_boiler_dhw_hystoff hysteresis off temperature [C]
+# TYPE emsesp_boiler_dhw_hystoff gauge
+emsesp_boiler_dhw_hystoff{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_disinfectiontemp disinfection temperature [C]
+# TYPE emsesp_boiler_dhw_disinfectiontemp gauge
+emsesp_boiler_dhw_disinfectiontemp{device_id="8",product_id="115"} 70
+
+# HELP emsesp_boiler_dhw_circmode circulation pump mode [enum]
+# TYPE emsesp_boiler_dhw_circmode gauge
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="off",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="1x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="2x3min",device_id="8",product_id="115"} 1
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="3x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="4x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="5x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="6x3min",device_id="8",product_id="115"} 0
+emsesp_boiler_dhw_circmode{emsesp_boiler_dhw_circmode="continuous",device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_circ circulation active [boolean]
+# TYPE emsesp_boiler_dhw_circ gauge
+emsesp_boiler_dhw_circ{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_curtemp current intern temperature [C]
+# TYPE emsesp_boiler_dhw_curtemp gauge
+emsesp_boiler_dhw_curtemp{device_id="8",product_id="115"} 46.1
+
+# HELP emsesp_boiler_dhw_curtemp2 current extern temperature [C]
+# TYPE emsesp_boiler_dhw_curtemp2 gauge
+emsesp_boiler_dhw_curtemp2{device_id="8",product_id="115"} 60.2
+
+# HELP emsesp_boiler_dhw_curflow current tap water flow [l/min]
+# TYPE emsesp_boiler_dhw_curflow gauge
+emsesp_boiler_dhw_curflow{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_storagetemp1 storage intern temperature [C]
+# TYPE emsesp_boiler_dhw_storagetemp1 gauge
+emsesp_boiler_dhw_storagetemp1{device_id="8",product_id="115"} 46
+
+# HELP emsesp_boiler_dhw_storagetemp2 storage extern temperature [C]
+# TYPE emsesp_boiler_dhw_storagetemp2 gauge
+emsesp_boiler_dhw_storagetemp2{device_id="8",product_id="115"} 60.2
+
+# HELP emsesp_boiler_dhw_activated activated [boolean]
+# TYPE emsesp_boiler_dhw_activated gauge
+emsesp_boiler_dhw_activated{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_onetime one time charging [boolean]
+# TYPE emsesp_boiler_dhw_onetime gauge
+emsesp_boiler_dhw_onetime{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_disinfecting disinfecting [boolean]
+# TYPE emsesp_boiler_dhw_disinfecting gauge
+emsesp_boiler_dhw_disinfecting{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_charging charging [boolean]
+# TYPE emsesp_boiler_dhw_charging gauge
+emsesp_boiler_dhw_charging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_recharging recharging [boolean]
+# TYPE emsesp_boiler_dhw_recharging gauge
+emsesp_boiler_dhw_recharging{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_tempok temperature ok [boolean]
+# TYPE emsesp_boiler_dhw_tempok gauge
+emsesp_boiler_dhw_tempok{device_id="8",product_id="115"} 1
+
+# HELP emsesp_boiler_dhw_active active [boolean]
+# TYPE emsesp_boiler_dhw_active gauge
+emsesp_boiler_dhw_active{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_3wayvalve 3-way valve active [boolean]
+# TYPE emsesp_boiler_dhw_3wayvalve gauge
+emsesp_boiler_dhw_3wayvalve{device_id="8",product_id="115"} 0
+
+# HELP emsesp_boiler_dhw_starts starts [number]
+# TYPE emsesp_boiler_dhw_starts counter
+emsesp_boiler_dhw_starts{device_id="8",product_id="115"} 29533
+
+# HELP emsesp_boiler_dhw_workm active time [seconds]
+# TYPE emsesp_boiler_dhw_workm counter
+emsesp_boiler_dhw_workm{device_id="8",product_id="115"} 11575020
+
+# HELP emsesp_boiler_dhw_nrg energy [kWh]
+# TYPE emsesp_boiler_dhw_nrg counter
+emsesp_boiler_dhw_nrg{device_id="8",product_id="115"} 0
 "
 `;
 

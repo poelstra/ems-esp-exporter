@@ -1,11 +1,12 @@
 import { expect, it } from "@jest/globals";
 import { Registry } from "prom-client";
 import { DeviceType } from "./common";
-import { addDeviceMetrics, addSystemMetrics } from "./metrics";
+import { addDeviceMetrics, addSystemMetrics, getMetrics } from "./metrics";
 import {
     getExampleDeviceValues_3_5,
     getExampleDeviceValues_3_7,
     getExampleScrapedDevice_3_7,
+    getExampleScrapedValues,
     getExampleSystem_3_5,
     getExampleSystem_3_7,
 } from "./test/examples";
@@ -49,5 +50,10 @@ it("handles device entity value metrics v3.7", async () => {
     const registry = new Registry();
     // Build metrics from /entities response directly
     addDeviceMetrics(registry, await getExampleScrapedDevice_3_7());
+    expect(await registry.metrics()).toMatchSnapshot();
+});
+
+it("handles boiler and thermostat metrics having overlapping entities", async () => {
+    const registry = getMetrics(await getExampleScrapedValues("mihok-en"));
     expect(await registry.metrics()).toMatchSnapshot();
 });

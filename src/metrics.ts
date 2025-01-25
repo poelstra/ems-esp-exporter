@@ -116,7 +116,10 @@ export function addDeviceMetrics(
 
         const ent = value.entity;
 
-        const metricName = `emsesp_${value.shortName.replace(/\./g, "_")}`;
+        // Metric name has to include device type, as some entities have
+        // the same name but different definitions for e.g. a boiler vs
+        // thermostat.
+        const metricName = `emsesp_${device.type}_${value.shortName.replace(/\./g, "_")}`;
         let unit = ent.unit ?? ent.type;
 
         // Convert time to seconds, it's the canonical unit for Prometheus times
