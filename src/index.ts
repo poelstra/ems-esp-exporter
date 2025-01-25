@@ -25,12 +25,9 @@ async function main(): Promise<void> {
     const entitiesPath = path.resolve(__dirname, ENTITIES_CSV);
     console.log(`Loading entity definitions from ${entitiesPath} ...`);
     const parsedEntities = await readEntities(entitiesPath);
-    // writeFile("entities.json", JSON.stringify(parsedEntities, undefined, "\t"));
     const entities = new Entities(parsedEntities);
 
-    console.log("Retrieving devices from EMS-ESP...");
     const api = new Api(EMS_ESP_URL);
-
     const server = buildServer(async () =>
         getMetrics(await scrapeValues(api, entities)),
     );
