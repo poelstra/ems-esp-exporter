@@ -30,19 +30,32 @@ Please :star: the project on GitHub if you like it!
 
 ## Configuration
 
-Configuration is done through environment variables:
+Configuration is done through environment variables (given values are the defaults):
 
 - `EMS_ESP_URL=http://ems-esp.local`: Hostname/port of EMS-ESP.
 - `METRICS_PORT=3000`: HTTP port on which the `/metrics` endpoint is served.
-- `ENTITIES_CSV=/app/config/dump_entities.csv`: Meta-data for each entry is loaded from `dump_entities.csv`.
-  A snapshot of that file is bundled with the app, but you can download a more recent one from https://docs.emsesp.org/data/dump_entities.csv
-  if needed, and pass it in through a Docker volume.
+
+If you're running EMS-ESP version 3.7.0 or newer, it automatically fetches the
+entity definitions from the device, and you no longer need `dump_entities.csv`.
+
+### Entity configuration file for EMS-ESP <3.7.0
+
+In case you're running EMS-ESP older than version 3.7.0, you need `dump_entities.csv`.
+
+The Docker image contains a snapshot of it, but it may not be the correct version for
+your specific EMS-ESP firmware. You can download a more recent one from
+https://docs.emsesp.org/data/dump_entities.csv if needed.
+
+You can then mount that custom version as a Docker volume.
+
+- `ENTITIES_CSV=/app/config/dump_entities.csv`: Path to `dump_entities.csv` inside the Docker
+  container.
 
 ## TODO / Limitations
 
 - [x] Find out how to fetch the available list of devices, to then query all of them. Currently only the `boiler` device is supported.
+- [x] Add support for latest `<device>/entities` endpoint to get rid of dump_entities.csv. (#2)
 - [ ] Add support for more endpoints? e.g. `hc1` etc. (I don't have them, so can't test) (#1)
-- [ ] Add support for latest `<device>/entities` endpoint to get rid of dump_entities.csv. (#2)
 
 Any help is appreciated!
 
