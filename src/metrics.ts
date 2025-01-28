@@ -84,12 +84,12 @@ export function supportsEntityValues(version: string): boolean {
 
 export function addSystemMetrics(register: Registry, system: System): void {
     const versionGauge = new Gauge({
-        name: "emsesp_version",
+        name: "emsesp_system_version",
         help: "EMS-ESP version",
-        labelNames: ["emsesp_version"],
+        labelNames: ["emsesp_system_version"],
         registers: [register],
     });
-    versionGauge.set({ emsesp_version: system.systemInfo.version }, 1);
+    versionGauge.set({ emsesp_system_version: system.systemInfo.version }, 1);
 }
 
 export function addDeviceMetrics(

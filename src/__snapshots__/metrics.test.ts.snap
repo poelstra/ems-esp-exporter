@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`handles boiler and thermostat metrics having overlapping entities 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.7.1"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.1"} 1
 
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
@@ -1206,9 +1206,9 @@ emsesp_boiler_dhw_nrg 0
 `;
 
 exports[`handles entity-based metrics v3.7 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.7.1"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.1"} 1
 
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
@@ -1526,9 +1526,9 @@ emsesp_boiler_dhw_nrg 0.47
 `;
 
 exports[`handles localized entities response 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.7.1"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.1"} 1
 
 # HELP emsesp_boiler_heatingoff vynútené vypnutie kúrenia [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
@@ -2120,9 +2120,9 @@ emsesp_thermostat_dhw_dailyheattime 120
 `;
 
 exports[`handles multiple circuits 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.7.2-dev.16"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.2-dev.16"} 1
 
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
@@ -2304,15 +2304,15 @@ emsesp_thermostat_hc2_summermode{emsesp_thermostat_hc2_summermode="summer"} 0
 `;
 
 exports[`handles system metrics v3.5 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.5.1-dev.0"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.5.1-dev.0"} 1
 "
 `;
 
 exports[`handles system metrics v3.7 1`] = `
-"# HELP emsesp_version EMS-ESP version
-# TYPE emsesp_version gauge
-emsesp_version{emsesp_version="3.7.1"} 1
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.1"} 1
 "
 `;
