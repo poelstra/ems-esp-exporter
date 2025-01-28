@@ -83,13 +83,36 @@ export function supportsEntityValues(version: string): boolean {
 }
 
 export function addSystemMetrics(register: Registry, system: System): void {
-    const versionGauge = new Gauge({
+    new Gauge({
         name: "emsesp_system_version",
         help: "EMS-ESP version",
         labelNames: ["emsesp_system_version"],
         registers: [register],
-    });
-    versionGauge.set({ emsesp_system_version: system.systemInfo.version }, 1);
+    }).set({ emsesp_system_version: system.systemInfo.version }, 1);
+
+    new Gauge({
+        name: "emsesp_system_uptime_seconds",
+        help: "EMS-ESP uptime [seconds]",
+        registers: [register],
+    }).set(system.systemInfo.uptimeSeconds);
+
+    new Gauge({
+        name: "emsesp_system_mem_free_bytes",
+        help: "EMS-ESP free memory [bytes]",
+        registers: [register],
+    }).set(system.systemInfo.memFreeKb * 1024);
+
+    new Gauge({
+        name: "emsesp_system_mem_max_alloc_bytes",
+        help: "EMS-ESP maximum allocated memory [bytes]",
+        registers: [register],
+    }).set(system.systemInfo.memMaxAllocKb * 1024);
+
+    new Gauge({
+        name: "emsesp_system_app_free_bytes",
+        help: "EMS-ESP free application memory [bytes]",
+        registers: [register],
+    }).set(system.systemInfo.appFreeKb * 1024);
 }
 
 export function addDeviceMetrics(

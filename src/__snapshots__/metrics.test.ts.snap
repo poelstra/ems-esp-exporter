@@ -5,6 +5,22 @@ exports[`handles boiler and thermostat metrics having overlapping entities 1`] =
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.7.1"} 1
 
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 10010
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 195584
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 171008
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 2437120
+
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
 emsesp_boiler_heatingoff 0
@@ -1210,6 +1226,22 @@ exports[`handles entity-based metrics v3.7 1`] = `
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.7.1"} 1
 
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 64
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 179200
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 109568
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 6541312
+
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
 emsesp_boiler_heatingoff 0
@@ -1529,6 +1561,22 @@ exports[`handles localized entities response 1`] = `
 "# HELP emsesp_system_version EMS-ESP version
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.7.1"} 1
+
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 10010
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 195584
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 171008
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 2437120
 
 # HELP emsesp_boiler_heatingoff vynútené vypnutie kúrenia [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
@@ -2124,6 +2172,22 @@ exports[`handles multiple circuits 1`] = `
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.7.2-dev.16"} 1
 
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 0
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes Nan
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes Nan
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes Nan
+
 # HELP emsesp_boiler_heatingoff force heating off [boolean]
 # TYPE emsesp_boiler_heatingoff gauge
 emsesp_boiler_heatingoff 0
@@ -2307,6 +2371,22 @@ exports[`handles system metrics v3.5 1`] = `
 "# HELP emsesp_system_version EMS-ESP version
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.5.1-dev.0"} 1
+
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 645036
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 119808
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 66560
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 6299648
 "
 `;
 
@@ -2314,5 +2394,21 @@ exports[`handles system metrics v3.7 1`] = `
 "# HELP emsesp_system_version EMS-ESP version
 # TYPE emsesp_system_version gauge
 emsesp_system_version{emsesp_system_version="3.7.1"} 1
+
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 64
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 179200
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 109568
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 6541312
 "
 `;
