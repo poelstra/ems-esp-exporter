@@ -1,0 +1,136 @@
+{
+    "system": {
+        "version": "3.7.2-dev.16",
+        "uptime": "000+00:00:00.000",
+        "uptimeSec": 0,
+        "resetReason": "Unknown / Unknown"
+    },
+    "network": {
+        "network": "WiFi",
+        "hostname": "ems-esp",
+        "RSSI": -23,
+        "TxPowerSetting": 0,
+        "staticIP": false,
+        "lowBandwidth": false,
+        "disableSleep": true,
+        "enableMDNS": true,
+        "enableCORS": false
+    },
+    "ntp": {},
+    "mqtt": {
+        "MQTTStatus": "disconnected",
+        "MQTTPublishes": 0,
+        "MQTTQueued": 0,
+        "MQTTPublishFails": 0,
+        "MQTTReconnects": 0,
+        "enabled": true,
+        "clientID": "ems-esp",
+        "keepAlive": 60,
+        "cleanSession": false,
+        "entityFormat": 1,
+        "base": "ems-esp",
+        "discoveryPrefix": "homeassistant",
+        "discoveryType": 0,
+        "nestedFormat": 1,
+        "haEnabled": true,
+        "mqttQos": 0,
+        "mqttRetain": false,
+        "publishTimeHeartbeat": 60,
+        "publishTimeBoiler": 10,
+        "publishTimeThermostat": 10,
+        "publishTimeSolar": 10,
+        "publishTimeMixer": 10,
+        "publishTimeWater": 0,
+        "publishTimeOther": 10,
+        "publishTimeSensor": 10,
+        "publishSingle": false,
+        "publish2command": false,
+        "sendResponse": false
+    },
+    "syslog": {
+        "enabled": false
+    },
+    "sensor": {
+        "temperatureSensors": 0,
+        "temperatureSensorReads": 0,
+        "temperatureSensorFails": 0,
+        "analogSensors": 0,
+        "analogSensorReads": 0,
+        "analogSensorFails": 0
+    },
+    "api": {
+        "APICalls": 1,
+        "APIFails": 0
+    },
+    "bus": {
+        "busStatus": "connected",
+        "busProtocol": "HT3",
+        "busTelegramsReceived": 9,
+        "busReads": 0,
+        "busWrites": 0,
+        "busIncompleteTelegrams": 0,
+        "busReadsFailed": 0,
+        "busWritesFailed": 0,
+        "busRxLineQuality": 100,
+        "busTxLineQuality": 100
+    },
+    "settings": {
+        "boardProfile": "S32",
+        "locale": "en",
+        "txMode": 8,
+        "emsBusID": 11,
+        "showerTimer": false,
+        "showerMinDuration": 180,
+        "showerAlert": false,
+        "hideLed": false,
+        "noTokenApi": false,
+        "readonlyMode": false,
+        "fahrenheit": false,
+        "dallasParasite": false,
+        "boolFormat": 1,
+        "boolDashboard": 1,
+        "enumFormat": 1,
+        "analogEnabled": true,
+        "telnetEnabled": true,
+        "maxWebLogBuffer": 25,
+        "modbusEnabled": false,
+        "forceHeatingOff": false,
+        "developerMode": false
+    },
+    "devices": [
+        {
+            "type": "boiler",
+            "name": "GB*72, Trendline, Cerapur, Greenstar Si",
+            "deviceID": "0x08",
+            "productID": 123,
+            "brand": "",
+            "version": "01.00",
+            "entities": 36,
+            "handlersReceived": "0x18",
+            "handlersFetched": "0x33",
+            "handlersPending": "0xBF 0x10 0x11 0xC2 0x15 0x1C 0x19 0x1A 0x35 0x34 0x2A 0xD1 0xE3 0xE4 0xE5 0xE9 0x2E 0x3B"
+        },
+        {
+            "type": "thermostat",
+            "name": "RC3*0, Moduline 3000/1010H, CW400, Sense II, HPC410",
+            "deviceID": "0x10",
+            "productID": 158,
+            "brand": "",
+            "version": "01.00",
+            "entities": 8,
+            "handlersReceived": "0x02A5 0x031D",
+            "handlersPending": "0xA3 0x06 0xA2 0x12 0x13 0x02B9 0x02AF 0x029B 0x0471 0x02A6 0x02BA 0x02B0 0x029C 0x0472 0x02A7 0x02BB 0x02B1 0x029D 0x0473 0x02A8 0x02BC 0x02B2 0x029E 0x0474 0x02A9 0x02BD 0x02B3 0x029F 0x0475 0x02AA 0x02BE 0x02B4 0x02A0 0x0476 0x02AB 0x02BF 0x02B5 0x02A1 0x0477 0x02AC 0x02C0 0x02B6 0x02A2 0x0478 0x02CC 0x0467 0x02CE 0x0468 0x02D0 0x0469 0x02D2 0x046A 0x031E 0x0267"
+        },
+        {
+            "type": "thermostat",
+            "name": "RC200, CW100, CR120, CR50",
+            "deviceID": "0x19",
+            "productID": 157,
+            "brand": "",
+            "version": "01.00",
+            "entities": 6,
+            "handlersFetched": "0x02A6",
+            "handlersPending": "0xA3 0x06 0xA2 0x12 0x13 0x02A5 0x02B9 0x02AF 0x029B 0x0471 0x02A7 0x02BB 0x02B1 0x029D 0x0473 0x02A8 0x02BC 0x02B2 0x029E 0x0474 0x02A9 0x02BD 0x02B3 0x029F 0x0475 0x02AA 0x02BE 0x02B4 0x02A0 0x0476 0x02AB 0x02BF 0x02B5 0x02A1 0x0477 0x02AC 0x02C0 0x02B6 0x02A2 0x0478 0x02CC 0x0467 0x02D0 0x0469 0x02D2 0x046A 0x031D 0x031E 0x0267"
+        }
+    ]
+}

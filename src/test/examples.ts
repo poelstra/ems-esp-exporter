@@ -88,10 +88,15 @@ export async function getExampleScrapedValues(
         path.join(examplePath, "system.json"),
     );
     const devices: ScrapedDevice[] = [];
+    const seen: Set<DeviceType> = new Set();
     for (const device of system.devices) {
         if (device.entities === 0) {
             continue;
         }
+        if (seen.has(device.type)) {
+            continue;
+        }
+        seen.add(device.type);
         devices.push({
             type: device.type,
             deviceId: device.deviceId,

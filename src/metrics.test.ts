@@ -59,3 +59,10 @@ it("handles localized entities response", async () => {
     const registry = getMetrics(await getExampleScrapedValues("mihok-sk"));
     expect(await registry.metrics()).toMatchSnapshot();
 });
+
+it("handles multiple circuits", async () => {
+    // Gathered from `test 2thermostats` command on EMS-ESP standalone
+    // (`native` target)
+    const registry = getMetrics(await getExampleScrapedValues("2thermostats"));
+    expect(await registry.metrics()).toMatchSnapshot();
+});

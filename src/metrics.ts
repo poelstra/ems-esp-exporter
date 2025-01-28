@@ -32,13 +32,11 @@ export async function scrapeValues(
             continue;
         }
 
-        // TODO This 'seen' logic is just to prevent weird stuff
-        // when someone has multiple devices of the same type, as
-        // I don't yet know how these would be handled...
         if (seen.has(device.type)) {
-            warnOnce(
-                `TODO: Cannot handle multiple devices of the same type yet. Please file an issue and attach output of /api/system and the relevant devices.`,
-            );
+            // When a device of the same type is already seen, skip it.
+            // Its entities will already have been processed as additional
+            // circuits (e.g. hc1, hc2).
+            continue;
         }
         seen.add(device.type);
 
