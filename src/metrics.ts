@@ -101,8 +101,6 @@ export function addDeviceMetrics(
             warnOnce(
                 `Ignoring ${value.shortName}, missing entity configuration`,
             );
-            // TODO Could probably just convert it into an untyped metric instead,
-            // if it happens to be numeric
             continue;
         }
 
@@ -148,7 +146,7 @@ export function addDeviceMetrics(
                         name: metricName,
                         help: metricHelp,
                         registers: [registry],
-                        labelNames: [metricName, "device_id", "product_id"],
+                        labelNames: [metricName],
                     });
                     // Create a metric for each literal, and set the currently
                     // active one to 1, rest to 0
@@ -156,8 +154,6 @@ export function addDeviceMetrics(
                         gauge.set(
                             {
                                 [metricName]: lit,
-                                device_id: device.deviceId,
-                                product_id: device.productId,
                             },
                             value.value === lit ? 1 : 0,
                         );
@@ -173,13 +169,11 @@ export function addDeviceMetrics(
                         name: metricName,
                         help: metricHelp,
                         registers: [registry],
-                        labelNames: [metricName, "device_id", "product_id"],
+                        labelNames: [metricName],
                     });
                     gauge.set(
                         {
                             [metricName]: `${value.value}`,
-                            device_id: device.deviceId,
-                            product_id: device.productId,
                         },
                         1,
                     );
@@ -209,29 +203,22 @@ export function addDeviceMetrics(
             metricValue /= 100;
         }
 
-        // TODO Support multiple instances (e.g. heat circuits?)
         if (ent.counter) {
             const counter = new Counter({
                 name: metricName,
                 help: metricHelp,
-                labelNames: ["device_id", "product_id"],
+                labelNames: [],
                 registers: [registry],
             });
-            counter.inc(
-                { device_id: device.deviceId, product_id: device.productId },
-                metricValue,
-            );
+            counter.inc(metricValue);
         } else {
             const gauge = new Gauge({
                 name: metricName,
                 help: metricHelp,
-                labelNames: ["device_id", "product_id"],
+                labelNames: [],
                 registers: [registry],
             });
-            gauge.set(
-                { device_id: device.deviceId, product_id: device.productId },
-                metricValue,
-            );
+            gauge.set(metricValue);
         }
     }
 }
