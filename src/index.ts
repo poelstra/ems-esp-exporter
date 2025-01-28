@@ -13,6 +13,7 @@ async function main(): Promise<void> {
     const ENTITIES_CSV =
         process.env.ENTITIES_CSV || "../config/dump_entities.csv"; // https://docs.emsesp.org/data/dump_entities.csv
     const METRICS_PORT = process.env.METRICS_PORT || 3000;
+    const EMS_INSTANCE = process.env.EMS_INSTANCE || "";
 
     const { version } = require("../package.json");
     console.log(`Version: ${version}`);
@@ -20,6 +21,7 @@ async function main(): Promise<void> {
     console.log(`EMS_ESP_URL=${EMS_ESP_URL}`);
     console.log(`ENTITIES_CSV=${ENTITIES_CSV}`);
     console.log(`METRICS_PORT=${METRICS_PORT}`);
+    console.log(`EMS_INSTANCE=${EMS_INSTANCE}`);
     console.log("");
 
     const entitiesPath = path.resolve(__dirname, ENTITIES_CSV);
@@ -28,9 +30,13 @@ async function main(): Promise<void> {
     const entities = new Entities(parsedEntities);
 
     const api = new Api(EMS_ESP_URL);
-    const server = buildServer(async () =>
-        getMetrics(await scrapeValues(api, entities)),
-    );
+    const server = buildServer(async () => {
+        const registry = getMetrics(await scrapeValues(api, entities));
+        if (EMS_INSTANCE) {
+            registry.setDefaultLabels({ instance: EMS_INSTANCE });
+        }
+        return registry;
+    });
 
     server.listen(METRICS_PORT);
     console.log(

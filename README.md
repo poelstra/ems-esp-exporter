@@ -34,6 +34,7 @@ Configuration is done through environment variables (given values are the defaul
 
 - `EMS_ESP_URL=http://ems-esp.local`: Hostname/port of EMS-ESP.
 - `METRICS_PORT=3000`: HTTP port on which the `/metrics` endpoint is served.
+- `EMS_INSTANCE=`: (Optional) instance label to add to each metric (e.g. `{instance="test"}`)
 
 If you're running EMS-ESP version 3.7.0 or newer, it automatically fetches the
 entity definitions from the device, and you no longer need `dump_entities.csv`.
