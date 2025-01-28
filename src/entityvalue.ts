@@ -5,6 +5,15 @@ export interface RawEntityValues {
     [key: string]: RawEntityValue;
 }
 
+export enum StateClass {
+    Measurement = "measurement",
+    TotalIncreasing = "total_increasing",
+}
+
+export type DeviceClass = string; // TODO
+// export enum DeviceClass {
+// }
+
 export interface RawEntityValue {
     name: string;
     fullname: string;
@@ -13,6 +22,8 @@ export interface RawEntityValue {
     readable: boolean;
     writeable: boolean;
     visible: boolean;
+    state_class?: StateClass;
+    device_class?: DeviceClass;
     uom?: string;
     min?: number;
     max?: number;
@@ -31,8 +42,10 @@ export function parseEntityValue(raw: RawEntityValue): Value {
     // which seems to be the case in all entities in dump_entities.csv so far.
     const isCounter =
         raw.type === ValueType.Number &&
-        raw.max !== undefined &&
-        raw.max > 0xffff;
+        (raw.state_class === StateClass.TotalIncreasing ||
+            (raw.state_class === undefined &&
+                raw.max !== undefined &&
+                raw.max > 0xffff));
 
     let value;
     if (raw.value !== undefined) {
