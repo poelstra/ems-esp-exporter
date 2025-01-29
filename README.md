@@ -56,8 +56,9 @@ You can then mount that custom version as a Docker volume.
 
 - [x] Find out how to fetch the available list of devices, to then query all of them. Currently only the `boiler` device is supported.
 - [x] Add support for latest `<device>/entities` endpoint to get rid of dump_entities.csv. (#2)
-- [ ] Add support for more endpoints? e.g. `hc1` etc. (I don't have them, so can't test) (#1)
-- [ ] Correctly set Counter type for such entities when using `/entities` endpoint (Prometheus seems to ignore it, but still). Needs support in EMS-ESP.
+- [x] Add support for more endpoints? e.g. `hc1` etc. (I don't have them, so can't test) (#1)
+- [x] Correctly set Counter type for such entities when using `/entities` endpoint (Prometheus seems to ignore it, but still). Needs support in EMS-ESP (>=3.7.2).
+- [ ] Allow choosing between English and localized enums (requires support from EMS-ESP, e.g. `enumEN` field)
 
 Any help is appreciated!
 
@@ -74,6 +75,15 @@ Please use Prettier to auto-format any code before making a pull request.
 ## Changelog
 
 See Git diffs for the detailed differences. Most notable changes for each version:
+
+- v0.5.0 (2025-01-28):
+
+    - Rename `emsesp_version` to `emsesp_system_version` for consistency.
+    - Add a few more system metrics (memory, uptime).
+    - Handle multiple devices (e.g. thermostats) of the same type (hc1, hc2, etc.)
+    - Allow setting EMS instance as metric labels (optional).
+    - Remove product and deviceID labels, would not be correct for multiple circuits.
+    - Correctly detect counters (vs gauges) on EMS-ESP >=3.7.2 (to be released).
 
 - v0.4.0 (2025-01-25):
 
