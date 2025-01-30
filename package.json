@@ -1,6 +1,6 @@
 {
     "name": "ems-esp-exporter",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Prometheus metrics exporter for EMS-ESP",
     "main": "dist/index.js",
     "scripts": {

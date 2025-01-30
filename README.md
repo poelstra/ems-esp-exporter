@@ -34,7 +34,7 @@ Configuration is done through environment variables (given values are the defaul
 
 - `EMS_ESP_URL=http://ems-esp.local`: Hostname/port of EMS-ESP.
 - `METRICS_PORT=3000`: HTTP port on which the `/metrics` endpoint is served.
-- `EMS_INSTANCE=`: (Optional) instance label to add to each metric (e.g. `{instance="test"}`)
+- `EMS_ESP_INSTANCE=`: (Optional) instance label to add to each metric (e.g. `{emsesp_instance="test"}`)
 
 If you're running EMS-ESP version 3.7.0 or newer, it automatically fetches the
 entity definitions from the device, and you no longer need `dump_entities.csv`.
@@ -75,6 +75,10 @@ Please use Prettier to auto-format any code before making a pull request.
 ## Changelog
 
 See Git diffs for the detailed differences. Most notable changes for each version:
+
+- v0.5.1 (2025-01-30):
+
+    - Rename label of EMS_ESP_INSTANCE to `emsesp_instance` to not clash with 'builtin' `instance` label from Prometheus.
 
 - v0.5.0 (2025-01-28):
 
