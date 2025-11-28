@@ -76,6 +76,10 @@ Please use Prettier to auto-format any code before making a pull request.
 
 See Git diffs for the detailed differences. Most notable changes for each version:
 
+- v0.5.2 (2025-11-28):
+
+    - Support additional device types.
+
 - v0.5.1 (2025-01-30):
 
     - Rename label of EMS_ESP_INSTANCE to `emsesp_instance` to not clash with 'builtin' `instance` label from Prometheus.
