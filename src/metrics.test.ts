@@ -66,3 +66,10 @@ it("handles multiple circuits", async () => {
     const registry = getMetrics(await getExampleScrapedValues("2thermostats"));
     expect(await registry.metrics()).toMatchSnapshot();
 });
+
+it("handles analog and temperature sensors - issue #5", async () => {
+    const registry = getMetrics(
+        await getExampleScrapedValues("sensors-issue-5"),
+    );
+    expect(await registry.metrics()).toMatchSnapshot();
+});

@@ -1,0 +1,13 @@
+{
+    "gateway_temperature": {
+        "id": "28_7F54_AA11_2502",
+        "name": "gateway_temperature",
+        "fullname": "gateway_temperature",
+        "value": 24.8,
+        "type": "number",
+        "uom": "°C",
+        "readable": true,
+        "writeable": false,
+        "visible": true
+    }
+}

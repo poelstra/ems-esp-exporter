@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handles analog and temperature sensors - issue #5 1`] = `
+"# HELP emsesp_system_version EMS-ESP version
+# TYPE emsesp_system_version gauge
+emsesp_system_version{emsesp_system_version="3.7.3-dev.19"} 1
+
+# HELP emsesp_system_uptime_seconds EMS-ESP uptime [seconds]
+# TYPE emsesp_system_uptime_seconds gauge
+emsesp_system_uptime_seconds 778295
+
+# HELP emsesp_system_mem_free_bytes EMS-ESP free memory [bytes]
+# TYPE emsesp_system_mem_free_bytes gauge
+emsesp_system_mem_free_bytes 128000
+
+# HELP emsesp_system_mem_max_alloc_bytes EMS-ESP maximum allocated memory [bytes]
+# TYPE emsesp_system_mem_max_alloc_bytes gauge
+emsesp_system_mem_max_alloc_bytes 80896
+
+# HELP emsesp_system_app_free_bytes EMS-ESP free application memory [bytes]
+# TYPE emsesp_system_app_free_bytes gauge
+emsesp_system_app_free_bytes 2361344
+
+# HELP emsesp_temperaturesensor_gateway_temperature gateway_temperature [°C]
+# TYPE emsesp_temperaturesensor_gateway_temperature gauge
+emsesp_temperaturesensor_gateway_temperature 24.8
+
+# HELP emsesp_analogsensor_core_voltage core_voltage [V]
+# TYPE emsesp_analogsensor_core_voltage gauge
+emsesp_analogsensor_core_voltage 3.348967709
+
+# HELP emsesp_analogsensor_supply_voltage supply_voltage [V]
+# TYPE emsesp_analogsensor_supply_voltage gauge
+emsesp_analogsensor_supply_voltage 11.33900062
+"
+`;
+
 exports[`handles boiler and thermostat metrics having overlapping entities 1`] = `
 "# HELP emsesp_system_version EMS-ESP version
 # TYPE emsesp_system_version gauge

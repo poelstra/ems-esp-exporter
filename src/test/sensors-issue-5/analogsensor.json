@@ -1,0 +1,30 @@
+{
+    "core_voltage": {
+        "name": "core_voltage",
+        "fullname": "core_voltage",
+        "gpio": 39,
+        "type": "number",
+        "analog": "adc",
+        "value": 3.348967709,
+        "readable": true,
+        "writeable": false,
+        "visible": true,
+        "offset": 0,
+        "factor": 0.003771,
+        "uom": "V"
+    },
+    "supply_voltage": {
+        "name": "supply_voltage",
+        "fullname": "supply_voltage",
+        "gpio": 36,
+        "type": "number",
+        "analog": "adc",
+        "value": 11.33900062,
+        "readable": true,
+        "writeable": false,
+        "visible": true,
+        "offset": 0,
+        "factor": 0.017,
+        "uom": "V"
+    }
+}
