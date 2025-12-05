@@ -20,6 +20,7 @@ export enum DeviceType {
     Pool = "pool",
     TemperatureSensor = "temperaturesensor",
     AnalogSensor = "analogsensor",
+    Generic = "generic",
 }
 
 export enum ValueType {
