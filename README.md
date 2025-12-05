@@ -76,9 +76,13 @@ Please use Prettier to auto-format any code before making a pull request.
 
 See Git diffs for the detailed differences. Most notable changes for each version:
 
+- v0.5.3 (2025-12-05):
+
+    - Support "generic" device types (#6).
+
 - v0.5.2 (2025-11-28):
 
-    - Support additional device types.
+    - Support additional device types (#5).
 
 - v0.5.1 (2025-01-30):
 
