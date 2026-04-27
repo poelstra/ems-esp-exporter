@@ -70,15 +70,21 @@ Any help is appreciated!
 - Export environment variables as needed
 - Run `npm start`
 
-Please use Prettier to auto-format any code before making a pull request.
+Please use Prettier to auto-format any code before making a pull request, and be sure
+`npm test` passes.
 
 ## Changelog
 
 See Git diffs for the detailed differences. Most notable changes for each version:
 
+- v0.5.4 (2026-04-27):
+
+    - Publish multi-platform Docker images with ARM64 support (#7). Thanks hkuehl!
+    - Upgrade to latest stable Node.
+
 - v0.5.3 (2025-12-05):
 
-    - Support "generic" device types (#6).
+    - Support "generic" device types (#6). Thanks schu42!
 
 - v0.5.2 (2025-11-28):
 
