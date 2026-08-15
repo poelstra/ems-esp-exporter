@@ -432,7 +432,28 @@ export class Api {
     }
 
     public async get<T>(path: string): Promise<T> {
-        return (await this.api.get(path)).data;
+        // EMS-ESP firmware enforces a hardcoded 50ms minimum interval between
+        // GET requests to /api (see WebAPIService.cpp, returns HTTP 429). On a
+        // fast network the exporter's back-to-back requests can land inside that
+        // window, so retry a few times with a short delay when we get a 429.
+        const maxAttempts = 6;
+        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+            try {
+                return (await this.api.get(path)).data;
+            } catch (err) {
+                if (
+                    attempt < maxAttempts &&
+                    axios.isAxiosError(err) &&
+                    err.response?.status === 429
+                ) {
+                    await new Promise((resolve) => setTimeout(resolve, 100));
+                    continue;
+                }
+                throw err;
+            }
+        }
+        // Unreachable: the loop either returns data or throws.
+        throw new Error(`Failed to GET ${path}`);
     }
 
     public async getRawValues(device: DeviceType): Promise<RawValues> {
